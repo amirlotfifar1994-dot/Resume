@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+
+<html dir="ltr" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>E.M.E.R.G.E+ Dashboard | Offline & Interactive</title>
+<meta name="description" content="E.M.E.R.G.E+ interactive dashboard with manuscript overview, simulator access, and downloadable paper files."/>
+<link href="./favicon.ico" rel="icon" sizes="any"/>
+<link href="./assets/favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="./assets/styles.css" rel="stylesheet">
+<style>
+    .cv-back{
+      position: fixed;
+      left: 16px;
+      left: max(16px, env(safe-area-inset-left));
+      bottom: 16px;
+      bottom: max(16px, env(safe-area-inset-bottom));
+      top: auto;
+      z-index: 10000;
+      padding: 10px 12px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.04);
+      color: var(--text);
+      text-decoration: none;
+      font: 600 13px/1.1 var(--font);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: var(--shadow);
+      opacity: 0.82;
+      transition: transform .15s ease, opacity .15s ease, background .15s ease, border-color .15s ease;
+    }
+    [data-theme="light"] .cv-back{ background: rgba(255,255,255,.86); }
+    .cv-back:hover{
+      opacity: 1;
+      transform: translateY(-1px);
+      background: rgba(255,255,255,.06);
+      border-color: rgba(245,158,11,.35);
+    }
+    [data-theme="light"] .cv-back:hover{ background: rgba(255,255,255,.94); }
+    @media (max-width: 520px){
+      .cv-back{ left: 12px; left: max(12px, env(safe-area-inset-left)); bottom: 12px; bottom: max(12px, env(safe-area-inset-bottom)); padding: 9px 10px; }
+    }
+  </style>
+<style id="i18n-style">
+/* ===== Bilingual (EN/IT) ===== */
+.lang-switch{
+  position: fixed;
+  top: 14px;
+  right: 14px;
+  z-index: 20000;
+  display: inline-flex;
+  gap: 6px;
+  padding: 6px;
+  border-radius: 999px;
+
+  /* Glassy base (fallback) */
+  border: 1px solid rgba(15,23,42,0.18);
+  background: linear-gradient(180deg, rgba(255,255,255,0.86), rgba(255,255,255,0.72));
+  color: inherit;
+  backdrop-filter: blur(16px) saturate(160%);
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
+  box-shadow: 0 16px 44px rgba(2,6,23,0.18), inset 0 1px 0 rgba(255,255,255,0.55);
+}
+.lang-switch .lang-btn{
+  border: 0;
+  background: transparent;
+  padding: 7px 10px;
+  border-radius: 999px;
+  font: 800 12px/1 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+  letter-spacing: 0.2px;
+  cursor: pointer;
+  opacity: 0.84;
+  color: rgba(15,23,42,0.82);
+  transition: background 180ms ease, opacity 180ms ease, transform 180ms ease;
+}
+.lang-switch .lang-btn:active{ transform: scale(0.98); }
+.lang-switch .lang-btn:focus-visible{
+  outline: 2px solid rgba(37,99,235,0.38);
+  outline-offset: 2px;
+}
+.lang-switch .lang-btn[aria-pressed="true"]{
+  background: rgba(37,99,235,0.18);
+  opacity: 1;
+  color: rgba(15,23,42,0.92);
+}
+
+@media (prefers-color-scheme: dark){
+  .lang-switch{
+    border-color: rgba(226,232,240,0.22);
+    background: linear-gradient(180deg, rgba(2,6,23,0.82), rgba(2,6,23,0.68));
+    box-shadow: 0 18px 50px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.12);
+  }
+  .lang-switch .lang-btn{ color: rgba(226,232,240,0.86); }
+  .lang-switch .lang-btn[aria-pressed="true"]{
+    background: rgba(124,58,237,0.30);
+    color: rgba(255,255,255,0.96);
+  }
+}
+
+/* Theme-aware (dashboards use CSS vars + .light class) */
+@supports (color: hsl(var(--background) / 1)){
+  .lang-switch{
+    border-color: hsl(var(--border) / 0.55);
+    background: linear-gradient(180deg, hsl(var(--card) / 0.92), hsl(var(--card) / 0.78));
+    box-shadow: 0 18px 55px hsl(var(--background) / 0.35), inset 0 1px 0 hsl(var(--foreground) / 0.10);
+  }
+  html:not(.light) .lang-switch{
+    background: linear-gradient(180deg, hsl(var(--card) / 0.82), hsl(var(--card) / 0.68));
+    box-shadow: 0 20px 60px hsl(0 0% 0% / 0.42), inset 0 1px 0 hsl(var(--foreground) / 0.08);
+  }
+  .lang-switch .lang-btn{
+    color: hsl(var(--foreground) / 0.86);
+    opacity: 0.86;
+  }
+  .lang-switch .lang-btn:focus-visible{
+    outline-color: hsl(var(--ring) / 0.55);
+  }
+  .lang-switch .lang-btn[aria-pressed="true"]{
+    background: linear-gradient(180deg, hsl(var(--primary) / 0.32), hsl(var(--primary) / 0.18));
+    color: hsl(var(--primary-foreground) / 1);
+    box-shadow: inset 0 1px 0 hsl(var(--primary-foreground) / 0.18);
+    opacity: 1;
+  }
+  html:not(.light) .lang-switch .lang-btn[aria-pressed="true"]{
+    background: linear-gradient(180deg, hsl(var(--primary) / 0.40), hsl(var(--primary) / 0.22));
+  }
+}
+</style>
+</link></head>
+<body>
+<!-- Language switch (EN / IT / FA) -->
+<div aria-label="Language selector" class="lang-switch" role="group">
+<button aria-pressed="true" class="lang-btn" data-lang="en" type="button">EN</button>
+<button aria-pressed="false" class="lang-btn" data-lang="it" type="button">IT</button>
+<button aria-pressed="false" class="lang-btn" data-lang="fa" type="button">FA</button>
+</div>
+<a aria-label="Back to academic résumé" class="cv-back" href="../academic-en.html#section-dashboards">← Back to academic résumé</a>
+<div class="container">
+<div class="topbar">
+<div class="brand">
+<div class="logo">E+</div>
+<div class="title">
+<h1>E.M.E.R.G.E+ Dashboard (Offline & Interactive)</h1>
+<p>All charts are point-based and always active: move the mouse anywhere to get values (hover is not “near-point only”).</p>
+</div>
+</div>
+<div class="controls">
+<span class="pill" id="metaPill">…</span>
+<a class="btn" href="https://github.com/amirlotfifar1994-dot/Emerge" rel="noopener noreferrer" target="_blank" title="View code on GitHub">GitHub</a>
+<button class="btn" id="themeToggle">Light</button>
+<button class="btn" id="exportAll" title="Export all charts as PNG">Export PNG</button>
+</div>
+</div>
+<div class="section">
+<h2>Quick Summary</h2>
+<p class="sub">Self-contained: no CDN dependencies, no Plotly. Local HTML/CSS/JS only.</p>
+<div class="grid cols-3">
+<div class="kv"><div class="k">Status</div><div class="v">Interactive (Hover Always On)</div></div>
+<div class="kv"><div class="k">Chart type</div><div class="v">Points / Scatter</div></div>
+<div class="kv"><div class="k">Hover mode</div><div class="v">Anywhere → closest x (all series)</div></div>
+
+</div>
+</div>
+<div class="section" id="preprint">
+  <h2>Preprint Bundle</h2>
+  <p class="sub">Download the current manuscript and open-source resources used to generate these simulated outputs.</p>
+  <div class="grid cols-2">
+    <div class="card">
+      <h3>Manuscript (v1)</h3>
+      <div class="btnRow" style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
+        <a class="btn" href="./paper/EMERGE_plus_v1_standard.pdf" target="_blank" rel="noopener noreferrer">Download PDF</a>
+        <a class="btn" href="./paper/EMERGE_plus_preprint_ready_v1_toc_psyarxiv.docx" target="_blank" rel="noopener noreferrer">Download DOCX</a>
+        <a class="btn" href="./paper/EMERGE_plus_v1_standard.pdf" target="_blank" rel="noopener noreferrer" title="Formatting-friendly PDF">Alt PDF</a>
+      </div>
+    </div>
+    <div class="card">
+      <h3>Repositories</h3>
+      <ul class="list" style="margin: 10px 0 0 18px;">
+        <li><a href="https://github.com/amirlotfifar1994-dot/Emerge" target="_blank" rel="noopener noreferrer">GitHub (code + outputs)</a></li>
+        <li><a href="../academic.html#section-dashboards" target="_self" rel="noopener noreferrer">Main CV / Project hub</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="section" id="paper">
+<h2>Paper Overview</h2>
+<p class="sub">A short, human-readable summary of the EMERGE+ framework that generated these simulated outputs.</p>
+<div class="grid cols-2">
+<div class="card">
+<h3>Core idea</h3>
+<ul class="list">
+<li><b>Dual-process meaning:</b> a fast “routine” channel and a slower “transformative” channel that can reshape meaning over time.</li>
+<li><b>Entropy can rise without killing meaning:</b> the model proposes an “entropy detour” where entropy increases during disruption but meaning can remain high and later stabilize.</li>
+<li><b>What you see here:</b> simulated trajectories for inputs (E, C), meaning (M), and entropy (H) in both regimes, plus culture/group effects and parameter sensitivity.</li>
+</ul>
+</div>
+<div class="card">
+<h3>Testable prediction highlighted by the paper</h3>
+<ul class="list">
+<li><b>Biphasic entropy response:</b> entropy increases near the peak, then decreases later (potentially below baseline) during recovery/integration.</li>
+<li><b>Meaningful experience link:</b> the post-peak entropy decrease is proposed to correlate with measures like MEQ30 (mystical experience questionnaires).</li>
+<li><b>Interpretation:</b> higher entropy is not “better” by itself. The later decrease matters for durable change.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="routine">
+<h2>Routine Regime</h2>
+<p class="sub">Three main plots: inputs, meaning/ψ, and entropy. All point-based and interactive.</p>
+<div class="grid cols-2">
+<div class="card">
+<div class="cardHeaderRow">
+<h3>Inputs (E, C) vs time</h3>
+<button class="btn" data-export="">PNG</button>
+</div>
+<div id="routine-inputs-chart"></div>
+</div>
+<div class="card">
+<div class="cardHeaderRow">
+<h3>Meaning and ψ vs time</h3>
+<button class="btn" data-export="">PNG</button>
+</div>
+<div id="routine-meaning-chart"></div>
+</div>
+<div class="card" style="grid-column:1 / -1">
+<div class="cardHeaderRow">
+<h3>Entropy (H_e, H_c) vs time</h3>
+<button class="btn" data-export="">PNG</button>
+</div>
+<div data-height="340" id="routine-entropy-chart"></div>
+</div>
+</div>
+</div>
+<div class="section" id="transformative">
+<h2>Transformative Regime</h2>
+<p class="sub">Drug profile (log-scale), transformative meaning, and related dynamics. Interactive everywhere.</p>
+<div class="grid cols-2">
+<div class="card">
+<div class="cardHeaderRow">
+<h3>Drug profile (D) vs time (log)</h3>
+<button class="btn" data-export="">PNG</button>
+</div>
+<div id="transform-drug-chart"></div>
+</div>
+<div class="card">
+<div class="cardHeaderRow">
+<h3>Transform meaning (M_t) vs time</h3>
+<button class="btn" data-export="">PNG</button>
+</div>
+<div id="transform-meaning-chart"></div>
+</div>
+<div class="card" style="grid-column:1 / -1">
+<div class="cardHeaderRow">
+<h3>H_e with (E, C) vs time</h3>
+<button class="btn" data-export="">PNG</button>
+</div>
+<div data-height="340" id="transform-entropy-chart"></div>
+</div>
+</div>
+</div>
+<div class="section" id="cultural">
+<h2>Culture / Group Effects</h2>
+<p class="sub">This dataset has only two groups, but the plot is still fully interactive.</p>
+<div class="grid cols-2">
+<div class="card">
+<div class="cardHeaderRow">
+<h3>Outcomes vs ψ0</h3>
+<button class="btn" data-export="">PNG</button>
+</div>
+<div id="cultural-chart"></div>
+</div>
+<div class="card">
+<h3>Culture table</h3>
+<div id="cultureTable"></div>
+</div>
+</div>
+</div>
+<div class="section" id="sensitivity">
+<h2>Parameter Sensitivity</h2>
+<p class="sub">Effect of α_E on time-to-threshold, final meaning, and final entropy. Everything stays inside its container (no runaway resizing).</p>
+<div class="grid cols-2">
+<div class="card">
+<div class="cardHeaderRow">
+<h3>M_r_final vs α_E</h3>
+<button class="btn" data-export="">PNG</button>
+</div>
+<div id="sens-meaning-chart"></div>
+</div>
+<div class="card">
+<div class="cardHeaderRow">
+<h3>time_to_M &gt; 0.40 vs α_E</h3>
+<button class="btn" data-export="">PNG</button>
+</div>
+<div id="sens-time-chart"></div>
+</div>
+<div class="card" style="grid-column:1 / -1">
+<div class="cardHeaderRow">
+<h3>H_e_final vs α_E</h3>
+<button class="btn" data-export="">PNG</button>
+</div>
+<div data-height="340" id="sens-entropy-chart"></div>
+</div>
+<div class="card" style="grid-column:1 / -1">
+<h3>Sensitivity table</h3>
+<div id="sensTable"></div>
+</div>
+</div>
+</div>
+<div class="footer">
+      Note: If a visualization appears as a static PNG, it likely points to an image export rather than the live canvas plots.
+    </div>
+</div>
+<script src="./assets/data.js"></script>
+<script src="./assets/app.js"></script>
+
+<script>window.__I18N_DIR__ = "../i18n/";</script><script defer="" src="../assets/i18n.js?v=20260920-11"></script></body>
+</html>
