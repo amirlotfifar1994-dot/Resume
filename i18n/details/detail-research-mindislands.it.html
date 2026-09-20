@@ -1,0 +1,85 @@
+
+<button class="btn btn-back" onclick="closeDetail()">← Indietro</button>
+<div class="detail-content">
+<div class="detail-header">
+<h2>Mind Islands (variante di THINK-360)</h2>
+<p class="project-meta">Progressive Web Application (PWA) offline-first • build derivata da THINK-360+</p>
+</div>
+<div class="book-hero" aria-label="Libro sorgente">
+<img class="book-cover" src="./assets/media/islands-of-your-mind-cover.jpg" alt="Copertina del libro Islands of Your Mind" loading="lazy"/>
+<div class="book-hero-meta">
+<div class="meta-row"><strong>Derivato da:</strong> <a href="#" class="internal-link" data-detail="pub-book" style="color: inherit; text-decoration: underline;">Islands of Your Mind</a> e dal framework THINK-360+.</div>
+<div class="meta-row" style="margin-top:10px; display:flex; gap:10px; flex-wrap:wrap;">
+<a href="#" class="inline-chip internal-link" data-detail="pub-book"> Dettagli del libro</a>
+<a href="#" class="inline-chip internal-link" data-detail="research-pwa"> THINK-360+ piattaforma</a>
+</div>
+</div>
+</div>
+
+<div class="detail-section">
+<h3>Panoramica del progetto</h3>
+<div class="highlight-box">
+<p><strong>Mind Islands</strong> &egrave; un&apos;implementazione alternativa di <strong>THINK-360+</strong>, costruita sul modello di contenuto e sui dati del libro <em>&ldquo;Islands of Your Mind: Thinking Styles for Everyday Life&rdquo;</em> (<span dir="rtl" lang="fa">جزیره‌های ذهن تو: ۹ لنز فکری برای تصمیم‌های بهتر، رابطه‌های سالم‌تر و زندگی آگاهانه‌تر</span>). Trasforma i 9 stili di pensiero in &ldquo;isole&rdquo;, li integra con una libreria di trappole cognitive e aggiunge workflow di modelli combinati (dual/triple/quad/full) per decision-making strutturato e riflessione.</p>
+<p style="margin-top: 12px;"><strong>Obiettivo:</strong> rendere i concetti del libro utilizzabili nella vita quotidiana tramite uno strumento installabile, offline-first, con navigazione rapida e sottopagine dedicate.</p>
+</div>
+</div>
+
+<div class="detail-section">
+<h3>Relazione con THINK-360+</h3>
+<ul class="styled-list">
+<li><strong>Stessa base teorica:</strong> 9 stili di pensiero + tassonomia delle trappole derivata dal dataset del libro.</li>
+<li><strong>Packaging UX diverso:</strong> hub ottimizzati (Isole / Trappole / Combiners) + sottopagine dedicate per esplorazione pi&ugrave; veloce.</li>
+<li><strong>Distribuzione offline:</strong> PWA multi-file + opzione single-file offline per condivisione senza installazione.</li>
+<li><strong>I18n content-first:</strong> bilingue (FA/EN) su tutte le pagine, pensato per scalare a nuove lingue.</li>
+</ul>
+</div>
+
+<div class="detail-section">
+<h3>Cosa include</h3>
+<ul class="styled-list">
+<li><strong>Isole di pensiero:</strong> 9 stili con pagine dedicate, esempi e prompt di pratica.</li>
+<li><strong>Libreria di trappole cognitive:</strong> set consultabile e ricercabile con micro-lezioni, sintomi, esempi reali e pratica guidata delle strategie di contrasto (esercizi, prompt e guide di ristrutturazione).</li>
+<li><strong>Modelli combinati (Combiners):</strong> workflow dual/triple/quad/full con template, scenari, FAQ e link &ldquo;related&rdquo;.</li>
+<li><strong>Personalizzazione:</strong> preferenze tema/lingua salvate; tracciamento locale dei progressi dove applicabile.</li>
+<li><strong>PWA offline-first:</strong> cache via Service Worker, manifest installabile e fallback offline.</li>
+</ul>
+</div>
+
+<div class="detail-section">
+<h3>Note tecniche</h3>
+<div class="project-card">
+<ul class="styled-list">
+<li><strong>Frontend:</strong> HTML/CSS/JavaScript (nessun backend richiesto)</li>
+<li><strong>PWA:</strong> Service Worker + Web App Manifest + supporto installazione &ldquo;standalone&rdquo;</li>
+<li><strong>Deploy:</strong> compatibile con GitHub Pages; server locale consigliato per test PWA</li>
+</ul>
+</div>
+</div>
+
+<div class="detail-section">
+<h3>Link</h3>
+<div style="display:flex; flex-wrap:wrap; gap:12px; margin-top:10px;">
+<a class="btn btn-success" href="https://amirlotfifar1994-dot.github.io/mindislands/" rel="noopener noreferrer" target="_blank" onclick="if(this.getAttribute(\'href\').startsWith(\'__\')){event.preventDefault(); return false;}"> Live Demo</a>
+<a class="btn btn-dark" href="https://github.com/amirlotfifar1994-dot/mindislands" rel="noopener noreferrer" target="_blank" onclick="if(this.getAttribute(\'href\').startsWith(\'__\')){event.preventDefault(); return false;}"> Repository GitHub</a>
+</div>
+<p style="margin-top: 10px; color: var(--text-gray);">Link demo e repository verificati e pronti all’uso.</p>
+</div>
+
+
+<div class="detail-section">
+<h3>Connessioni</h3>
+<div class="highlight-box">
+<p><strong>Fonte primaria:</strong> dataset, “isole” e esempi di trappole cognitive derivano dal libro <em>Islands of Your Mind: Thinking Styles for Everyday Life</em>.</p>
+<p style="margin-top: 10px;"><strong>Linea THINK-360+:</strong> Mind Islands &egrave; una build “sorella” nella famiglia <strong>THINK-360+</strong>, ottimizzata per apprendimento a piccoli passi, esercizi guidati e uso offline.</p>
+<div style="display:flex; flex-wrap:wrap; gap:12px; margin-top:12px;">
+<a class="btn btn-secondary" href="#" onclick="event.preventDefault(); event.stopPropagation(); showDetailView('pub-book');"> Apri il Libro (Pubblicazioni)</a>
+<a class="btn btn-primary" href="#" onclick="event.preventDefault(); event.stopPropagation(); showDetailView('research-pwa');"> Apri THINK-360+ (Piattaforma)</a>
+</div>
+</div>
+</div>
+
+<div class="detail-section">
+<h3>Perch&eacute; &egrave; utile</h3>
+<p>Questo progetto funziona come livello “user-facing” per psicoeducazione e prototipazione di interventi: trasforma un framework concettuale in pratica ripetibile e strutturata, restando abbastanza leggero da funzionare completamente offline.</p>
+</div>
+</div>

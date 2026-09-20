@@ -1,0 +1,140 @@
+<button class="btn btn-back" onclick="closeDetail()">← Indietro</button>
+<div class="detail-content">
+<div class="detail-header">
+<h2>Entropia differenziale frontale dell’EEG e valenza soggettiva nel dataset DEAP</h2>
+<span class="status-badge status-published"> PREPRINT PUBBLICATO</span>
+</div>
+<div class="detail-section">
+<h3>Citazione completa</h3>
+<p style="background: #f8fafc; padding: 20px; border-radius: 10px; border-left: 4px solid var(--primary);">
+                            Lotfifar, A. M., &amp; Mohammadi, M. D. (2025). <strong>Frontal EEG Differential Entropy and Subjective Valence in the DEAP Dataset: Artifact-Calibrated Analysis with Within–Between Decomposition.</strong> Preprint.
+                        </p>
+<p style="margin-top: 10px;"><strong>Autori:</strong> Amirmohammad Lotfifar &amp; Melika Dabbagh Mohammadi</p>
+<p style="margin-top: 5px;"><strong>Affiliazione:</strong> Ricercatori indipendenti in psicologia cognitiva e neuroscienze, Teheran, Iran</p>
+</div>
+<div class="detail-section">
+<h3>Abstract</h3>
+<div class="highlight-box">
+<p><strong>Obiettivo:</strong> l’entropia differenziale (Hₑ) è ampiamente utilizzata come feature EEG nel calcolo affettivo, ma le evidenze sul suo ruolo come correlato “stand-alone” della valenza soggettiva continua restano contrastanti. In questo lavoro quantifichiamo l’associazione tra Hₑ frontale e valenza auto-riportata utilizzando una pipeline con calibrazione degli artefatti.</p>
+<p style="margin-top: 15px;"><strong>Metodi:</strong> usando il dataset DEAP (32 partecipanti, 40 trial ciascuno), abbiamo stimato l’entropia differenziale frontale dell’EEG dai canali Fp1/Fp2 dopo correzione di baseline. Hₑ è stata calcolata su finestre di 4 s con sovrapposizione del 50% (29 finestre per trial di 60 s) e aggregata in medie a livello di trial. Le finestre artefattate sono state segnalate con una soglia calibrata basata su percentili (p99.5). Abbiamo riportato: (i) correlazioni “naive” a livello di trial, (ii) OLS con errori standard robusti clusterizzati per partecipante, (iii) modelli misti con intercetta casuale, e (iv) decomposizione within–between per separare gli effetti intra-partecipante da quelli inter-partecipante.</p>
+<p style="margin-top: 15px;"><strong>Risultati:</strong> nell’analisi primaria (N=1.148 trial), l’associazione “naive” tra Hₑ e valenza a livello di trial è risultata piccola ma statisticamente rilevabile (r=−0,086, p=0,004; R²=0,007), mentre Hₑ non ha mostrato associazione con l’arousal (r=0,005, p=0,87). Tuttavia, considerando la struttura a misure ripetute, l’evidenza si è attenuata: l’OLS con errori standard cluster-robust ha prodotto p=0,125 e i modelli a intercetta casuale β=0,0055, p=0,068. La decomposizione within–between ha indicato che l’associazione negativa era principalmente tra partecipanti (r=−0,285, p=0,114), con effetti intra-partecipante trascurabili (β≈0,006, p=0,186). Hₑ ha mostrato un’eccellente affidabilità split-half (ICC=0,990, IC 95% [0,988, 0,991]).</p>
+<p style="margin-top: 15px;"><strong>Conclusione:</strong> l’entropia differenziale frontale presenta alta affidabilità di misura ma solo una associazione molto piccola con la valenza soggettiva nel DEAP a livello di trial. Tale associazione non risulta robusta in modelli che enfatizzano la variazione intra-partecipante, suggerendo un’interpretazione cauta dei legami Hₑ–valenza basati su una singola feature e l’uso di approcci multi-feature per la previsione pratica delle emozioni.</p>
+</div>
+</div>
+<div class="detail-section">
+<h3>Contributi chiave</h3>
+<div class="project-card">
+<h4 style="color: var(--primary-dark); margin-bottom: 15px;">Innovazioni metodologiche</h4>
+<ul class="styled-list">
+<li><strong>Pipeline calibrata sugli artefatti:</strong> rilevamento degli artefatti calibrato empiricamente con soglia p99.5 invece di cutoff arbitrari</li>
+<li><strong>Decomposizione within–between:</strong> distinzione tra effetti intra-partecipante (da trial a trial) e associazioni inter-partecipante (differenze individuali)</li>
+<li><strong>Approcci statistici multipli:</strong> analisi complementari (correlazioni naive, errori standard cluster-robust, modelli a effetti misti, decomposizione della varianza)</li>
+<li><strong>Valutazione completa dell’affidabilità:</strong> affidabilità split-half (ICC=0,990) e stabilità temporale (ICC=0,965)</li>
+<li><strong>Tre varianti di gestione degli artefatti:</strong> PRIMARY (tutte le finestre), WIN_REMOVED (finestre segnalate rimosse), EXCLUDED (trial con almeno una finestra segnalata rimossi)</li>
+</ul>
+</div>
+<div class="project-card">
+<h4 style="color: var(--primary-dark); margin-bottom: 15px;">Risultati principali</h4>
+<ul class="styled-list">
+<li><strong>Dimensione dell’effetto piccola:</strong> correlazione naive r=−0,086 (p=0,004), spiegando solo lo 0,7% della varianza</li>
+<li><strong>Effetto tra partecipanti:</strong> associazione guidata soprattutto da differenze individuali stabili (r=−0,285, p=0,114) più che da variazione intra-soggetto</li>
+<li><strong>Affidabilità eccellente:</strong> elevata coerenza di misura dell’entropia differenziale tra suddivisioni di finestre e periodi temporali</li>
+<li><strong>Nessuna associazione con l’arousal:</strong> Hₑ non ha mostrato una relazione significativa con i rating di arousal (r=0,005, p=0,87)</li>
+<li><strong>Robustezza tra varianti:</strong> risultati coerenti in tutte e tre le strategie di gestione degli artefatti</li>
+</ul>
+</div>
+</div>
+<div class="detail-section">
+<h3>Dataset e Metodi</h3>
+<div class="interests-grid">
+<div class="interest-box">
+<h4>DEAP Dataset</h4>
+<p><strong>Partecipanti:</strong> 32 adulti sani</p>
+<p><strong>Trial:</strong> 40 video musicali per partecipante</p>
+<p><strong>Durata:</strong> 60 secondi per trial</p>
+<p><strong>Valutazioni:</strong> valenza e arousal (scala 1–9)</p>
+</div>
+<div class="interest-box">
+<h4>Analisi EEG</h4>
+<p><strong>Canali:</strong> Fp1, Fp2 (frontali)</p>
+<p><strong>Finestre:</strong> 4 s con 50% di overlap (29 per trial)</p>
+<p><strong>Caratteristica:</strong> entropia differenziale (gaussiana)</p>
+<p><strong>Campione:</strong> 1.148 trial (PRIMARY)</p>
+</div>
+<div class="interest-box">
+<h4>Metodi statistici</h4>
+<p><strong>Naive:</strong> correlazione di Pearson</p>
+<p><strong>Robusti:</strong> SE corretti per cluster</p>
+<p><strong>Misti:</strong> modelli con intercetta casuale</p>
+<p><strong>Decomposizione:</strong> effetti within–between</p>
+</div>
+</div>
+</div>
+<div class="detail-section">
+<h3>Competenze tecniche dimostrate</h3>
+<div class="tags">
+<span class="tag">Elaborazione del segnale EEG</span>
+<span class="tag">Python (MNE, NumPy, pandas)</span>
+<span class="tag">Modelli a effetti misti</span>
+<span class="tag">Decomposizione within–between</span>
+<span class="tag">Rilevamento artefatti</span>
+<span class="tag">Analisi di affidabilità (ICC)</span>
+<span class="tag">Visualizzazione dei dati</span>
+<span class="tag">Ricerca riproducibile</span>
+</div>
+</div>
+<div class="detail-section">
+<h3>Implicazioni per la ricerca</h3>
+<div class="highlight-box">
+<p><strong>Per il calcolo affettivo:</strong></p>
+<ul class="styled-list" style="margin-top: 10px;">
+<li>Sconsiglia di affidarsi alla sola entropia differenziale come marker di valenza</li>
+<li>Sottolinea la necessità di approcci multi-feature nei sistemi di riconoscimento delle emozioni</li>
+<li>Evidenzia l’importanza della performance predittiva validata (cross-validation) rispetto a correlazioni univariate</li>
+</ul>
+<p style="margin-top: 15px;"><strong>Per la metodologia:</strong></p>
+<ul class="styled-list" style="margin-top: 10px;">
+<li>Mostra l’importanza di distinguere effetti intra-soggetto da effetti tra soggetti</li>
+<li>Fornisce un approccio replicabile di calibrazione degli artefatti per il preprocessing EEG</li>
+<li>Mostra come le correlazioni naive possano risultare fuorvianti senza correzioni per misure ripetute</li>
+</ul>
+</div>
+</div>
+<div class="detail-section">
+<h3>Pratiche di scienza aperta</h3>
+<ul class="styled-list">
+<li><strong>Dataset pubblico:</strong> analisi basata interamente sul dataset DEAP disponibile pubblicamente</li>
+<li><strong>Disponibilità completa del codice:</strong> forniti tutti gli script di preprocessing, analisi e visualizzazione</li>
+<li><strong>Pipeline riproducibile:</strong> documentazione completa per replicare esattamente i risultati</li>
+<li><strong>Reporting trasparente:</strong> riportati molteplici approcci statistici per evitare selezione dei risultati</li>
+<li><strong>Pubblicazione preprint:</strong> risultati resi immediatamente disponibili alla comunità di ricerca</li>
+</ul>
+</div>
+<div class="detail-section">
+<h3>Parole chiave</h3>
+<div class="tags">
+<span class="tag">EEG</span>
+<span class="tag">Entropia differenziale</span>
+<span class="tag">Valenza</span>
+<span class="tag">Arousal</span>
+<span class="tag">Dataset DEAP</span>
+<span class="tag">Calcolo affettivo</span>
+<span class="tag">Effetti misti</span>
+<span class="tag">Decomposizione within–between</span>
+</div>
+</div>
+<div class="detail-section">
+<h3>Link e risorse</h3>
+<div class="links">
+<a aria-label="Apri dashboard DEAP" class="btn btn-dark" href="deap/" onclick="event.stopPropagation();"> Dashboard</a>
+<a class="btn btn-primary" href="https://osf.io/cjs86/" rel="noopener noreferrer" target="_blank"> Leggi il preprint (OSF)</a>
+<a class="btn btn-dark" href="https://github.com/amirlotfifar1994-dot/DEAP-entropy-valence-analysis" rel="noopener noreferrer" target="_blank"> Visualizza il codice (GitHub)</a>
+</div>
+</div>
+<div class="detail-section">
+<h3>Rilevanza</h3>
+<p style="background: var(--primary-xlight); padding: 20px; border-radius: 10px; border-left: 4px solid var(--primary); line-height: 1.8;">
+                            Questo studio dimostra una metodologia quantitativa rigorosa nella ricerca di neuroscienze affettive. Distinguendo in modo sistematico l’affidabilità di misura dalla validità predittiva e separando le dinamiche temporali intra-soggetto dalle differenze di tratto tra soggetti, fornisce un modello metodologico per valutare le associazioni EEG–emozione. La pipeline di preprocessing calibrata sugli artefatti e l’approccio di modellazione statistica completo (inclusi modelli a effetti misti e decomposizione della varianza) evidenziano competenze avanzate sia nell’elaborazione del segnale sia nell’inferenza statistica. Il risultato secondo cui l’entropia differenziale è altamente affidabile ma mostra associazioni deboli con la valenza a livello di trial ha implicazioni importanti per la progettazione di sistemi di riconoscimento delle emozioni, sottolineando la necessità di approcci multi-feature anziché affidarsi a una singola metrica EEG.
+                        </p>
+</div>
+</div>

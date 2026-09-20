@@ -1,0 +1,120 @@
+<button class="btn btn-back" onclick="closeDetail()">← Indietro</button>
+<div class="detail-content">
+<div class="detail-header">
+<h2>Biofeedback HRV e presa di decisioni adattive</h2>
+<span class="status-badge status-registered"> PROTOCOLLO PRE-REGISTRATO</span>
+</div>
+<div class="detail-section">
+<h3>Titolo completo</h3>
+<p style="background: #f8fafc; padding: 20px; border-radius: 10px; border-left: 4px solid var(--primary);">
+                            Lotfifar, A. M., &amp; Mohammadi, M. D. (2025). <strong>Causal Effect of Heart Rate Variability Biofeedback Training on Adaptive Decision-Making: A Randomized Controlled Trial with Hierarchical Bayesian Modeling</strong>
+</p>
+<p style="margin-top: 15px;"><strong>Investigatore principale (PI):</strong> Amirmohammad Lotfifar</p>
+<p><strong>Co-investigatrice principale (Co-PI):</strong> Melika Dabbagh Mohammadi (ricercatrice indipendente)</p>
+<p style="margin-top: 10px; font-size: 0.9rem; color: var(--text-gray);"><em>Dichiarazione: il PI e la Co-PI sono coniugi e stanno conducendo studi indipendenti separati. Questa relazione è stata dichiarata integralmente al Comitato Etico.</em></p>
+</div>
+<div class="detail-section">
+<h3>Panoramica dello studio</h3>
+<div class="highlight-box">
+<p><strong>Disegno:</strong> trial clinico a gruppi paralleli, randomizzato (1:1), con analista in cieco e controllo attivo</p>
+<p style="margin-top: 10px;"><strong>Dimensione del campione:</strong> N = 160 adulti sani (80 per braccio), potenza per Cohen’s d = 0,50, considerando ≤20% di abbandoni</p>
+<p style="margin-top: 10px;"><strong>Intervento:</strong> biofeedback HRV a frequenza di risonanza in singola sessione (20 minuti) vs controllo attivo (respirazione guidata a 15 atti/min, non risonante)</p>
+<p style="margin-top: 10px;"><strong>Outcome primario:</strong> performance nel compito di probabilistic reversal learning (Relative Expected Value)</p>
+<p style="margin-top: 10px;"><strong>Sede prevista:</strong> laboratorio universitario in Italia (da definire dopo l’eventuale ammissione a un programma Master/PhD nel 2026)</p>
+<p style="margin-top: 10px;"><strong>Stato:</strong> protocollo pre-registrato; raccolta dati prevista 2026–2027</p>
+</div>
+</div>
+<div class="detail-section">
+<h3>Quadro teorico: Modello di integrazione neuroviscerale</h3>
+<p>Questo studio si basa sul <strong>modello di integrazione neuroviscerale (NVI)</strong> (Thayer &amp; Lane, 2000), che propone la variabilità della frequenza cardiaca come indice quantificabile dell’integrità funzionale del Central Autonomic Network (CAN), una rete neurale distribuita che coinvolge corteccia prefrontale, cingolo anteriore, insula, amigdala e nuclei del tronco encefalico.</p>
+<p style="margin-top: 15px;"><strong>Ipotesi centrale:</strong> un tono vagale a riposo più elevato (indicizzato da metriche HRV come RMSSD) riflette un solido controllo inibitorio prefrontale sui circuiti sottocorticali, facilitando decisioni adattive e flessibilità cognitiva.</p>
+</div>
+<div class="detail-section">
+<h3>Ipotesi di ricerca</h3>
+<div class="project-card">
+<h4 style="color: var(--primary-dark); margin-bottom: 15px;">Ipotesi confermative (pre-registrate)</h4>
+<div class="highlight-box" style="margin-bottom: 15px;">
+<h4 style="margin-bottom: 10px;">H1: Effetto causale sulla performance comportamentale</h4>
+<p><strong>Ipotesi:</strong> il gruppo Biofeedback HRV mostrerà una performance significativamente più alta (Relative Expected Value) rispetto al Controllo attivo</p>
+<p style="margin-top: 10px;"><strong>Effetto previsto:</strong> Cohen’s d ≥ 0,50</p>
+<p style="margin-top: 10px;"><strong>Covariate di controllo:</strong> HRV basale, parametri respiratori, età, sesso</p>
+</div>
+<div class="highlight-box" style="margin-bottom: 15px;">
+<h4 style="margin-bottom: 10px;">H2: Mediazione fisiologica</h4>
+<p><strong>Ipotesi:</strong> l’effetto del gruppo sulla performance sarà mediato dall’entità dell’aumento di HRV (ΔlogRMSSD)</p>
+<p style="margin-top: 10px;"><strong>Analisi:</strong> mediazione causale con 5.000 iterazioni bootstrap</p>
+</div>
+<div class="highlight-box">
+<h4 style="margin-bottom: 10px;">H3: Meccanismi computazionali</h4>
+<p>Un modello gerarchico bayesiano di Q-learning a doppia alfa prevede che il gruppo Biofeedback mostrerà:</p>
+<ul class="styled-list" style="margin-top: 10px;">
+<li><strong>H3a:</strong> riduzione del rumore decisionale (β più alto)</li>
+<li><strong>H3b:</strong> minore asimmetria del tasso di apprendimento (|α⁺−α⁻| più basso)</li>
+<li><strong>H3c:</strong> riduzione della perseverazione (κ più basso)</li>
+</ul>
+</div>
+</div>
+<div class="project-card">
+<h4 style="color: var(--primary-dark); margin-bottom: 15px;">Ipotesi esplorative</h4>
+<ul class="styled-list">
+<li><strong>H4:</strong> differenze individuali in ΔlogRMSSD correlano con la performance del compito</li>
+<li><strong>H5:</strong> la decelerazione cardiaca dopo le perdite, a livello di trial, predice lo switching adattivo (moderato dal gruppo)</li>
+</ul>
+</div>
+</div>
+<div class="detail-section">
+<h3>Innovazioni metodologiche</h3>
+<div class="interests-grid">
+<div class="interest-box">
+<h4>Controllo attivo rigoroso</h4>
+<p>Respirazione guidata fuori dalla banda di risonanza per controllare attenzione/ritmo respiratorio senza amplificare l’HRV</p>
+</div>
+<div class="interest-box">
+<h4>Disegno a sessione singola</h4>
+<p>Testa effetti causali immediati, riducendo confondenti di pratica/aspettativa</p>
+</div>
+<div class="interest-box">
+<h4>Modellazione computazionale</h4>
+<p>La RL bayesiana gerarchica scompone parametri cognitivi latenti</p>
+</div>
+<div class="interest-box">
+<h4>Controllo respiratorio</h4>
+<p>Monitoraggio continuo e controllo statistico dei confondenti respiratori</p>
+</div>
+<div class="interest-box">
+<h4>Cieco dell’analista</h4>
+<p>Analisti in cieco fino al “database lock” finale</p>
+</div>
+<div class="interest-box">
+<h4>Pre-registrazione completa</h4>
+<p>Protocollo completo registrato prima della raccolta dati</p>
+</div>
+</div>
+</div>
+<div class="detail-section">
+<h3>Domande di ricerca</h3>
+<ul class="styled-list">
+<li>Il training di biofeedback HRV migliora il decision-making in compiti di reinforcement learning?</li>
+<li>Quali meccanismi computazionali spiegano eventuali effetti osservati?</li>
+<li>In che modo le differenze individuali nell’HRV basale moderano gli esiti del training?</li>
+</ul>
+</div>
+<div class="detail-section">
+<h3>Caratteristiche metodologiche</h3>
+<ul class="styled-list">
+<li><strong>Pre-registrazione:</strong> piano di analisi completo registrato prima della raccolta dati</li>
+<li><strong>Disegno con analista in cieco:</strong> L’analista dei dati rimane all’oscuro dell’assegnazione ai gruppi per tutta l’analisi</li>
+<li><strong>Modellazione bayesiana gerarchica:</strong> tiene conto delle differenze individuali e quantifica l’incertezza</li>
+<li><strong>Modellazione computazionale:</strong> modelli di reinforcement learning (Q-learning, actor-critic) per comprendere i processi decisionali</li>
+<li><strong>Scienza aperta:</strong> materiali, dati e codice saranno resi pubblici al completamento dello studio</li>
+</ul>
+</div>
+<div class="detail-section">
+<h3>Link e risorse</h3>
+<div class="links">
+<a aria-label="Apri dashboard HRV" class="btn btn-dark" href="hrv/" onclick="event.stopPropagation();"> Dashboard</a>
+<a class="btn btn-primary" href="https://osf.io/bkcr8" rel="noopener noreferrer" target="_blank"> Vedi registrazione (OSF)</a>
+<a class="btn btn-dark" href="https://github.com/amirlotfifar1994-dot/HRV-Biofeedback-Decision-Making-RCT" rel="noopener noreferrer" target="_blank"> Visualizza il codice (GitHub)</a>
+</div>
+</div>
+</div>

@@ -1,0 +1,93 @@
+<button class="btn btn-back" onclick="closeDetail()">← Indietro</button>
+<div class="detail-content">
+<div class="detail-header">
+<h2>HRV Biofeedback RCT</h2>
+<span class="status-badge status-registered"> PRE-REGISTRATO</span>
+</div>
+<div class="detail-section">
+<h3>Disegno dello studio</h3>
+<p>Trial randomizzato controllato preregistrato che esamina gli effetti del training di biofeedback della variabilità della frequenza cardiaca (HRV) sul decision-making adattivo in condizioni di incertezza.</p>
+</div>
+<div class="detail-section">
+<h3>Caratteristiche principali e strumentazione</h3>
+<div class="project-card">
+<h4 style="color: var(--primary-dark); margin-bottom: 15px;">Registrazioni fisiologiche</h4>
+<ul class="styled-list">
+<li><strong>ECG:</strong> Polar H10 (1000 Hz, ICC &gt; 0.99 vs. Holter clinico)</li>
+<li><strong>Respirazione:</strong> Vernier Go Direct Belt (50 Hz, piezoelettrica)</li>
+<li><strong>Sincronizzazione:</strong> Lab Streaming Layer (LSL) per integrazione a livello di trial</li>
+</ul>
+</div>
+<div class="project-card">
+<h4 style="color: var(--primary-dark); margin-bottom: 15px;">Compito comportamentale</h4>
+<p><strong>Probabilistic Reversal Learning:</strong> 360 trial, 6 blocchi (3 stabili + 3 di reversal)</p>
+<p style="margin-top: 10px;">I partecipanti apprendono quale stimolo produce più ricompense (80/20 o 65/35) e devono poi adattarsi quando le contingenze si invertono in modo inatteso.</p>
+</div>
+</div>
+<div class="detail-section">
+<h3>Quadro statistico e computazionale</h3>
+<div class="highlight-box">
+<p><strong>Software:</strong> R 4.3.1 (lme4, brms, Stan, mediation, BayesFactor, ggplot2)</p>
+<p style="margin-top: 10px;">Potenza: 0,80 per d=0,50 con α=0,05 → N=128 richiesto (160 arruolati per considerare un 20% di abbandono)</p>
+<p style="margin-top: 10px;"><strong>Modello primario:</strong> Q-learning gerarchico bayesiano con doppio alpha e perseverazione</p>
+<ul class="styled-list" style="margin-top: 10px;">
+<li>Tassi di apprendimento separati per vittorie (α<sup>+</sup>) e perdite (α<sup>-</sup>)</li>
+<li>Temperatura inversa (β) per sfruttamento/esplorazione</li>
+<li>Parametro di perseverazione (κ) per ripetizione abituale</li>
+<li>Iperparametri specifici per gruppo stimati via MCMC in Stan</li>
+</ul>
+</div>
+</div>
+<div class="detail-section">
+<h3>Controllo qualità e scienza aperta</h3>
+<div class="interests-grid">
+<div class="interest-box">
+<h4>Qualità dati</h4>
+<p>Monitoraggio in tempo reale, soglia artefatti &lt;5%, audit settimanali del PI</p>
+</div>
+<div class="interest-box">
+<h4>Sicurezza</h4>
+<p>Registrazione standardizzata degli eventi avversi, stopping rules, revisione intermedia a N=40</p>
+</div>
+<div class="interest-box">
+<h4>Trasparenza</h4>
+<p>Pre-registrazione OSF, condivisione di dati/codice de-identificati, registry clinico</p>
+</div>
+</div>
+</div>
+<div class="detail-section">
+<h3>Timeline e stato attuale</h3>
+<div class="timeline-item">
+<span class="year-badge">Nov 2025</span>
+<h4>Protocollo finalizzato e pre-registrato</h4>
+<p>Protocollo completo (67 pagine) caricato su OSF con blocco temporale (time-stamped lock)</p>
+</div>
+<div class="timeline-item">
+<h4>2026: allestimento del laboratorio</h4>
+<p>Finalizzazione della sede dopo ammissione a MSc/PhD in Italia • approvazione del Comitato Etico</p>
+</div>
+<div class="timeline-item" style="border-left: none; padding-bottom: 0;">
+<h4>2026–2027: raccolta dati e analisi</h4>
+<p>Arruolamento e test di N=160 partecipanti • modellazione bayesiana gerarchica • stesura del manoscritto</p>
+</div>
+</div>
+<ul class="styled-list">
+<li><strong>Pre-registrazione:</strong> piano di analisi registrato prima della raccolta dati</li>
+<li><strong>Analista in cieco:</strong> l’analista dei dati rimane all’oscuro dell’assegnazione ai gruppi</li>
+<li><strong>Modellazione bayesiana gerarchica:</strong> integra differenze individuali e incertezza dei parametri</li>
+<li><strong>Modellazione computazionale:</strong> modelli di reinforcement learning per comprendere i processi decisionali</li>
+<li><strong>Dati e codice aperti:</strong> materiali (de-identificati) resi pubblici al momento opportuno</li>
+</ul>
+<div class="detail-section">
+<h3>Piano di analisi</h3>
+<p>Modelli bayesiani gerarchici con Stan/brms e confronto dei modelli via LOO-CV. Modelli computazionali di reinforcement learning (Q-learning, actor-critic) adattati ai dati comportamentali.</p>
+</div>
+<div class="detail-section">
+<h3>Risorse</h3>
+<div class="links">
+<a aria-label="Apri dashboard HRV" class="btn btn-dark" href="hrv/" onclick="event.stopPropagation();"> Dashboard</a>
+<a class="btn btn-primary" href="https://osf.io/bkcr8" rel="noopener noreferrer" target="_blank"> Registrazione OSF</a>
+<a class="btn btn-dark" href="https://github.com/amirlotfifar1994-dot/HRV-Biofeedback-Decision-Making-RCT" rel="noopener noreferrer" target="_blank"> Repository GitHub</a>
+</div>
+</div>
+</div>
