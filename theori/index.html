@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html data-theme="dark" dir="ltr" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="dark light" name="color-scheme"/>
+<title>Theori: Digital Mirror Exposure Dashboard</title>
+<meta name="description" content="Theori dashboard presenting the Digital Mirror Exposure framework, manuscript context, and conceptual navigation."/>
+<link href="../assets/fonts/fonts.css?v=1" rel="stylesheet"/>
+<link href="./assets/css/style.css" rel="stylesheet"/>
+<script defer="" src="./assets/js/app.js"></script>
+<style>
+    .cv-back{
+      position: fixed;
+      left: 16px;
+      left: max(16px, env(safe-area-inset-left));
+      bottom: 16px;
+      bottom: max(16px, env(safe-area-inset-bottom));
+      top: auto;
+      z-index: 10000;
+      padding: 10px 12px;
+      border-radius: 14px;
+      border: 1px solid var(--border2);
+      background: rgba(255,255,255,0.06);
+      color: var(--text);
+      text-decoration: none;
+      font: 600 13px/1.1 var(--sans);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: var(--shadow);
+      opacity: 0.82;
+      transition: transform .15s ease, opacity .15s ease, background .15s ease, border-color .15s ease;
+    }
+    [data-theme="light"] .cv-back{ background: rgba(255,255,255,0.80); }
+    .cv-back:hover{
+      opacity: 1;
+      transform: translateY(-1px);
+      border-color: var(--accent-25);
+      background: rgba(255,255,255,0.08);
+    }
+    [data-theme="light"] .cv-back:hover{ background: rgba(255,255,255,0.92); }
+    @media (max-width: 520px){
+      .cv-back{ left: 12px; left: max(12px, env(safe-area-inset-left)); bottom: 12px; bottom: max(12px, env(safe-area-inset-bottom)); padding: 9px 10px; }
+    }
+  </style>
+<style id="i18n-style">
+/* ===== Bilingual (EN/IT) ===== */
+.lang-switch{
+  position: fixed;
+  top: 14px;
+  right: 14px;
+  z-index: 20000;
+  display: inline-flex;
+  gap: 6px;
+  padding: 6px;
+  border-radius: 999px;
+
+  /* Glassy base (fallback) */
+  border: 1px solid rgba(15,23,42,0.18);
+  background: linear-gradient(180deg, rgba(255,255,255,0.86), rgba(255,255,255,0.72));
+  color: inherit;
+  backdrop-filter: blur(16px) saturate(160%);
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
+  box-shadow: 0 16px 44px rgba(2,6,23,0.18), inset 0 1px 0 rgba(255,255,255,0.55);
+}
+.lang-switch .lang-btn{
+  border: 0;
+  background: transparent;
+  padding: 7px 10px;
+  border-radius: 999px;
+  font: 800 12px/1 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+  letter-spacing: 0.2px;
+  cursor: pointer;
+  opacity: 0.84;
+  color: rgba(15,23,42,0.82);
+  transition: background 180ms ease, opacity 180ms ease, transform 180ms ease;
+}
+.lang-switch .lang-btn:active{ transform: scale(0.98); }
+.lang-switch .lang-btn:focus-visible{
+  outline: 2px solid rgba(37,99,235,0.38);
+  outline-offset: 2px;
+}
+.lang-switch .lang-btn[aria-pressed="true"]{
+  background: rgba(37,99,235,0.18);
+  opacity: 1;
+  color: rgba(15,23,42,0.92);
+}
+
+@media (prefers-color-scheme: dark){
+  .lang-switch{
+    border-color: rgba(226,232,240,0.22);
+    background: linear-gradient(180deg, rgba(2,6,23,0.82), rgba(2,6,23,0.68));
+    box-shadow: 0 18px 50px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.12);
+  }
+  .lang-switch .lang-btn{ color: rgba(226,232,240,0.86); }
+  .lang-switch .lang-btn[aria-pressed="true"]{
+    background: rgba(124,58,237,0.30);
+    color: rgba(255,255,255,0.96);
+  }
+}
+
+/* Theme-aware (dashboards use CSS vars + .light class) */
+@supports (color: hsl(var(--background) / 1)){
+  .lang-switch{
+    border-color: hsl(var(--border) / 0.55);
+    background: linear-gradient(180deg, hsl(var(--card) / 0.92), hsl(var(--card) / 0.78));
+    box-shadow: 0 18px 55px hsl(var(--background) / 0.35), inset 0 1px 0 hsl(var(--foreground) / 0.10);
+  }
+  html:not(.light) .lang-switch{
+    background: linear-gradient(180deg, hsl(var(--card) / 0.82), hsl(var(--card) / 0.68));
+    box-shadow: 0 20px 60px hsl(0 0% 0% / 0.42), inset 0 1px 0 hsl(var(--foreground) / 0.08);
+  }
+  .lang-switch .lang-btn{
+    color: hsl(var(--foreground) / 0.86);
+    opacity: 0.86;
+  }
+  .lang-switch .lang-btn:focus-visible{
+    outline-color: hsl(var(--ring) / 0.55);
+  }
+  .lang-switch .lang-btn[aria-pressed="true"]{
+    background: linear-gradient(180deg, hsl(var(--primary) / 0.32), hsl(var(--primary) / 0.18));
+    color: hsl(var(--primary-foreground) / 1);
+    box-shadow: inset 0 1px 0 hsl(var(--primary-foreground) / 0.18);
+    opacity: 1;
+  }
+  html:not(.light) .lang-switch .lang-btn[aria-pressed="true"]{
+    background: linear-gradient(180deg, hsl(var(--primary) / 0.40), hsl(var(--primary) / 0.22));
+  }
+}
+</style>
+</head>
+<body>
+<!-- Language switch (EN / IT / FA) -->
+<div aria-label="Language selector" class="lang-switch" role="group">
+<button aria-pressed="true" class="lang-btn" data-lang="en" type="button">EN</button>
+<button aria-pressed="false" class="lang-btn" data-lang="it" type="button">IT</button>
+<button aria-pressed="false" class="lang-btn" data-lang="fa" type="button">FA</button>
+</div>
+<a aria-label="Back to academic résumé" class="cv-back" href="../academic-en.html#section-dashboards">← Back to academic résumé</a>
+<a class="skip" href="#main">Skip to content</a>
+<div class="app">
+<aside aria-label="Sidebar" class="sidebar">
+<div class="brand">
+<div aria-hidden="true" class="brand__mark"></div>
+<div class="brand__meta">
+<div class="brand__title">Theori Dashboard</div>
+<div class="brand__sub">Digital Mirror Exposure Paradox</div>
+<div class="brand__sub" style="margin-top:6px; opacity:.95;">Authors: Melika Dabagh Mohammadi · Amirmohammad Lotfifar</div>
+</div>
+</div>
+<nav aria-label="Navigation" class="nav">
+<button class="nav__item is-active" data-scroll="#overview">
+<span aria-hidden="true" class="nav__dot"></span>
+<span>Overview</span>
+</button>
+<button class="nav__item" data-scroll="#framework">
+<span aria-hidden="true" class="nav__dot"></span>
+<span>Framework</span>
+</button>
+<button class="nav__item" data-scroll="#evidence">
+<span aria-hidden="true" class="nav__dot"></span>
+<span>Evidence</span>
+</button>
+<button class="nav__item" data-scroll="#hypotheses">
+<span aria-hidden="true" class="nav__dot"></span>
+<span>Hypotheses</span>
+</button>
+<button class="nav__item" data-scroll="#methods">
+<span aria-hidden="true" class="nav__dot"></span>
+<span>Methods</span>
+</button>
+</nav>
+<div class="sidebar__footer">
+<div class="mini-card">
+<div class="mini-card__title">Paper Files</div>
+<div class="mini-card__row">
+<a class="link" download="" href="./paper/Theori_paradox.docx">Download DOCX</a>
+<span aria-hidden="true" class="sep">•</span>
+<a class="link" href="./paper/Theori_paradox.docx" rel="noopener noreferrer" target="_blank">Open</a>
+</div>
+<div class="mini-card__hint">XAMPP-ready: drop into htdocs and run.</div>
+</div>
+<div class="user">
+<div aria-hidden="true" class="user__avatar"></div>
+<div class="user__meta">
+<div class="user__name">Owner</div>
+<div class="user__role">Admin</div>
+</div>
+</div>
+</div>
+</aside>
+<main class="main" id="main">
+<header class="topbar">
+<div class="topbar__left">
+<button aria-label="Toggle sidebar" class="iconbtn" id="sidebarToggle" title="Menu">
+<span aria-hidden="true">☰</span>
+</button>
+<div class="topbar__titles">
+<div class="h1">Theory Dashboard</div>
+<div class="muted" id="subtitle">Framework summary, indicators, testable hypotheses</div>
+</div>
+</div>
+<div class="topbar__right">
+<div class="search">
+<input aria-label="Search" id="globalSearch" placeholder="Search hypotheses..." type="search"/>
+</div>
+<button aria-label="Toggle theme" class="btn btn-ghost" id="themeToggle" title="Theme">
+<span aria-hidden="true" class="dot"></span>
+<span id="themeLabel">Dark</span>
+</button>
+</div>
+</header>
+<div class="content">
+<section class="hero reveal" id="overview">
+<div aria-hidden="true" class="hero__bg"></div>
+<div class="hero__left">
+<div class="eyebrow">Theoretical Framework</div>
+<h2 class="hero__title">
+              The Digital Mirror<br/>
+<span class="accent">Exposure Paradox</span>
+</h2>
+<p class="hero__desc">
+              A neurocognitive model explaining why short-term “improvement” through beauty filters
+              can produce long-term dissatisfaction and dependence.
+            </p>
+<div aria-label="Authors" class="meta-row">
+<span class="meta-pill">Authors</span>
+<span class="meta-text">Melika Dabagh Mohammadi · Amirmohammad Lotfifar</span>
+</div>
+<div class="hero__cta">
+<a class="btn btn-primary" data-scroll="#framework" href="#framework">
+                View framework
+                <span aria-hidden="true" class="btn__icon">→</span>
+</a>
+<a class="btn btn-secondary" href="./paper/Theori_paradox.docx" rel="noopener noreferrer" target="_blank">
+                Read paper (DOCX)
+              </a>
+<a class="btn btn-tertiary" download="" href="./paper/Theori_paradox.docx">
+                Download
+              </a>
+</div>
+<div aria-label="Keywords" class="hero__tags">
+<span class="pill">Self‑Discrepancy</span>
+<span class="pill">Perceptual Adaptation</span>
+<span class="pill">Social Reinforcement</span>
+<span class="pill">EEG / fMRI Predictions</span>
+</div>
+</div>
+<div class="hero__right">
+<div aria-label="KPIs" class="kpi" id="kpiGrid"></div>
+<section class="card card--tight">
+<div class="card__head">
+<div>
+<div class="card__title">Dashboard Preview</div>
+<div class="muted">D(t) = δ₀ + β₁F(t) + β₂S(t) + β₃F(t)×S(t)</div>
+</div>
+<span class="pill pill--live">model</span>
+</div>
+<div class="card__body">
+<canvas aria-label="Trend chart" id="trendCanvas"></canvas>
+<div class="mini-grid">
+<div class="mini-stat">
+<div class="mini-stat__label">F(t) (Filter Exposure)</div>
+<div class="mini-stat__value"><span id="ftVal">0.42</span></div>
+</div>
+<div class="mini-stat">
+<div class="mini-stat__label">S(t) (Social Feedback)</div>
+<div class="mini-stat__value"><span id="stVal">0.31</span></div>
+</div>
+<div class="mini-stat">
+<div class="mini-stat__label">D(t) (Dissatisfaction)</div>
+<div class="mini-stat__value"><span id="dtVal">0.73</span></div>
+</div>
+</div>
+<div class="hint">
+                  This chart is a conceptual preview: it turns assumptions into visible parameters
+                  so they can be debated and tested.
+                </div>
+</div>
+</section>
+</div>
+</section>
+<section class="section reveal" id="framework">
+<div class="section__head">
+<h3 class="section__title">Six-part framework</h3>
+<p class="muted">Each component targets a specific mechanism and should produce testable outputs.</p>
+</div>
+<div class="grid grid--3">
+<article class="card">
+<div class="card__head">
+<div class="card__title">1) Algorithmic Enhancement</div>
+<span class="badge">observable</span>
+</div>
+<div class="card__body">
+                Filters systematically modify facial features (skin, geometry, lighting, symmetry).
+                Output: a comparison target that is “close to self” but upgraded.
+              </div>
+</article>
+<article class="card">
+<div class="card__head">
+<div class="card__title">2) Actual–Digital Discrepancy</div>
+<span class="badge">grounded</span>
+</div>
+<div class="card__body">
+                The gap between “actual self” and “digital self” is amplified via social value signals.
+                Prediction: increased shame/dissatisfaction when facing the unfiltered self.
+              </div>
+</article>
+<article class="card">
+<div class="card__head">
+<div class="card__title">3) Perceptual Recalibration</div>
+<span class="badge badge--warn">hypothesis</span>
+</div>
+<div class="card__body">
+                With repetition, the filtered version may become the perceptual baseline.
+                Prediction: reduced attractiveness ratings for unfiltered images after weeks of exposure.
+              </div>
+</article>
+<article class="card">
+<div class="card__head">
+<div class="card__title">4) Self‑Objectification</div>
+<span class="badge">supported</span>
+</div>
+<div class="card__body">
+                Attention shifts from the whole self to “editable” parts.
+                Prediction: increased appearance monitoring and behavioral reliance on editing.
+              </div>
+</article>
+<article class="card">
+<div class="card__head">
+<div class="card__title">5) Filter Dependence</div>
+<span class="badge badge--warn">hypothesis</span>
+</div>
+<div class="card__body">
+                Filters become an emotion-regulation tool and a safety behavior.
+                Prediction: avoidance of calls/photos without filters; pre-posting anxiety.
+              </div>
+</article>
+<article class="card">
+<div class="card__head">
+<div class="card__title">6) Downstream Outcomes</div>
+<span class="badge badge--warn">mixed</span>
+</div>
+<div class="card__body">
+                Potential pathways to depression, social anxiety, and eating-disorder risk.
+                Requires longitudinal designs and growth modeling.
+              </div>
+</article>
+</div>
+</section>
+<section class="section reveal" id="evidence">
+<div class="section__head">
+<h3 class="section__title">Evidence &amp; testability</h3>
+<p class="muted">A quick status panel: where we have data vs where we still have predictions.</p>
+</div>
+<div class="grid grid--2">
+<section class="card">
+<div class="card__head">
+<div class="card__title">Evidence Snapshot</div>
+<span class="pill">status</span>
+</div>
+<div class="card__body">
+<div class="bar">
+<div class="bar__row">
+<span>Observable / documented</span>
+<span class="mono">20%</span>
+</div>
+<div aria-valuemax="100" aria-valuemin="0" aria-valuenow="20" class="bar__track" role="progressbar">
+<div class="bar__fill" style="width:20%"></div>
+</div>
+</div>
+<div class="bar">
+<div class="bar__row">
+<span>Supported (experimental/correlation)</span>
+<span class="mono">35%</span>
+</div>
+<div aria-valuemax="100" aria-valuemin="0" aria-valuenow="35" class="bar__track" role="progressbar">
+<div class="bar__fill" style="width:35%"></div>
+</div>
+</div>
+<div class="bar">
+<div class="bar__row">
+<span>Hypothesized (needs testing)</span>
+<span class="mono">45%</span>
+</div>
+<div aria-valuemax="100" aria-valuemin="0" aria-valuenow="45" class="bar__track" role="progressbar">
+<div class="bar__fill" style="width:45%"></div>
+</div>
+</div>
+<div class="divider"></div>
+<div aria-label="Methods" class="chips">
+<span class="chip">EMA / Daily Diary</span>
+<span class="chip">EEG (LPP, FAA)</span>
+<span class="chip">fMRI (Striatum)</span>
+<span class="chip">Longitudinal SEM</span>
+</div>
+<div class="hint">
+                  Purpose: identify which parts should be prioritized for experimental/longitudinal validation.
+                </div>
+</div>
+</section>
+<section class="card">
+<div class="card__head">
+<div>
+<div class="card__title">Recent Activity</div>
+<div class="muted">Tiny feed to make the dashboard feel alive</div>
+</div>
+</div>
+<div class="card__body">
+<ul aria-label="Activity feed" class="activity" id="activityList"></ul>
+</div>
+</section>
+</div>
+</section>
+<section class="section reveal" id="hypotheses">
+<div class="section__head">
+<h3 class="section__title">Hypotheses (filter &amp; sort)</h3>
+<p class="muted">Searchable, sortable: because reviewers love tables.</p>
+</div>
+<section class="card">
+<div class="tabletools">
+<div class="tabletools__left">
+<span class="pill">17 hypotheses</span>
+<span aria-hidden="true" class="sep">•</span>
+<span class="muted">Search, Sort</span>
+</div>
+<div class="tabletools__right">
+<button class="btn btn-ghost btn-sm" data-sort="id">Sort: ID</button>
+<button class="btn btn-ghost btn-sm" data-sort="domain">Sort: Domain</button>
+<button class="btn btn-ghost btn-sm" data-sort="status">Sort: Status</button>
+</div>
+</div>
+<div aria-label="Hypotheses table" class="tablewrap" role="region" tabindex="0">
+<table class="table" id="hypTable">
+<thead>
+<tr>
+<th class="mono">#</th>
+<th>Title</th>
+<th>Domain</th>
+<th>Status</th>
+<th>Measurable outcome</th>
+</tr>
+</thead>
+<tbody id="hypBody"></tbody>
+</table>
+</div>
+</section>
+</section>
+<section class="section reveal" id="methods">
+<div class="section__head">
+<h3 class="section__title">Fast execution roadmap</h3>
+<p class="muted">If you want this to become an empirical paper, this is a sane path.</p>
+</div>
+<div class="grid grid--2">
+<article class="card">
+<div class="card__head">
+<div class="card__title">Study 1: EMA + Model Fit</div>
+<span class="badge">8–12 weeks</span>
+</div>
+<div class="card__body">
+                Daily: capture F(t), S(t), D(t). Then test β₃ with mixed-effects.
+                Output: parameter estimates + threshold θ for recalibration.
+              </div>
+</article>
+<article class="card">
+<div class="card__head">
+<div class="card__title">Study 2: EEG (LPP / FAA)</div>
+<span class="badge badge--warn">ethics</span>
+</div>
+<div class="card__body">
+                Compare filtered vs unfiltered self-images in ERP.
+                Output: larger LPP for filtered; FAA shift during unfiltered (withdrawal).
+              </div>
+</article>
+<article class="card">
+<div class="card__head">
+<div class="card__title">Study 3: fMRI Reward</div>
+<span class="badge">ROI</span>
+</div>
+<div class="card__body">
+                Ventral striatum responds more to filtered self; response to unfiltered drops longitudinally.
+                Output: evidence for “reward recalibration”.
+              </div>
+</article>
+<article class="card">
+<div class="card__head">
+<div class="card__title">Intervention: Filter Abstinence</div>
+<span class="badge">RCT</span>
+</div>
+<div class="card__body">
+                4-week abstinence + pre/post measures.
+                Output: reduced discrepancy; increased body appreciation.
+              </div>
+</article>
+</div>
+<footer class="footer">
+<div class="muted">Built with plain HTML/CSS/JS. No build step. Deploy by placing it in htdocs.</div>
+</footer>
+<div class="footer__authors">Authors: Melika Dabagh Mohammadi · Amirmohammad Lotfifar</div>
+</section>
+</div>
+</main>
+</div>
+<div aria-live="polite" class="toast" id="toast" role="status"></div>
+<script>window.__I18N_DIR__ = "../i18n/";</script><script defer="" src="../assets/i18n.js?v=20260920-11"></script></body>
+</html>
