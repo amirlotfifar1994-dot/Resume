@@ -1,0 +1,68 @@
+{
+  "Manipulation_Check": {
+    "BF_mean_delta": 0.13462869520247286,
+    "Control_mean_delta": 0.03889848909051784,
+    "t": 3.57872782288856,
+    "p": 0.0004592108484454398,
+    "d": 0.5658465523071756,
+    "method": "Welch t-test + Cohen's d (derived from CSV)"
+  },
+  "H1_Performance": {
+    "BF_mean_EVrel": 0.1896497828371952,
+    "Control_mean_EVrel": 0.1338976376566377,
+    "beta": 0.05575214518055749,
+    "p": 0.00047090908135757957,
+    "d": 0.5648369660505654,
+    "method": "Welch t-test + Cohen's d (derived from CSV)"
+  },
+  "H2_Mediation": {
+    "indirect_effect": 0.0195317036998441,
+    "ci_lower": 0.006258396370464691,
+    "ci_upper": 0.03220307295746357,
+    "prop_mediated": 35.03309807468255,
+    "bootstrap": {
+      "B": 100,
+      "seed": 42,
+      "ci": "percentile_95"
+    },
+    "method": "Linear mediation (a*b) with bootstrap percentile CI"
+  },
+  "H3_RL_Params": {
+    "beta_BF_mean": 4.37974352075547,
+    "beta_Control_mean": 4.435393401705386,
+    "beta_d": -0.051389100669392375,
+    "beta_p": 0.7456036618582351,
+    "asym_BF_mean": 0.28074366086244085,
+    "asym_Control_mean": 0.2648234524956017,
+    "asym_d": 0.0814549625075585,
+    "asym_p": 0.6071567542801513,
+    "kappa_BF_mean": 0.05406308214334077,
+    "kappa_Control_mean": 0.06592862423560782,
+    "kappa_d": -0.01478644567820289,
+    "kappa_p": 0.9256108121549853,
+    "method": "Welch t-test + Cohen's d (derived from CSV)",
+    "fitting_note": "ML point estimates with beta bounded [0, 5]. 68.1% of participants (n=109) hit the upper bound (beta=5.0). RL parameter comparisons should be interpreted cautiously; full hierarchical Bayesian estimation (Stan dual_alpha_rl.stan) is planned for real-data phase."
+  },
+  "H4_Correlation": {
+    "r": 0.3983850566374897,
+    "p": 1.8152630852774156e-07,
+    "ci_lower": 0.25925139867898644,
+    "ci_upper": 0.5213195174769163,
+    "method": "Pearson correlation (\u0394logRMSSD \u00d7 EV_rel) with Fisher-z CI. Note: this reflects the path-b association from H2 mediation. Pre-registered H4 (GAD-7/BDI-II \u00d7 EV_rel) not significant in TESTMODE data.",
+    "variables": [
+      "delta_logRMSSD",
+      "EV_rel"
+    ],
+    "metric_label": "\u0394logRMSSD \u00d7 EV_rel (path-b association; protocol H4 individual-diff questionnaire correlations: r\u2248-0.03 to 0.08, n.s. in TESTMODE)"
+  },
+  "H5_TrialLevel": {
+    "interaction_coef": -0.013927026912104623,
+    "interaction_p": 0.8739677013567686,
+    "method": "Participant-level proxy: OLS EV_rel ~ group + \u0394logRMSSD + group\u00d7\u0394logRMSSD (derived from CSV). Trial-level requires trial table.",
+    "predictors": [
+      "group",
+      "delta_logRMSSD",
+      "group*delta_logRMSSD"
+    ]
+  }
+}

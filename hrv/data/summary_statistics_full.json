@@ -1,0 +1,176 @@
+{
+  "Baseline_Comparisons": [
+    {
+      "biofeedback_mean": 28.7375,
+      "control_mean": 28.8,
+      "p": 0.943504519856116,
+      "t": -0.07097865672834923,
+      "variable": "Age"
+    },
+    {
+      "biofeedback_mean": 25.186249999999998,
+      "control_mean": 25.14375,
+      "p": 0.945879323842838,
+      "t": 0.06799364160078844,
+      "variable": "BMI"
+    },
+    {
+      "biofeedback_mean": 3.363773773653694,
+      "control_mean": 3.42006035241196,
+      "p": 0.35019321517980895,
+      "t": -0.9369930779431958,
+      "variable": "Baseline HRV (logRMSSD)"
+    },
+    {
+      "biofeedback_mean": 14.7125,
+      "control_mean": 13.55,
+      "p": 0.3439447124582464,
+      "t": 0.9493681946438095,
+      "variable": "BDI-II"
+    },
+    {
+      "biofeedback_mean": 8.175,
+      "control_mean": 7.575,
+      "p": 0.40265872256223645,
+      "t": 0.8391403215300794,
+      "variable": "GAD-7"
+    }
+  ],
+  "Group_Comparisons": [
+    {
+      "biofeedback_mean": 0.13462869520247286,
+      "control_mean": 0.03889848909051784,
+      "d": 0.5658465523071756,
+      "metric": "\u0394logRMSSD",
+      "p": 0.0004592108484454398,
+      "t": 3.57872782288856
+    },
+    {
+      "biofeedback_mean": 0.1896497828371952,
+      "control_mean": 0.1338976376566377,
+      "d": 0.5648369660505654,
+      "metric": "EV_rel",
+      "p": 0.00047090908135757957,
+      "t": 3.572342638757976
+    },
+    {
+      "biofeedback_mean": 4.37974352075547,
+      "control_mean": 4.435393401705386,
+      "d": -0.051389100669392375,
+      "metric": "\u03b2 (Beta)",
+      "p": 0.7456036618582351,
+      "t": -0.32501321004592687
+    },
+    {
+      "biofeedback_mean": 0.28074366086244085,
+      "control_mean": 0.2648234524956017,
+      "d": 0.0814549625075585,
+      "metric": "|\u03b1\u207a-\u03b1\u207b|",
+      "p": 0.6071567542801513,
+      "t": 0.5151664164950103
+    },
+    {
+      "biofeedback_mean": 0.05406308214334077,
+      "control_mean": 0.06592862423560782,
+      "d": -0.01478644567820289,
+      "metric": "\u03ba (Kappa)",
+      "p": 0.9256108121549853,
+      "t": -0.09351769368294854
+    }
+  ],
+  "H1_Performance": {
+    "BF_mean_EVrel": 0.1896497828371952,
+    "Control_mean_EVrel": 0.1338976376566377,
+    "beta": 0.05575214518055749,
+    "d": 0.5648369660505654,
+    "method": "Welch t-test + Cohen's d (derived from CSV)",
+    "p": 0.00047090908135757957
+  },
+  "H2_Mediation": {
+    "a_path": {
+      "a": 0.09573020611195504
+    },
+    "b_path": {
+      "b": 0.2040286393722175,
+      "c_prime": 0.03622044148071332
+    },
+    "bootstrap": {
+      "B": 5000,
+      "ci": "percentile_95",
+      "seed": 42
+    },
+    "ci_lower": 0.008040128263819401,
+    "ci_upper": 0.03165010599279975,
+    "indirect_effect": 0.019531703699844125,
+    "method": "Linear mediation (a*b) with bootstrap percentile CI",
+    "prop_mediated": 35.03309807468259,
+    "total_effect": {
+      "c": 0.05575214518055747
+    }
+  },
+  "H3_RL_Params": {
+    "asym_BF_mean": 0.28074366086244085,
+    "asym_Control_mean": 0.2648234524956017,
+    "asym_d": 0.0814549625075585,
+    "asym_p": 0.6071567542801513,
+    "beta_BF_mean": 4.37974352075547,
+    "beta_Control_mean": 4.435393401705386,
+    "beta_d": -0.051389100669392375,
+    "beta_p": 0.7456036618582351,
+    "kappa_BF_mean": 0.05406308214334077,
+    "kappa_Control_mean": 0.06592862423560782,
+    "kappa_d": -0.01478644567820289,
+    "kappa_p": 0.9256108121549853,
+    "method": "Welch t-test + Cohen's d (derived from CSV)",
+    "fitting_note": "ML point estimates with beta bounded [0, 5]. 68.1% of participants (n=109) hit the upper bound (beta=5.0). Full hierarchical Bayesian estimation planned for real-data phase."
+  },
+  "H4_Correlation": {
+    "ci_lower": 0.25925139867898644,
+    "ci_upper": 0.5213195174769164,
+    "method": "Pearson correlation (\u0394logRMSSD \u00d7 EV_rel) with Fisher-z CI. Pre-registered H4 (GAD-7/BDI-II \u00d7 EV_rel): r=-0.026 (GAD-7) and r=0.083 (BDI-II), both n.s. in TESTMODE data.",
+    "p": 1.8152630852774156e-07,
+    "r": 0.3983850566374897,
+    "variables": [
+      "delta_logRMSSD",
+      "EV_rel"
+    ],
+    "metric_label": "\u0394logRMSSD \u00d7 EV_rel",
+    "protocol_H4_note": {
+      "GAD7_vs_EVrel": {
+        "r": -0.0257,
+        "p": 0.747,
+        "interpretation": "not significant in TESTMODE"
+      },
+      "BDI_vs_EVrel": {
+        "r": 0.0833,
+        "p": 0.295,
+        "interpretation": "not significant in TESTMODE"
+      }
+    }
+  },
+  "H5_TrialLevel": {
+    "interaction_coef": -0.01392702691210504,
+    "interaction_p": 0.873967701356765,
+    "method": "Participant-level proxy: OLS EV_rel ~ group + \u0394logRMSSD + group\u00d7\u0394logRMSSD (derived from CSV). Trial-level requires trial table.",
+    "predictors": [
+      "group",
+      "delta_logRMSSD",
+      "group*delta_logRMSSD"
+    ]
+  },
+  "Manipulation_Check": {
+    "BF_mean_delta": 0.13462869520247286,
+    "Control_mean_delta": 0.03889848909051784,
+    "d": 0.5658465523071756,
+    "method": "Welch t-test + Cohen's d (derived from CSV)",
+    "p": 0.0004592108484454398,
+    "t": 3.57872782288856
+  },
+  "Study_Metadata": {
+    "n_biofeedback": 80,
+    "n_control": 80,
+    "n_total": 160,
+    "note": "All statistics in this repository are derived from the included CSV files. This dataset is simulated / test-mode and does not represent human participant results.",
+    "status": "SIMULATED_DATA_FOR_PROTOCOL_VALIDATION"
+  }
+}

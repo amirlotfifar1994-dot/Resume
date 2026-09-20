@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Data provenance – HRV Dashboard</title>
+  <style>
+    body { font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"; margin: 0; background: #f8fafc; color: #111827; }
+    main { max-width: 900px; margin: 0 auto; padding: 24px 16px 40px; }
+    .banner { background: #fffbeb; border: 1px solid #f59e0b; padding: 12px 14px; border-radius: 10px; margin-bottom: 8px; }
+    .note-box { background: #fff7ed; border: 1px solid #fb923c; padding: 12px 14px; border-radius: 10px; margin: 12px 0; }
+    .info-box { background: #eff6ff; border: 1px solid #93c5fd; padding: 12px 14px; border-radius: 10px; margin: 12px 0; }
+    h1 { margin: 18px 0 8px; font-size: 22px; }
+    h2 { margin: 18px 0 8px; font-size: 18px; }
+    code, pre { background: #0b1220; color: #e5e7eb; padding: 2px 6px; border-radius: 6px; }
+    a { color: #1d4ed8; }
+    ul { line-height: 1.65; }
+    .muted { color: #6b7280; }
+    table { border-collapse: collapse; width: 100%; margin: 12px 0; font-size: 14px; }
+    th, td { border: 1px solid #e5e7eb; padding: 8px 12px; text-align: left; }
+    th { background: #f1f5f9; font-weight: 600; }
+    .tag-ok   { background: #dcfce7; color: #166534; border-radius: 4px; padding: 1px 6px; font-size: 12px; }
+    .tag-warn { background: #fef3c7; color: #92400e; border-radius: 4px; padding: 1px 6px; font-size: 12px; }
+    .tag-note { background: #e0f2fe; color: #075985; border-radius: 4px; padding: 1px 6px; font-size: 12px; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="banner">
+      <strong>TEST MODE / SIMULATED DATA:</strong>
+      The dataset used by this dashboard is entirely synthetic and exists solely to validate the analysis pipeline and UI layout.
+      It is <strong>not</strong> human-participant trial data and must not be cited as RCT findings.
+    </div>
+
+    <h1>Data Provenance</h1>
+    <p class="muted">This page documents the status, contents, and known methodological notes for the dataset shipped with the dashboard build (v5.2, updated 2026-02-18).</p>
+
+    <h2>Status</h2>
+    <p>This build serves as a <strong>protocol / analysis-plan dashboard</strong> with simulated outputs for pipeline validation. For the full study protocol, pre-registration, and analysis plan, see the GitHub repository:
+      <a href="https://github.com/amirlotfifar1994-dot/HRV-Biofeedback-Decision-Making-RCT" target="_blank" rel="noreferrer">HRV-Biofeedback-Decision-Making-RCT</a>.</p>
+
+    <h2>Files Included</h2>
+    <ul>
+      <li><code>participants_with_params.csv</code> – participant-level synthetic table (N=160; 80/80 Biofeedback/Control split). Columns include demographics, HRV metrics, questionnaire scores, and RL parameters.</li>
+      <li><code>rl_parameters.csv</code> – RL parameter table (α⁺, α⁻, β, κ, NLL) from ML point-estimate fitting.</li>
+      <li><code>summary_statistics.json</code> / <code>summary_statistics_full.json</code> – aggregated outputs (means, SDs, p-values, effect sizes) fully consistent with the CSV files.</li>
+      <li><code>figures/manipulation_check.png</code>, <code>figures/comprehensive_results.png</code> – watermarked simulated figures.</li>
+    </ul>
+
+    <h2>Hypothesis Labelling Notes (v5.2 corrections)</h2>
+
+    <div class="note-box">
+      <strong>H4 Label Clarification:</strong>
+      The dashboard H4 panel displays the correlation between <em>ΔlogRMSSD</em> and <em>EV_rel</em> (r = 0.40, p &lt; 0.001). This is technically the <strong>path-b</strong> association from the H2 mediation model — not the pre-registered H4 hypothesis, which specifies individual-difference moderators (GAD-7, BDI-II, PSQI × EV_rel). In the TESTMODE simulated data, questionnaire-performance correlations are not significant (GAD-7 × EV_rel: r = −0.03; BDI-II × EV_rel: r = 0.08; both n.s.), as expected for synthetic data without real clinical variance. The pre-registered H4 will be properly tested in the real-data phase.
+    </div>
+
+    <div class="note-box">
+      <strong>H3 RL Parameters — Beta Capping:</strong>
+      The RL parameters in this dashboard were estimated using maximum-likelihood (ML) point estimation with β bounded to [0, 5]. In the simulated data, <strong>68.1% of participants (n = 109) hit the upper bound (β = 5.0)</strong>, indicating that the true inverse-temperature is likely higher than the bound allows. This boundary artefact means H3 group comparisons for β should be interpreted with caution. The full hierarchical Bayesian estimation using <code>dual_alpha_rl.stan</code> (Section 9 of the repository) is planned for the real-data phase and will resolve this.
+    </div>
+
+    <h2>Key Statistics (TESTMODE — Pipeline Validation Only)</h2>
+    <table>
+      <tr><th>Analysis</th><th>Result</th><th>Status</th></tr>
+      <tr><td>H1: EV_rel group difference</td><td>t = 3.57, p &lt; 0.001, d = 0.56</td><td><span class="tag-ok">✓ verified</span></td></tr>
+      <tr><td>Manipulation check (ΔlogRMSSD)</td><td>t = 3.58, p &lt; 0.001, d = 0.57</td><td><span class="tag-ok">✓ verified</span></td></tr>
+      <tr><td>H2: Indirect effect (a×b)</td><td>0.0195, 95% CI [0.008, 0.033]</td><td><span class="tag-ok">✓ verified</span></td></tr>
+      <tr><td>H3: RL parameter differences</td><td>All p &gt; 0.6</td><td><span class="tag-warn">⚠ beta capping — see note above</span></td></tr>
+      <tr><td>H4 (dashboard): ΔlogRMSSD × EV_rel</td><td>r = 0.40, p &lt; 0.001</td><td><span class="tag-note">ℹ path-b; pre-reg H4 n.s. in TESTMODE</span></td></tr>
+      <tr><td>H5: Trial-level coupling (proxy)</td><td>interaction p = 0.87</td><td><span class="tag-ok">✓ verified</span></td></tr>
+      <tr><td>Randomisation balance</td><td>All baseline vars p &gt; 0.30</td><td><span class="tag-ok">✓ balanced</span></td></tr>
+    </table>
+
+    <h2>SHA-256 Checksums (repo v5.2)</h2>
+    <p class="muted">These hashes correspond to the fixed v5.2 files in the repository. The <code>trials_testmode.csv</code> hash changed from v5.1 due to the Switch_After_Loss recoding fix.</p>
+    <table>
+      <tr><th>File</th><th>SHA-256</th></tr>
+      <tr><td>data/participants_testmode.csv</td><td><code>fb2bca08…</code></td></tr>
+      <tr><td>data/trials_testmode.csv</td><td><code>e3371d5a…</code> (updated v5.2)</td></tr>
+      <tr><td>Section 9/dual_alpha_rl.stan</td><td><code>5540694b…</code></td></tr>
+    </table>
+
+    <h2>What This Bundle Is Not</h2>
+    <ul>
+      <li>Not a de-identified export of human participant data.</li>
+      <li>Not final RCT results.</li>
+      <li>Not sufficient by itself for a results-based preprint.</li>
+    </ul>
+
+    <h2>Requirements for a Results-Based Preprint</h2>
+    <p>When real data are collected, the preprint will require: ethics approval details, CONSORT recruitment flow, data collection dates and location, primary and secondary outcomes computed from real trial data, a data availability statement or restricted-access policy, and reproducible scripts with checksums of raw inputs.</p>
+
+    <p><a href="./index.html">← Back to dashboard</a></p>
+  </main>
+</body>
+</html>
