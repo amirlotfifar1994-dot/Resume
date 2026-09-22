@@ -199,7 +199,7 @@
     /* reveal on scroll */
     var reduce = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
     if ("IntersectionObserver" in window && !reduce) {
-      var els = [].slice.call(doc.querySelectorAll(".card, .item, .stat, .cta, .section-head, .panel, .hero-side"));
+      var els = [].slice.call(doc.querySelectorAll(".card, .item, .stat, .cta, .section-head"));
       root.classList.add("js-reveal");
       var io = new IntersectionObserver(function (entries) {
         entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add("in"); io.unobserve(en.target); } });

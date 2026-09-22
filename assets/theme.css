@@ -39,14 +39,15 @@ html[dir="rtl"] .progress i,body.lang-fa .progress i{margin-inline-start:auto}
 .to-top.show{opacity:1;transform:none;pointer-events:auto}
 .to-top:hover{transform:translateY(-3px)}
 
-/* ---------- landing: put the two paths first ---------- */
+/* ---------- landing: put the two paths first (professional page keeps natural reading order) ---------- */
 .intro{display:flex;flex-direction:column}
-.intro .eyebrow{align-self:flex-start;order:0}
-.intro h1{order:1}
-.intro .role{order:2}
-.intro .actions{order:3;margin-top:8px;margin-bottom:22px;display:grid;grid-template-columns:1fr;gap:12px}
-.intro .summary{order:4}
-.intro .foot{order:5;margin-top:22px}
+.intro .eyebrow{align-self:flex-start}
+.intro.landing .eyebrow{order:0}
+.intro.landing h1{order:1}
+.intro.landing .role{order:2}
+.intro.landing .actions{order:3;margin-top:8px;margin-bottom:22px;display:grid;grid-template-columns:1fr;gap:12px}
+.intro.landing .summary{order:4}
+.intro.landing .foot{order:5;margin-top:22px}
 .intro .actions .btn{justify-content:space-between;min-height:74px;padding:16px 22px;font-size:17px;border-radius:22px;position:relative;overflow:hidden}
 .intro .actions .btn small{font-size:12px;opacity:.85;margin-top:2px}
 .intro .actions .btn:after{content:"";position:absolute;inset:0;background:linear-gradient(120deg,transparent 30%,rgba(255,255,255,.22) 50%,transparent 70%);
@@ -94,6 +95,9 @@ html.js-reveal .rv.in.card:hover{transform:translateY(-4px)}
   html{scroll-padding-top:80px}
   section[id]{scroll-margin-top:80px}
   .to-top{width:42px;height:42px}
+  .eyebrow{font-size:12px;padding:6px 11px;border-radius:16px;line-height:1.5}
+  .hero-side{min-height:0}
+  .photo{min-height:280px;aspect-ratio:4/5}
   .menu-btn{display:inline-grid;align-content:center;justify-items:center;gap:5px;width:44px;height:44px;border-radius:14px;border:1px solid var(--line);
     background:rgba(255,255,255,.6);cursor:pointer;padding:0;flex:0 0 auto}
   .menu-btn span{display:block;width:20px;height:2px;border-radius:2px;background:var(--navy);transition:transform .25s var(--ease),opacity .2s}
