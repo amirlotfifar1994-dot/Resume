@@ -2,7 +2,10 @@
   "text": {
     "View professional development details": "مشاهده‌ی جزئیات توسعه‌ی حرفه‌ای",
     "Comprehensive Neuroscience Diploma (Duke Curriculum), Data Analysis with Python (A+/92%), NBML Summer School": "دیپلم جامع علوم اعصاب (برنامه‌ی درسی دانشگاه دوک)، تحلیل داده با پایتون (A+/۹۲٪)، مدرسه‌ی تابستانی NBML",
-    "Laboratory Training & Research Experience": "آزمایشگاه آموزش & پژوهش تجربه",
+    "Laboratory Training & Research Experience": "آموزش آزمایشگاهی و تجربه‌ی پژوهشی",
+    "M.A. in Educational Psychology (in progress)": "کارشناسی ارشد روان‌شناسی تربیتی (در حال تحصیل)",
+    "Islamic Azad University, Science and Research Branch • Tehran, Iran • In progress (3rd semester)": "دانشگاه آزاد اسلامی، واحد علوم و تحقیقات • تهران، ایران • در حال تحصیل (ترم سوم)",
+    "Continuing graduate studies at the same institution, extending the B.Sc. background in psychology and statistics into educational psychology.": "ادامه‌ی تحصیلات تکمیلی در همان دانشگاه؛ گسترش پیشینه‌ی کارشناسی در روان‌شناسی و آمار به حوزه‌ی روان‌شناسی تربیتی.",
     "View Statistics coursework details": "مشاهده جزئیات درس‌های آمار",
     "Islamic Azad University, Science and Research Branch • Tehran, Iran • Sep 2020 - Jun 2024": "دانشگاه آزاد اسلامی، واحد علوم و تحقیقات • تهران، ایران • سپتامبر ۲۰۲۰ تا ژوئن ۲۰۲۴",
     "🏆 GPA: 18.23/20 (≈ 3.65/4.0)": "🏆 معدل: ۱۸.۲۳ از ۲۰ (≈ ۳.۶۵ از ۴)",
@@ -22,8 +25,8 @@
     "📎 Transcript attachment: course categories & grades": "📎 پیوست کارنامه: دسته‌بندی درس‌ها و نمره‌ها",
     "Compact list (course title, credits, grade). Full descriptions remain in the detail view.": "فهرست فشرده شامل عنوان درس، واحد و نمره؛ توضیحات کامل در نمای جزئیات قرار دارد.",
     "🧠 Cognitive & Neuroscience": "🧠 علوم اعصاب و شناخت",
-    "📊 Research Methods & Statistics": "📊 پژوهش روش‌ها & آمار",
-    "👨‍⚕️ Clinical & Applied Psychology": "👨‍⚕️ بالینی & کاربردی روان‌شناسی",
+    "📊 Research Methods & Statistics": "📊 روش‌های پژوهش و آمار",
+    "👨‍⚕️ Clinical & Applied Psychology": "👨‍⚕️ روان‌شناسی بالینی و کاربردی",
     "👶 Developmental, Social & Personality": "👶 رشد، اجتماعی و شخصیت",
     "🎯 Specialized & Professional Skills": "🎯 مهارت‌های تخصصی و حرفه‌ای",
     "📚 General Education & Electives": "📚 دروس عمومی و اختیاری"

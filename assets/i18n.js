@@ -5,7 +5,7 @@
 
   // Per-page in HTML so relative paths work from subdirectories.
   const I18N_DIR = (window.__I18N_DIR__ || "i18n/");
-  const CACHE_BUSTER = "20260920-v21-bilingual-fixes-r";
+  const CACHE_BUSTER = "20260922-v22-ma-education";
 
   function ensureFaTypography() {
     // Fonts are self-hosted (assets/fonts/fonts.css); load them only if the page did not already.
