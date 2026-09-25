@@ -1,8 +1,9 @@
 (function () {
   "use strict";
   var doc = document;
-  var btns = [].slice.call(doc.querySelectorAll(".shot-btn"));
-  if (!btns.length) return;
+  var all = [].slice.call(doc.querySelectorAll(".shot-btn"));
+  if (!all.length) return;
+  var btns = all;
   var lang = (doc.documentElement.getAttribute("lang") || "en").slice(0, 2);
   var L = { en: ["Close", "Previous", "Next"], it: ["Chiudi", "Precedente", "Successiva"], fa: ["بستن", "قبلی", "بعدی"] }[lang] || ["Close", "Previous", "Next"];
   var idx = 0, lb, img, cap, opener;
@@ -38,7 +39,13 @@
     lb.hidden = true; doc.body.classList.remove("lb-open");
     if (opener && opener.focus) opener.focus();
   }
-  btns.forEach(function (b, i) { b.addEventListener("click", function () { open(i); }); });
+  all.forEach(function (b) {
+    b.addEventListener("click", function () {
+      var g = b.closest(".shots");
+      btns = g ? [].slice.call(g.querySelectorAll(".shot-btn")) : all;
+      open(btns.indexOf(b));
+    });
+  });
   doc.addEventListener("keydown", function (e) {
     if (!lb || lb.hidden) return;
     var rtl = doc.documentElement.getAttribute("dir") === "rtl";

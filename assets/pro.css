@@ -102,3 +102,8 @@ body.lb-open{overflow:hidden}
   .lb-nav{display:none}
 }
 @media print{.pro .shots-wrap,.lightbox{display:none!important}}
+.pro .shots.tall .shot img{height:300px}
+.pro #design-portfolio .icon{font-size:15px}
+@media(max-width:720px){.pro .shots.tall .shot img{height:260px}}
+.pro #design-portfolio .grid{grid-template-columns:minmax(0,1fr)}
+.pro .shots-wrap{min-width:0}
