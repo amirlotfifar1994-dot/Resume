@@ -1,0 +1,36 @@
+/* Minimal landing page: one compact card, photo + name + two paths (loaded after theme.css, landing pages only). */
+
+body.land{line-height:1.6}
+.land .wrap{width:min(940px,calc(100% - 32px))}
+.land .topbar .wrap{min-height:56px}
+.land main{min-height:calc(100vh - 64px);display:flex;align-items:center}
+.land .hero{width:100%;padding:28px 0 36px;grid-template-columns:minmax(0,1fr) 250px;gap:14px;align-items:stretch}
+
+.land .panel{border-radius:20px;box-shadow:0 6px 24px rgba(13,27,42,.08)}
+.land .intro.landing{padding:30px 32px;justify-content:center}
+.land .intro .eyebrow{font-size:12px;padding:5px 11px;margin-bottom:14px;border-radius:999px}
+.land .intro h1{font-size:clamp(30px,4.4vw,44px);line-height:1.15;letter-spacing:-.02em;margin:0 0 6px}
+.land .intro .role{font-size:15px;line-height:1.7;font-weight:700;margin:0 0 20px}
+
+.land .intro.landing .actions{margin:0;grid-template-columns:1fr 1fr;gap:10px}
+.land .intro .actions .btn{min-height:58px;padding:10px 16px;font-size:15px;border-radius:14px;box-shadow:none;justify-content:space-between}
+.land .intro .actions .btn small{font-size:11.5px;line-height:1.4;margin-top:1px}
+.land .intro .actions .btn:hover{box-shadow:0 10px 22px rgba(13,27,42,.16)}
+
+.land .hero-side{padding:8px;border-radius:20px;min-height:0;box-shadow:0 6px 24px rgba(13,27,42,.12)}
+.land .photo{flex:1;min-height:260px;border-radius:14px}
+.land .photo img{position:absolute;inset:0;object-position:center top}
+.land .photo:after{display:none}
+
+@media(max-width:860px){
+  .land main{min-height:0;display:block}
+  .land .hero{grid-template-columns:1fr;padding-top:16px}
+  .land .hero-side{order:-1}
+  .land .photo{flex:none;min-height:0;aspect-ratio:16/10;max-height:250px}
+  .land .photo img{object-position:center 18%}
+  .land .intro.landing{padding:22px 20px}
+}
+@media(max-width:560px){
+  .land .intro.landing .actions{grid-template-columns:1fr}
+  .land .intro h1{font-size:30px}
+}

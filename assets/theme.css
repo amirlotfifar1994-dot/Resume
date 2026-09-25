@@ -195,3 +195,6 @@ html.js-reveal .rv.in.card:hover{transform:translateY(-4px)}
   .card,.panel{box-shadow:none!important;background:#fff!important;break-inside:avoid}
   :root[data-theme="dark"] *{color:#111!important}
 }
+
+/* Persian: letter-spacing breaks Arabic-script joining, so headings and the brand never use it. */
+body.lang-fa h1,body.lang-fa h2,body.lang-fa h3,body.lang-fa h4,body.lang-fa .brand,body.lang-fa .eyebrow,body.lang-fa .btn{letter-spacing:0!important}

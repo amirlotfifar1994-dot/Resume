@@ -22,3 +22,9 @@
   header nav a, header nav button { font-size: 12.5px; padding-inline: 9px; }
   header .header-content { padding-inline-end: 132px; }
 }
+
+/* Persian: the header name and any heading must use the Persian face, without italics or letter-spacing (both break Arabic-script joining). */
+html[lang="fa"] { --font-serif: 'Vazirmatn', system-ui, -apple-system, 'Segoe UI', Tahoma, sans-serif; }
+html[lang="fa"] .header-info h1 { font-family: 'Vazirmatn', system-ui, sans-serif !important; font-style: normal !important; font-weight: 800; letter-spacing: 0 !important; }
+html[lang="fa"] .header-info p { letter-spacing: 0 !important; text-transform: none; }
+html[lang="fa"] h1, html[lang="fa"] h2, html[lang="fa"] h3, html[lang="fa"] h4 { font-style: normal !important; letter-spacing: 0 !important; }
