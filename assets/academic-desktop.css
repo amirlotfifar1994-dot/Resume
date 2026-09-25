@@ -1,0 +1,24 @@
+/* Desktop refinements for the academic pages (>= 769px): header spacing and quick links. */
+@media (min-width: 769px) {
+  /* keep the tabs clear of the fixed language switch */
+  header .header-content { padding-inline-end: 142px; gap: 16px; }
+  header nav { flex-wrap: nowrap; }
+
+  /* Home / Professional résumé: a quiet strip between the header and the profile card (scrolls away with the page) */
+  .landing-links {
+    position: absolute;
+    top: 94px;
+    inset-inline-start: max(18px, calc(50% - 566px));
+    gap: 6px;
+    z-index: 10;
+  }
+  .landing-home-link { padding: 8px 13px; font-size: 12.5px; box-shadow: none; }
+  #main-content { padding-top: 46px; }
+
+  /* in RTL the fixed language switch moves to the left so it never covers the name */
+  html[dir="rtl"] .lang-switch { right: auto; left: 14px; }
+}
+@media (min-width: 769px) and (max-width: 1180px) {
+  header nav a, header nav button { font-size: 12.5px; padding-inline: 9px; }
+  header .header-content { padding-inline-end: 132px; }
+}

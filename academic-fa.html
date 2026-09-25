@@ -507,18 +507,6 @@
         .accordion-header[aria-expanded="true"] + .accordion-content { display: block; }
         .accordion-header[aria-expanded="true"] .accordion-icon { transform: rotate(180deg); }
 
-        /* ── Typing effect ──────────────────────────────── */
-        .typing-text { display: inline; opacity: 0; transition: opacity 0.3s; }
-        .typing-text.visible { opacity: 1; }
-        .typing-cursor {
-            display: inline-block;
-            width: 2px; height: 1.1em;
-            background: var(--primary);
-            margin-left: 2px;
-            animation: blink 1s step-end infinite;
-            vertical-align: text-bottom;
-        }
-        @keyframes blink { 0%,50% { opacity:1; } 51%,100% { opacity:0; } }
 
         /* ── Buttons ────────────────────────────────────── */
         .links { display: flex; gap: 8px; flex-wrap: wrap; }
@@ -2313,6 +2301,7 @@ header .header-content nav > [role="tablist"]{ display:flex; gap:4px; flex-wrap:
   @media(max-width:760px){.landing-links{top:auto;bottom:18px}}
 </style>
 <link rel="stylesheet" href="./assets/academic-mobile.css?v=1"/>
+<link rel="stylesheet" href="./assets/academic-desktop.css?v=2"/>
 </head>
 <body>
 <div class="landing-links"><a class="landing-home-link" data-nav="home" href="./index-fa.html">صفحه آغازین</a><a class="landing-home-link pro" data-nav="pro" href="./professional-fa.html">رزومه شغلی</a></div>
@@ -2375,7 +2364,7 @@ header .header-content nav > [role="tablist"]{ display:flex; gap:4px; flex-wrap:
   </span>
 </div>
 <p id="about-text" style="font-size:0.96rem;line-height:1.85;color:rgba(235,225,200,0.90);margin-bottom:28px;max-width: 920px;">
-<span class="typing-text">I am a cognitive neuroscience researcher with a background in psychology, statistics, and computational modeling. My work focuses on emotion, decision-making, and adaptive behavior, combining experimental design with EEG/psychophysiology pipelines and transparent, reproducible analysis. I also build interactive dashboards and research tools that make methods, assumptions, and results easy to inspect.</span><span class="typing-cursor" style="display: none;"></span>
+I am a cognitive neuroscience researcher with a background in psychology, statistics, and computational modeling. My work focuses on emotion, decision-making, and adaptive behavior, combining experimental design with EEG/psychophysiology pipelines and transparent, reproducible analysis. I also build interactive dashboards and research tools that make methods, assumptions, and results easy to inspect.
 </p>
 <div class="links">
 <a aria-label="Send email to Amirmohammad Lotfifar" class="btn btn-primary" href="mailto:a.lotfifar@iau.ir" onclick="event.stopPropagation();">Email</a>
@@ -8325,92 +8314,10 @@ if (removedCount === 0) {
          * افکت تایپی برای متن About Me
          */
         
-        // About typing effect (stable under rapid language switching)
-        const AboutTyper = (() => {
-            let runId = 0;
-            let timers = [];
-
-            function clearTimers() {
-                for (const t of timers) {
-                    try { clearTimeout(t); } catch (_) {}
-                }
-                timers = [];
-            }
-
-            function getFullText(textSpan) {
-                // Prefer data-full-text (translated by i18n)
-                const attr = textSpan.getAttribute('data-full-text');
-                if (attr && attr.trim()) return attr;
-                return textSpan.textContent || '';
-            }
-
-            function start() {
-                const element = document.getElementById('about-text');
-                if (!element) return;
-
-                const textSpan = element.querySelector('.typing-text');
-                const cursor = element.querySelector('.typing-cursor');
-                if (!textSpan || !cursor) return;
-
-                runId += 1;
-                const myRun = runId;
-                clearTimers();
-
-                const fullText = getFullText(textSpan);
-
-                textSpan.textContent = '';
-                textSpan.classList.add('visible');
-                cursor.style.display = 'inline-block';
-
-                let i = 0;
-                const speed = 40;
-
-                function step() {
-                    if (myRun !== runId) return;
-                    if (i < fullText.length) {
-                        textSpan.textContent += fullText.charAt(i);
-                        i += 1;
-                        timers.push(setTimeout(step, speed));
-                    } else {
-                        timers.push(setTimeout(() => {
-                            if (myRun !== runId) return;
-                            cursor.style.display = 'none';
-                        }, 450));
-                    }
-                }
-
-                timers.push(setTimeout(step, 180));
-            }
-
-            function stop() {
-                runId += 1;
-                clearTimers();
-            }
-
-            return { start, stop };
-        })();
-
-        // Initialize base full text attribute (EN) once, before i18n mutates textContent.
-        (function initAboutFullTextAttr(){
-            const element = document.getElementById('about-text');
-            if (!element) return;
-            const textSpan = element.querySelector('.typing-text');
-            if (!textSpan) return;
-            if (!textSpan.getAttribute('data-full-text')) {
-                textSpan.setAttribute('data-full-text', textSpan.textContent || '');
-            }
-        })();
-
-        // Start typing after DOM is ready (i18n may re-trigger later via cv:langchange)
-        document.addEventListener('DOMContentLoaded', () => {
-            AboutTyper.start();
-        });
-
-        // Restart typing when language changes (atomic; cancels prior runs)
         document.addEventListener('cv:langchange', () => {
             syncNavButtonLabels();
-            AboutTyper.start();
         });
+
 
 /**
          * هدر: در اسکرول به پایین مخفی، در اسکرول به بالا نمایش داده شود (فقط دسکتاپ)
