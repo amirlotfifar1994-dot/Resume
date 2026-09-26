@@ -1,5 +1,6 @@
 {
   "text": {
+    "Full book page →": "صفحه‌ی کامل کتاب ←",
     "← Back": "بازگشت",
     "Academic focus:": "تمرکز آکادمیک:",
     "Learning environment:": "محیط یادگیری:",
@@ -117,7 +118,7 @@
     "Overview": "نمای کلی",
     "Keywords:": "کلیدواژه‌ها:",
     "Status & open science": "وضعیت و علم باز",
-    "Manuscript completed and submitted for publication": "دست‌نوشته تکمیل و برای انتشار ارسال شده است.",
+    "Manuscript completed; ready for publication and print": "دست‌نوشته تکمیل شده و آماده‌ی نشر و چاپ است",
     "Expected Publication:": "زمان احتمالی انتشار:",
     "🔍 Analytical Thinking": "🔍 تفکر تحلیلی",
     "💡 Creative Thinking": "💡 تفکر خلاق",

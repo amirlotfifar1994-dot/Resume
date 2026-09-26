@@ -212,3 +212,49 @@ body.lb-open{overflow:hidden}
 .pro .nv-stage .nv-bases{margin-top:auto}
 .pro .nv-info{display:flex;flex-direction:column}
 .pro .nv-info .pillbox{margin-top:auto;padding-top:12px}
+
+/* ---------- book page ---------- */
+.pro .bk-hero{display:grid;grid-template-columns:260px minmax(0,1fr);gap:28px;align-items:center;padding:22px;margin-top:22px;background:linear-gradient(135deg,rgba(184,137,42,.10),rgba(23,43,70,.08))}
+.pro .bk-cover img{display:block;width:100%;height:auto;border-radius:10px;box-shadow:0 18px 40px rgba(13,27,42,.30);border:1px solid var(--line)}
+.pro .bk-eyebrow{display:inline-block;font:800 12px/1 Inter,Vazirmatn,system-ui,sans-serif;color:#765313;background:rgba(184,137,42,.14);border:1px solid rgba(184,137,42,.3);border-radius:999px;padding:6px 12px}
+:root[data-theme="dark"] .pro .bk-eyebrow{color:#e8cf95}
+.pro .bk-info h1{font-size:clamp(28px,4vw,42px);line-height:1.15;margin:12px 0 6px;letter-spacing:0}
+.pro .bk-fa{margin:0 0 8px;font-size:15px;color:var(--muted)}
+.pro .bk-sub{margin:0 0 10px;font-size:17px;line-height:1.6;color:var(--text)}
+.pro .bk-authors{margin:0 0 10px;font-size:14px;color:var(--muted)}
+.pro .bk-status{margin:0 0 14px}
+.pro .bk-facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:0 0 14px}
+.pro .bk-fact{padding:10px 12px;border-radius:12px;background:rgba(255,255,255,.55);border:1px solid var(--line);text-align:center}
+:root[data-theme="dark"] .pro .bk-fact{background:rgba(255,255,255,.05)}
+.pro .bk-fact b{display:block;font-size:22px;line-height:1.2;color:var(--navy)}
+:root[data-theme="dark"] .pro .bk-fact b{color:#f4ead2}
+.pro .bk-fact span{display:block;font-size:12px;line-height:1.4;color:var(--muted);margin-top:2px}
+.pro .bk-two{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:6px}
+.pro .bk-two h3{margin:0 0 6px}
+.pro .bk-islands{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.pro .bk-island{background:rgba(255,255,255,.7);border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column}
+:root[data-theme="dark"] .pro .bk-island{background:rgba(20,31,51,.78)}
+.pro .bk-island img{display:block;width:100%;height:auto;aspect-ratio:640/260;object-fit:cover}
+.pro .bk-island > div{padding:12px 14px 14px}
+.pro .bk-ch{font:800 11px/1 Inter,Vazirmatn,sans-serif;color:#8b6518;letter-spacing:.04em}
+:root[data-theme="dark"] .pro .bk-ch{color:#e2c078}
+.pro .bk-island h4{margin:6px 0 4px;font-size:16px;color:var(--navy)}
+:root[data-theme="dark"] .pro .bk-island h4{color:#f4ead2}
+.pro .bk-island p{margin:0;font-size:13.5px;line-height:1.55;color:var(--muted)}
+.pro .bk-excerpt{padding:20px 24px}
+.pro .bk-excerpt blockquote{margin:0}
+.pro .bk-excerpt blockquote p{margin:0 0 12px;font-size:16px;line-height:2;color:var(--text)}
+.pro .bk-excerpt blockquote.fa{padding-inline-start:14px;border-inline-start:3px solid var(--gold);font-family:Vazirmatn,system-ui,sans-serif}
+.pro .bk-excerpt blockquote.tr{margin-top:16px;padding-top:14px;border-top:1px solid var(--line)}
+.pro .bk-excerpt blockquote.tr p{font-size:14.5px;line-height:1.75;color:var(--muted)}
+.pro .bk-toc{list-style:none;margin:0;padding:16px 22px;columns:2;column-gap:36px}
+.pro .bk-toc li{display:flex;align-items:baseline;gap:8px;break-inside:avoid;padding:5px 0;font-size:14px}
+.pro .bk-toc li i{flex:1;border-bottom:1px dotted var(--line);transform:translateY(-3px)}
+.pro .bk-toc li b{font-variant-numeric:tabular-nums;color:var(--muted);font-weight:700}
+.pro .bk-shots .shot img{height:320px}
+@media(max-width:900px){.pro .bk-hero{grid-template-columns:200px minmax(0,1fr)}.pro .bk-islands{grid-template-columns:repeat(2,minmax(0,1fr))}.pro .bk-facts{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:640px){.pro .bk-hero{grid-template-columns:1fr;text-align:start}.pro .bk-cover{max-width:220px;margin:0 auto}.pro .bk-two,.pro .bk-islands{grid-template-columns:1fr}.pro .bk-toc{columns:1}.pro .bk-shots .shot img{height:260px}}
+@media print{.pro .slider{display:none}}
+.pro .project-card .bk-thumb{float:inline-end;width:112px;margin:0 0 10px 16px;margin-inline:16px 0;display:block}
+.pro .project-card .bk-thumb img{display:block;width:100%;height:auto;border-radius:8px;box-shadow:0 10px 24px rgba(13,27,42,.28);border:1px solid var(--line)}
+@media(max-width:560px){.pro .project-card .bk-thumb{width:88px}}

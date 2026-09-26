@@ -10,6 +10,7 @@
     "tab-dashboards": "داشبورد"
   },
   "text": {
+    "Full book page →": "صفحه‌ی کامل کتاب ←",
     "I am a psychology graduate with a background in statistics and computational modeling, and a strong interest in cognitive neuroscience. I am interested in emotion, decision-making, and adaptive behavior, and in combining experimental design with EEG/psychophysiology pipelines and transparent, reproducible analysis. I also build interactive dashboards and research tools that make methods, assumptions, and results easy to inspect.": "من فارغ‌التحصیل روان‌شناسی با پیشینه‌ی آمار و مدل‌سازی محاسباتی هستم و علاقه‌ی زیادی به علوم اعصاب شناختی دارم. به هیجان، تصمیم‌گیری و رفتار سازگار علاقه‌مندم و به ترکیب طراحی آزمایش با فرایندهای EEG/روان‌فیزیولوژی و تحلیل‌های شفاف و قابل بازتولید. همچنین داشبوردهای تعاملی و ابزارهای پژوهشی می‌سازم تا روش‌ها، فرض‌ها و نتایج به‌سادگی قابل بررسی باشند.",
     "Psychology Graduate · Interested in Cognitive Neuroscience": "کارشناس روان‌شناسی · علاقه‌مند به علوم اعصاب شناختی",
     "I have a particular interest in interdisciplinary work — connecting psychology, neuroscience, data, and technology with one another, especially in education and learning.": "علاقه‌ی ویژه‌ای به کار میان‌رشته‌ای و پیوند دادن روان‌شناسی، علوم اعصاب، داده و فناوری به یکدیگر دارم، به‌ویژه در حوزه‌ی آموزش و یادگیری.",
@@ -2303,7 +2304,7 @@
     "📋 PRE-REGISTERED RCT PROTOCOL": "📋 پروتکل RCT پیش‌ثبت‌شده",
     "📚 Publications & Research Outputs": "📚 انتشارات & پژوهش Outputs",
     "The Digital Mirror Exposure Paradox": "پارادوکس مواجهه با آینه دیجیتال",
-    "Manuscript completed and submitted for publication": "دست‌نوشته تکمیل و برای انتشار ارسال شده است.",
+    "Manuscript completed; ready for publication and print": "دست‌نوشته تکمیل شده و آماده‌ی نشر و چاپ است",
     "View E.M.E.R.G.E+ framework details": "مشاهده جزئیات E.M.E.R.G.E+ چارچوب",
     "View Digital Mirror Exposure Paradox framework details": "مشاهده جزئیات Digital Mirror Exposure Paradox چارچوب",
     "View abstract and links.": "مشاهده چکیده و پیوندها.",
