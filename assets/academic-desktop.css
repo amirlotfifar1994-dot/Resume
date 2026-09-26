@@ -42,3 +42,11 @@ html[lang="fa"] *, html[lang="fa"] *::before, html[lang="fa"] *::after { font-st
   .hero-card .profile-circle { max-width: none; width: 100%; height: 100%; aspect-ratio: auto; min-height: 300px; }
   .hero-card .profile-circle img { object-position: center top; }
 }
+
+/* Tablets and phones: a wide portrait on top, then the text (instead of a small thumbnail beside the title). */
+@media (max-width: 880px) {
+  .hero-card .profile-section { grid-template-columns: 1fr !important; gap: 20px !important; }
+  .hero-card .profile-circle-wrap { order: -1; align-items: stretch; }
+  .hero-card .profile-circle { max-width: none; width: 100%; height: auto; aspect-ratio: 16 / 11; max-height: 320px; }
+  .hero-card .profile-circle img { object-position: center 18%; }
+}

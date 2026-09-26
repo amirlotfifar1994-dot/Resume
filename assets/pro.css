@@ -129,3 +129,14 @@ body.lb-open{overflow:hidden}
 }
 @media print{.pro .site-preview{display:none!important}}
 .pro .grid > *{min-width:0}
+
+/* ---------- interactive dashboards gallery ---------- */
+.pro .grid.dashes{grid-template-columns:repeat(auto-fill,minmax(min(100%,360px),1fr));gap:16px}
+.pro .dash-item{display:flex;flex-direction:column;gap:14px;padding:14px}
+.pro .dash-item .site-preview{padding:18px 18px 22px;border-radius:14px;background:linear-gradient(135deg,rgba(184,137,42,.16),rgba(23,43,70,.14))}
+.pro .dash-item .device.phone{inset-inline-end:12px;bottom:10px;width:23%}
+.pro .dash-body{padding:0 4px 4px}
+.pro .dash-body h3{font-size:16.5px;margin:0 0 4px}
+.pro .dash-body p{margin:0;font-size:14px}
+.pro .dash-body .pillbox{margin-top:10px}
+@media print{.pro .dash-item .site-preview{display:none!important}}
