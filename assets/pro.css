@@ -205,3 +205,10 @@ body.lb-open{overflow:hidden}
 @media(max-width:720px){.pro .slide-nav{display:none}.pro .nv-strip .shot img{height:180px}}
 #nv-gallery .section-head{align-items:center}
 #nv-gallery .section-head .pill.live{font-size:12.5px;padding:8px 14px;white-space:nowrap}
+.pro .nv-stage .nv-bases{margin:14px 0 0}
+.pro .nv-hero{align-items:stretch}
+.pro .nv-stage{align-self:stretch;display:flex;flex-direction:column}
+.pro .nv-stage .nv-cap{margin-bottom:14px}
+.pro .nv-stage .nv-bases{margin-top:auto}
+.pro .nv-info{display:flex;flex-direction:column}
+.pro .nv-info .pillbox{margin-top:auto;padding-top:12px}
