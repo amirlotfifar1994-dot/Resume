@@ -367,3 +367,6 @@ html{scroll-padding-top:74px}
   .pro .topbar{box-shadow:none}
 }
 .pro .subnav > .wrap{position:relative}
+
+.pro .shots.wide .shot img{height:270px}
+@media(max-width:720px){.pro .shots.wide .shot img{height:200px}}
