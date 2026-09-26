@@ -333,3 +333,5 @@ body.lb-open{overflow:hidden}
 .pro .bk-side .pill.live{justify-content:center;text-align:center;padding:8px 10px}
 .pro .bk-main{min-width:0}
 @media(max-width:640px){.pro .bk-card{grid-template-columns:1fr}.pro .bk-side{position:static;flex-direction:row;align-items:center}.pro .bk-side .bk-thumb{width:96px;flex:0 0 auto}}
+
+.pro .grid.apps{grid-template-columns:minmax(0,1fr)}
