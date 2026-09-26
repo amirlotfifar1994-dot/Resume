@@ -91,3 +91,24 @@
     });
   });
 })();
+
+/* slider arrows for horizontal strips */
+(function () {
+  "use strict";
+  [].forEach.call(document.querySelectorAll(".slider"), function (box) {
+    var strip = box.querySelector(".shots"), prev = box.querySelector(".slide-nav.prev"), next = box.querySelector(".slide-nav.next");
+    if (!strip || !prev || !next) return;
+    function step() { return Math.max(200, strip.clientWidth * 0.8); }
+    function isRtl() { return getComputedStyle(strip).direction === "rtl"; }
+    function upd() {
+      var max = strip.scrollWidth - strip.clientWidth, x = Math.abs(strip.scrollLeft);
+      prev.hidden = x < 4; next.hidden = x > max - 4;
+      if (max <= 4) { prev.hidden = true; next.hidden = true; }
+    }
+    prev.addEventListener("click", function () { strip.scrollBy({ left: isRtl() ? step() : -step(), behavior: "smooth" }); });
+    next.addEventListener("click", function () { strip.scrollBy({ left: isRtl() ? -step() : step(), behavior: "smooth" }); });
+    strip.addEventListener("scroll", upd, { passive: true });
+    window.addEventListener("resize", upd);
+    upd(); setTimeout(upd, 400);
+  });
+})();
