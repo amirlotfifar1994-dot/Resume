@@ -145,7 +145,7 @@
   var sub = bar.querySelector(".subnav");
   var lastY = window.scrollY || 0, tick = false;
   function measure() {
-    var h = mq.matches || !sub ? bar.offsetHeight : (row1 ? row1.offsetHeight + 1 : 46);
+    var h = bar.offsetHeight;
     bar.style.setProperty("--hide", h + "px");
   }
   function onScroll() {
@@ -161,17 +161,36 @@
     });
   }
   measure();
+  bar.addEventListener("cv:relayout", measure);
   window.addEventListener("resize", measure);
   window.addEventListener("scroll", onScroll, { passive: true });
   bar.addEventListener("focusin", function () { bar.classList.remove("hide"); });
   if (window.ResizeObserver) { try { new ResizeObserver(measure).observe(bar); } catch (e) {} }
   var strip = sub && sub.querySelector(".wrap");
   function centerActive(smooth) {
-    if (!strip || !mq.matches) return;
+    if (!strip) return;
     var a = strip.querySelector("a.on"); if (!a) return;
     var target = a.offsetLeft - (strip.clientWidth - a.offsetWidth) / 2;
     try { strip.scrollTo({ left: target, behavior: smooth ? "smooth" : "auto" }); } catch (e) { strip.scrollLeft = target; }
   }
   if (strip && window.MutationObserver) new MutationObserver(function () { centerActive(true); }).observe(strip, { attributes: true, subtree: true, attributeFilter: ["class"] });
   setTimeout(function () { measure(); centerActive(false); }, 500);
+})();
+
+/* desktop: the section tabs join the top row; phones keep them as a strip under it */
+(function () {
+  "use strict";
+  var bar = document.querySelector(".topbar"), sub = bar && bar.querySelector(".subnav");
+  var row = bar && bar.querySelector(":scope > .wrap");
+  if (!sub || !row) return;
+  var mq = window.matchMedia ? matchMedia("(max-width: 720px)") : { matches: false };
+  function place() {
+    if (mq.matches) { if (sub.parentNode !== bar) bar.appendChild(sub); }
+    else { var nav = row.querySelector(".nav"); if (sub.parentNode !== row) row.insertBefore(sub, nav || null); }
+    bar.dispatchEvent(new Event("cv:relayout"));
+    var strip = sub.querySelector(".wrap"), a = strip && strip.querySelector("a.on");
+    if (a) { var t = a.offsetLeft - (strip.clientWidth - a.offsetWidth) / 2; strip.scrollLeft = t; }
+  }
+  place();
+  try { mq.addEventListener("change", place); } catch (e) { try { mq.addListener(place); } catch (e2) {} }
 })();

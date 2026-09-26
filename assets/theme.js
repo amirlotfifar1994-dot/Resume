@@ -37,6 +37,9 @@
     var topbar = doc.querySelector(".topbar");
     var nav = doc.querySelector(".topbar .nav");
 
+    /* ico-titles: the first three nav links are icon-only on desktop, so keep their names as tooltips */
+    if (nav) [].slice.call(nav.querySelectorAll("a")).slice(0, 3).forEach(function (a) { var x = a.textContent.trim(); a.setAttribute("title", x); a.setAttribute("aria-label", x); });
+
     /* theme toggle */
     if (nav) {
       var btn = doc.createElement("button");

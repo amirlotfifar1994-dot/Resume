@@ -357,3 +357,17 @@ html{scroll-padding-top:74px}
   .pro .subnav a{scroll-snap-align:center;padding:6px 14px;font-size:13px}
 }
 @media print{.pro .topbar{position:static}}
+
+/* ---------- one line: brand | section tabs | page icons | language | theme ---------- */
+@media(min-width:721px){
+  .pro .topbar .wrap{flex-wrap:nowrap;align-items:center}
+  .pro .brand{flex:0 0 auto;white-space:nowrap}
+  .pro .topbar .wrap > .subnav{flex:1 1 auto;min-width:0;border:0;background:none}
+  .pro .topbar .wrap > .subnav > .wrap{width:auto;max-width:none;margin:0;padding:2px 14px;min-height:0;gap:2px;
+    -webkit-mask-image:linear-gradient(to right,transparent 0,#000 14px,#000 calc(100% - 14px),transparent 100%);mask-image:linear-gradient(to right,transparent 0,#000 14px,#000 calc(100% - 14px),transparent 100%)}
+  .pro .subnav a{padding:5px 10px;font-size:12.5px}
+  .pro .nav{flex:0 0 auto}
+  .pro .topbar{box-shadow:none}
+}
+
+.pro .subnav > .wrap{position:relative}
