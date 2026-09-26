@@ -41,8 +41,8 @@
   }
   all.forEach(function (b) {
     b.addEventListener("click", function () {
-      var g = b.closest(".shots");
-      btns = g ? [].slice.call(g.querySelectorAll(".shot-btn")) : all;
+      var g = b.closest(".shots, .nv-grid");
+      btns = g ? [].slice.call(g.querySelectorAll(".shot-btn")).filter(function (x) { return !x.closest("[hidden]"); }) : all;
       open(btns.indexOf(b));
     });
   });
@@ -70,6 +70,24 @@
           b.setAttribute("aria-pressed", b === btn ? "true" : "false");
         });
       });
+    });
+  });
+})();
+
+/* NeuroVerse gallery: category filter */
+(function () {
+  "use strict";
+  var bar = document.querySelector(".nv-filters");
+  var grid = document.querySelector(".nv-grid");
+  if (!bar || !grid) return;
+  bar.addEventListener("click", function (e) {
+    var btn = e.target.closest(".nv-filter");
+    if (!btn) return;
+    var f = btn.getAttribute("data-filter");
+    [].forEach.call(bar.querySelectorAll(".nv-filter"), function (b) { b.setAttribute("aria-pressed", b === btn ? "true" : "false"); });
+    [].forEach.call(grid.querySelectorAll(".nv-item"), function (it) {
+      var show = f === "all" || it.getAttribute("data-cat") === f;
+      if (show) it.removeAttribute("hidden"); else it.setAttribute("hidden", "");
     });
   });
 })();

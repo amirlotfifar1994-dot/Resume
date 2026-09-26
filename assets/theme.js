@@ -6,11 +6,11 @@
 
   var L = {
     en: { menu: "Menu", pages: "Pages", secs: "On this page", langs: "Language", theme: "Theme", close: "Close menu", dark: "Switch to dark theme", light: "Switch to light theme", top: "Back to top", sections: "Page sections",
-      nav: ["Summary", "Experience", "Services", "Skills", "Products", "Books & content", "Websites", "Dashboards", "Design"] },
+      nav: ["Summary", "Experience", "Services", "Skills", "Products", "NeuroVerse", "Books & content", "Websites", "Dashboards", "Design"] },
     it: { menu: "Menu", pages: "Pagine", secs: "In questa pagina", langs: "Lingua", theme: "Tema", close: "Chiudi menu", dark: "Passa al tema scuro", light: "Passa al tema chiaro", top: "Torna su", sections: "Sezioni della pagina",
-      nav: ["Sintesi", "Esperienza", "Servizi", "Competenze", "Prodotti", "Libri e contenuti", "Siti web", "Dashboard", "Design"] },
+      nav: ["Sintesi", "Esperienza", "Servizi", "Competenze", "Prodotti", "NeuroVerse", "Libri e contenuti", "Siti web", "Dashboard", "Design"] },
     fa: { menu: "منو", pages: "صفحه‌ها", secs: "در این صفحه", langs: "زبان", theme: "تم", close: "بستن منو", dark: "تم تیره", light: "تم روشن", top: "بازگشت به بالا", sections: "بخش‌های صفحه",
-      nav: ["خلاصه", "تجربه‌ها", "خدمات", "مهارت‌ها", "محصولات", "کتاب و محتوا", "سایت‌ها", "داشبوردها", "طراحی"] }
+      nav: ["خلاصه", "تجربه‌ها", "خدمات", "مهارت‌ها", "محصولات", "اطلس مغز", "کتاب و محتوا", "سایت‌ها", "داشبوردها", "طراحی"] }
   }[lang];
 
   function safe(fn) { try { return fn(); } catch (e) { return null; } }
@@ -67,7 +67,7 @@
     var secs = [].slice.call(doc.querySelectorAll("main section")).filter(function (s) { return s.querySelector("h2"); });
     var links = [];
     if (topbar && secs.length >= 4) {
-      var ids = ["summary", "experience", "services", "skills", "product-projects", "content-books", "website-projects", "dashboards", "design-portfolio"];
+      var ids = ["summary", "experience", "services", "skills", "product-projects", "neuroverse", "content-books", "website-projects", "dashboards", "design-portfolio"];
       var useMap = secs.length === ids.length;
       var sub = doc.createElement("div"); sub.className = "subnav";
       var wrap = doc.createElement("div"); wrap.className = "wrap";
