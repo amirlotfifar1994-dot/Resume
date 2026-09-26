@@ -23,6 +23,11 @@
       else if (doc.body.style.paddingTop && !/^\d+px$/.test(doc.body.style.paddingTop)) doc.body.style.paddingTop = "";
     }
 
+    /* quick links (Home / Professional) live inside the header row on every width; phones hide them via CSS and use the drawer */
+    var ql = doc.querySelector(".landing-links");
+    if (ql && ql.parentNode !== content) content.appendChild(ql);
+    if (ql) [].forEach.call(ql.querySelectorAll("a"), function (a) { a.setAttribute("title", a.textContent.trim()); a.setAttribute("aria-label", a.textContent.trim()); });
+
     var btn = doc.createElement("button");
     btn.type = "button"; btn.className = "am-btn"; btn.setAttribute("aria-expanded", "false"); btn.setAttribute("aria-controls", "am-drawer");
     btn.innerHTML = "<span></span><span></span><span></span>";

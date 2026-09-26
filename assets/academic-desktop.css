@@ -1,26 +1,33 @@
-/* Desktop refinements for the academic pages (>= 769px): header spacing and quick links. */
+/* Desktop (>= 769px): one compact header row - name, tabs, quick links, language/theme (fixed at the corner). */
 @media (min-width: 769px) {
-  /* keep the tabs clear of the fixed language switch */
-  header .header-content { padding-inline-end: 142px; gap: 16px; }
-  header nav { flex-wrap: nowrap; }
+  header .header-content { padding: 6px 0; padding-inline-end: 178px; gap: 14px; flex-wrap: nowrap; align-items: center; }
+  header .header-info { flex: 0 0 auto; }
+  header .header-info h1 { font-size: 1.18rem; margin-bottom: 0; line-height: 1.2; white-space: nowrap; }
+  header .header-info p { font-size: .66rem; line-height: 1.4; margin: 0; letter-spacing: .04em; white-space: nowrap; }
+  header nav { flex: 1 1 auto; min-width: 0; flex-wrap: nowrap; margin-inline-start: auto; }
+  header .nav-btn { min-height: 34px; padding-inline: 11px; font-size: .8rem; }
+  header .header-content nav > [role="tablist"] { flex-wrap: nowrap; gap: 2px; }
 
-  /* Home / Professional résumé: a quiet strip between the header and the profile card (scrolls away with the page) */
-  .landing-links {
-    position: absolute;
-    top: 94px;
-    inset-inline-start: max(18px, calc(50% - 566px));
-    gap: 6px;
-    z-index: 10;
-  }
-  .landing-home-link { padding: 8px 13px; font-size: 12.5px; box-shadow: none; }
-  #main-content { padding-top: 46px; }
+  /* Home / Professional résumé sit in the same row */
+  header .landing-links { position: static; display: flex; flex: 0 0 auto; flex-wrap: nowrap; gap: 6px; margin: 0; max-width: none; z-index: auto; }
+  header .landing-home-link { padding: 7px 12px; font-size: 12px; box-shadow: none; white-space: nowrap; }
+  #main-content { padding-top: 22px; }
 
   /* in RTL the fixed language switch moves to the left so it never covers the name */
   html[dir="rtl"] .lang-switch { right: auto; left: 14px; }
 }
-@media (min-width: 769px) and (max-width: 1180px) {
-  header nav a, header nav button { font-size: 12.5px; padding-inline: 9px; }
-  header .header-content { padding-inline-end: 132px; }
+@media (min-width: 769px) {
+  header > .container { max-width: 1360px; }
+  header .header-content nav > [role="tablist"] { overflow-x: auto; scrollbar-width: none; }
+  header .header-content nav > [role="tablist"]::-webkit-scrollbar { display: none; }
+}
+@media (min-width: 769px) and (max-width: 1440px) {
+  header .header-info p { display: none; }
+  header .nav-btn { padding-inline: 9px; font-size: .78rem; }
+  header .landing-home-link { font-size: 0; padding: 0; width: 34px; height: 34px; display: inline-grid; place-items: center; }
+  header .landing-home-link::before { font-size: 15px; line-height: 1; }
+  header .landing-home-link[data-nav="home"]::before { content: "⌂"; }
+  header .landing-home-link[data-nav="pro"]::before { content: "💼"; }
 }
 
 /* Persian: the header name and any heading must use the Persian face, without italics or letter-spacing (both break Arabic-script joining). */
