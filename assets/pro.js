@@ -112,3 +112,25 @@
     upd(); setTimeout(upd, 400);
   });
 })();
+
+/* book: island explorer tabs */
+(function () {
+  "use strict";
+  var ex = document.querySelector(".isl-explorer");
+  if (!ex) return;
+  var tabs = [].slice.call(ex.querySelectorAll(".isl-tab")), panels = [].slice.call(ex.querySelectorAll(".isl-panel"));
+  function pick(i, focus) {
+    tabs.forEach(function (t, k) { t.setAttribute("aria-selected", k === i ? "true" : "false"); t.tabIndex = k === i ? 0 : -1; });
+    panels.forEach(function (p, k) { if (k === i) p.removeAttribute("hidden"); else p.setAttribute("hidden", ""); });
+    if (focus) tabs[i].focus();
+  }
+  tabs.forEach(function (t, i) {
+    t.addEventListener("click", function () { pick(i); });
+    t.addEventListener("keydown", function (e) {
+      var n = tabs.length;
+      if (e.key === "ArrowDown" || e.key === "ArrowRight") { e.preventDefault(); pick((i + 1) % n, true); }
+      else if (e.key === "ArrowUp" || e.key === "ArrowLeft") { e.preventDefault(); pick((i + n - 1) % n, true); }
+    });
+  });
+  pick(0);
+})();
