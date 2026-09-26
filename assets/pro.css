@@ -151,3 +151,4 @@ body.lb-open{overflow:hidden}
 .pro .site-preview[data-langs] .lang-switch{top:3px;inset-inline-end:7px;padding:1px 3px 1px 7px}
 .pro .site-preview[data-langs] .lang-switch .globe{font-size:10px}
 .pro .site-preview[data-langs] .lang-switch button{font-size:10px;padding:4px 7px}
+.pro .dash-item .site-preview[data-langs] .lang-switch{top:21px;inset-inline-end:25px}

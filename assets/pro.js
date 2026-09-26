@@ -64,6 +64,8 @@
         e.preventDefault(); e.stopPropagation();
         var l = btn.getAttribute("data-set");
         box.setAttribute("data-show", l);
+        var scope = box.closest(".dash-item") || box;
+        [].forEach.call(scope.querySelectorAll("a[data-href-" + l + "]"), function (a) { a.setAttribute("href", a.getAttribute("data-href-" + l)); });
         [].forEach.call(box.querySelectorAll(".lang-switch button"), function (b) {
           b.setAttribute("aria-pressed", b === btn ? "true" : "false");
         });
