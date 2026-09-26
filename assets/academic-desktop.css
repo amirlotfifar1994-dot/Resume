@@ -28,3 +28,17 @@ html[lang="fa"] { --font-serif: 'Vazirmatn', system-ui, -apple-system, 'Segoe UI
 html[lang="fa"] .header-info h1 { font-family: 'Vazirmatn', system-ui, sans-serif !important; font-style: normal !important; font-weight: 800; letter-spacing: 0 !important; }
 html[lang="fa"] .header-info p { letter-spacing: 0 !important; text-transform: none; }
 html[lang="fa"] h1, html[lang="fa"] h2, html[lang="fa"] h3, html[lang="fa"] h4 { font-style: normal !important; letter-spacing: 0 !important; }
+
+/* Focus lands on a tab panel after a #hash jump; the browser's default black outline looked like a bug. */
+.section[tabindex]:focus, .section[tabindex]:focus-visible { outline: none; box-shadow: none; }
+
+/* Persian has no italics and letter-spacing breaks Arabic-script joining, anywhere on the page. */
+html[lang="fa"] *, html[lang="fa"] *::before, html[lang="fa"] *::after { font-style: normal !important; letter-spacing: normal !important; }
+
+/* Hero: the portrait fills the full height of the text block so both sides line up. */
+@media (min-width: 881px) {
+  .hero-card .profile-section { align-items: stretch; grid-template-columns: minmax(0, 1fr) 280px !important; gap: 44px !important; }
+  .hero-card .profile-circle-wrap { align-self: stretch; justify-content: stretch; }
+  .hero-card .profile-circle { max-width: none; width: 100%; height: 100%; aspect-ratio: auto; min-height: 300px; }
+  .hero-card .profile-circle img { object-position: center top; }
+}
