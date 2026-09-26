@@ -335,3 +335,25 @@ body.lb-open{overflow:hidden}
 @media(max-width:640px){.pro .bk-card{grid-template-columns:1fr}.pro .bk-side{position:static;flex-direction:row;align-items:center}.pro .bk-side .bk-thumb{width:96px;flex:0 0 auto}}
 
 .pro .grid.apps{grid-template-columns:minmax(0,1fr)}
+
+/* ---------- header: compact, hides on scroll down, returns on scroll up ---------- */
+html{scroll-padding-top:74px}
+.pro .topbar{transition:top .28s ease,box-shadow .25s}
+.pro .topbar.hide{top:calc(-1 * var(--hide,46px))}
+.pro .topbar .wrap{min-height:46px;gap:12px}
+.pro .brand{font-size:15px}
+.pro .nav{gap:6px}
+.pro .nav a{padding:6px 12px;font-size:12.5px}
+.pro .theme-toggle{width:32px;height:32px;font-size:14px}
+.pro .subnav .wrap{padding:5px 0;gap:4px}
+.pro .subnav a{padding:5px 12px;font-size:12.5px}
+@media(max-width:720px){
+  html{scroll-padding-top:18px}
+  .pro .topbar .wrap{min-height:50px;padding:6px 0}
+  /* section tabs as a touch-scrollable strip under the title row (the drawer keeps the full menu) */
+  .pro .topbar .subnav{display:block;border-top:1px solid var(--line)}
+  .pro .topbar .subnav .wrap{display:flex;overflow-x:auto;scroll-snap-type:x proximity;overscroll-behavior-x:contain;touch-action:pan-x;padding:6px 2px;gap:6px;
+    -webkit-mask-image:linear-gradient(to right,transparent 0,#000 12px,#000 calc(100% - 12px),transparent 100%);mask-image:linear-gradient(to right,transparent 0,#000 12px,#000 calc(100% - 12px),transparent 100%)}
+  .pro .subnav a{scroll-snap-align:center;padding:6px 14px;font-size:13px}
+}
+@media print{.pro .topbar{position:static}}

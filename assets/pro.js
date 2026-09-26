@@ -134,3 +134,44 @@
   });
   pick(0);
 })();
+
+/* header: hide on scroll down (whole bar on phones, top row on desktop), show on scroll up; keep the active section tab in view */
+(function () {
+  "use strict";
+  var bar = document.querySelector(".topbar");
+  if (!bar) return;
+  var mq = window.matchMedia ? matchMedia("(max-width: 720px)") : { matches: false };
+  var row1 = bar.querySelector(".wrap");
+  var sub = bar.querySelector(".subnav");
+  var lastY = window.scrollY || 0, tick = false;
+  function measure() {
+    var h = mq.matches || !sub ? bar.offsetHeight : (row1 ? row1.offsetHeight + 1 : 46);
+    bar.style.setProperty("--hide", h + "px");
+  }
+  function onScroll() {
+    if (tick) return; tick = true;
+    requestAnimationFrame(function () {
+      tick = false;
+      if (document.body.classList.contains("menu-open")) { bar.classList.remove("hide"); lastY = window.scrollY || 0; return; }
+      var y = window.scrollY || 0, dy = y - lastY;
+      if (y <= 10) bar.classList.remove("hide");
+      else if (dy > 8 && y > 120) bar.classList.add("hide");
+      else if (dy < -6) bar.classList.remove("hide");
+      lastY = y;
+    });
+  }
+  measure();
+  window.addEventListener("resize", measure);
+  window.addEventListener("scroll", onScroll, { passive: true });
+  bar.addEventListener("focusin", function () { bar.classList.remove("hide"); });
+  if (window.ResizeObserver) { try { new ResizeObserver(measure).observe(bar); } catch (e) {} }
+  var strip = sub && sub.querySelector(".wrap");
+  function centerActive(smooth) {
+    if (!strip || !mq.matches) return;
+    var a = strip.querySelector("a.on"); if (!a) return;
+    var target = a.offsetLeft - (strip.clientWidth - a.offsetWidth) / 2;
+    try { strip.scrollTo({ left: target, behavior: smooth ? "smooth" : "auto" }); } catch (e) { strip.scrollLeft = target; }
+  }
+  if (strip && window.MutationObserver) new MutationObserver(function () { centerActive(true); }).observe(strip, { attributes: true, subtree: true, attributeFilter: ["class"] });
+  setTimeout(function () { measure(); centerActive(false); }, 500);
+})();
