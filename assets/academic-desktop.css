@@ -59,3 +59,6 @@ html[lang="fa"] *, html[lang="fa"] *::before, html[lang="fa"] *::after { font-st
   .hero-card .profile-circle { max-width: none; width: 100%; height: auto; aspect-ratio: 16 / 11; max-height: 320px; }
   .hero-card .profile-circle img { object-position: center 18%; }
 }
+
+/* language / theme switch: vertically centred on the 57px header row */
+@media (min-width: 769px) { .lang-switch { top: 5px !important; } }
