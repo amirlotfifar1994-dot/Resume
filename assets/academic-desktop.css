@@ -4,12 +4,12 @@
   header .header-info { flex: 0 0 auto; }
   header .header-info h1 { font-size: 1.18rem; margin-bottom: 0; line-height: 1.2; white-space: nowrap; }
   header .header-info p { font-size: .66rem; line-height: 1.4; margin: 0; letter-spacing: .04em; white-space: nowrap; }
-  header nav { flex: 1 1 auto; min-width: 0; flex-wrap: nowrap; margin-inline-start: auto; }
-  header .nav-btn { min-height: 34px; padding-inline: 11px; font-size: .8rem; }
+  header nav { flex: 0 1 auto; min-width: 0; flex-wrap: nowrap; }
+  header .nav-btn { min-height: 34px; padding-inline: 11px; font-size: .8rem; white-space: nowrap; display: inline-flex; align-items: center; gap: 5px; }
   header .header-content nav > [role="tablist"] { flex-wrap: nowrap; gap: 2px; }
 
   /* Home / Professional résumé sit in the same row */
-  header .landing-links { position: static; display: flex; flex: 0 0 auto; flex-wrap: nowrap; gap: 6px; margin: 0; max-width: none; z-index: auto; }
+  header .landing-links { position: static; display: flex; flex: 0 0 auto; margin-inline-start: auto; flex-wrap: nowrap; gap: 6px; max-width: none; z-index: auto; }
   header .landing-home-link { padding: 7px 12px; font-size: 12px; box-shadow: none; white-space: nowrap; }
   #main-content { padding-top: 22px; }
 
@@ -24,10 +24,12 @@
 @media (min-width: 769px) and (max-width: 1440px) {
   header .header-info p { display: none; }
   header .nav-btn { padding-inline: 9px; font-size: .78rem; }
-  header .landing-home-link { font-size: 0; padding: 0; width: 34px; height: 34px; display: inline-grid; place-items: center; }
-  header .landing-home-link::before { font-size: 15px; line-height: 1; }
-  header .landing-home-link[data-nav="home"]::before { content: "⌂"; }
-  header .landing-home-link[data-nav="pro"]::before { content: "💼"; }
+}
+/* below ~1320px the two quick links become icons (tooltips carry the names) */
+@media (min-width: 769px) and (max-width: 1320px) {
+  header .landing-home-link { font-size: 0; padding: 0; width: 36px; height: 36px; }
+  header .landing-home-link[data-nav="home"] { background: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%230d1b2a%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M3%2011l9-8%209%208%22%2F%3E%3Cpath%20d%3D%22M5%2010v10h5v-6h4v6h5V10%22%2F%3E%3C%2Fsvg%3E") center / 18px no-repeat, rgba(255,255,255,.9); }
+  header .landing-home-link[data-nav="pro"] { background: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23261a07%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Crect%20x%3D%223%22%20y%3D%227%22%20width%3D%2218%22%20height%3D%2213%22%20rx%3D%222%22%2F%3E%3Cpath%20d%3D%22M9%207V5a2%202%200%200%201%202-2h2a2%202%200%200%201%202%202v2%22%2F%3E%3Cpath%20d%3D%22M3%2013h18%22%2F%3E%3C%2Fsvg%3E") center / 18px no-repeat, linear-gradient(135deg,#b8892a,#d8b765); }
 }
 
 /* Persian: the header name and any heading must use the Persian face, without italics or letter-spacing (both break Arabic-script joining). */
