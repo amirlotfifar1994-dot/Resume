@@ -3,14 +3,23 @@
 
 @media (max-width:768px){
   /* header no longer covers the content: compact bar, body padded to its real height by academic-mobile.js */
-  header[role="banner"] .header-content{flex-wrap:nowrap;align-items:center;justify-content:space-between;padding:8px 0;gap:10px}
+  header[role="banner"] .header-content{flex-wrap:wrap;align-items:center;justify-content:space-between;padding:8px 0 4px;gap:6px 10px}
+  header[role="banner"] .header-info{flex:1;min-width:0}
   header[role="banner"] .header-info h1{font-size:1.05rem;margin:0;line-height:1.25}
   header[role="banner"] .header-info p{display:none}
-  header[role="banner"] nav{display:none!important}
+  /* section tabs: a touch-scrollable strip under the title row */
+  header[role="banner"] .header-content nav{display:block!important;order:3;flex:0 0 100%;width:100%;min-width:0}
+  header[role="banner"] .header-content nav > [role="tablist"]{display:flex;flex-wrap:nowrap;gap:6px;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x proximity;
+    -webkit-overflow-scrolling:touch;touch-action:pan-x;padding:2px 2px 6px;scrollbar-width:none;
+    -webkit-mask-image:linear-gradient(to right,transparent 0,#000 14px,#000 calc(100% - 14px),transparent 100%);mask-image:linear-gradient(to right,transparent 0,#000 14px,#000 calc(100% - 14px),transparent 100%)}
+  header[role="banner"] .header-content nav > [role="tablist"]::-webkit-scrollbar{display:none}
+  header[role="banner"] .nav-btn{flex:0 0 auto;scroll-snap-align:center;min-height:38px;padding:0 15px;font-size:.82rem;white-space:nowrap}
+  /* hide the whole header while scrolling down, show it again on scroll up */
+  header[role="banner"]{transition:transform .28s ease,opacity .28s ease}
+  header[role="banner"].am-hide{transform:translateY(-105%);opacity:0;pointer-events:none}
   .lang-switch{display:none!important}
   .landing-links{display:none!important}
-  :root{--header-offset:64px}
-  .section,.detail-view{scroll-margin-top:72px}
+  .section,.detail-view{scroll-margin-top:calc(var(--header-offset,104px) + 8px)}
 
   .am-btn{display:inline-grid;align-content:center;justify-items:center;gap:5px;width:44px;height:44px;border-radius:14px;border:1px solid rgba(13,27,42,.14);
     background:rgba(255,255,255,.7);cursor:pointer;padding:0;flex:0 0 auto}
@@ -47,8 +56,6 @@
 
 @media (prefers-color-scheme:dark){
   @media (max-width:768px){
-    html:not(.light) .am-btn{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.18)}
-    html:not(.light) .am-btn span{background:#f4ead2}
     html:not(.light) .am-drawer{background:linear-gradient(180deg,#101b2f,#0b1424);color:#e8edf5}
     html:not(.light) .am-close,html:not(.light) .am-link,html:not(.light) .am-lang{background:rgba(255,255,255,.07);color:#e8edf5;border-color:rgba(255,255,255,.16)}
     html:not(.light) .am-link.current,html:not(.light) .am-lang.current{background:linear-gradient(135deg,#223d63,#2f4f80);color:#fff}

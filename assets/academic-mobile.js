@@ -19,7 +19,7 @@
 
     /* pad the body so the fixed header never covers the content on phones */
     function pad() {
-      if (mq.matches) doc.body.style.paddingTop = header.offsetHeight + "px";
+      if (mq.matches) { doc.body.style.paddingTop = header.offsetHeight + "px"; root.style.setProperty("--header-offset", header.offsetHeight + "px"); }
       else if (doc.body.style.paddingTop && !/^\d+px$/.test(doc.body.style.paddingTop)) doc.body.style.paddingTop = "";
     }
 
@@ -110,7 +110,37 @@
     window.addEventListener("resize", function () { pad(); if (!mq.matches && dr.classList.contains("open")) close(false); });
     doc.addEventListener("cv:langchange", function () { setTimeout(pad, 60); });
     if (window.ResizeObserver) { try { new ResizeObserver(pad).observe(header); } catch (e) {} }
+    /* scroll: hide on the way down, show on the way up (phones only) */
+    var lastY = window.scrollY || 0, tick = false;
+    function onScroll() {
+      if (tick) return; tick = true;
+      requestAnimationFrame(function () {
+        tick = false;
+        if (!mq.matches || doc.body.classList.contains("am-open")) { header.classList.remove("am-hide"); lastY = window.scrollY || 0; return; }
+        var y = window.scrollY || 0, dy = y - lastY;
+        if (y <= 10) header.classList.remove("am-hide");
+        else if (dy > 8 && y > header.offsetHeight) header.classList.add("am-hide");
+        else if (dy < -6) header.classList.remove("am-hide");
+        lastY = y;
+      });
+    }
+    window.addEventListener("scroll", onScroll, { passive: true });
+    header.addEventListener("focusin", function () { header.classList.remove("am-hide"); });
+
+    /* keep the active tab in view inside the strip */
+    var strip = header.querySelector('nav [role="tablist"]');
+    function centerActive(smooth) {
+      if (!strip || !mq.matches) return;
+      var a = strip.querySelector(".nav-btn.active"); if (!a) return;
+      var target = a.offsetLeft - (strip.clientWidth - a.offsetWidth) / 2;
+      try { strip.scrollTo({ left: target, behavior: smooth ? "smooth" : "auto" }); } catch (e) { strip.scrollLeft = target; }
+    }
+    if (strip && window.MutationObserver) {
+      new MutationObserver(function () { header.classList.remove("am-hide"); centerActive(true); }).observe(strip, { attributes: true, subtree: true, attributeFilter: ["class"] });
+    }
+    doc.addEventListener("cv:langchange", function () { setTimeout(function () { centerActive(false); }, 120); });
+
     build(); pad();
-    setTimeout(pad, 300); setTimeout(pad, 1200);
+    setTimeout(pad, 300); setTimeout(pad, 1200); setTimeout(function () { centerActive(false); }, 500);
   });
 })();
