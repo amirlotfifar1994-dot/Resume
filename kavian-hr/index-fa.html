@@ -24,9 +24,9 @@
     // فقط اگه localStorage کاملاً خالیه داده embed رو بارگذاری کن
     // هرگز روی داده ذخیره‌شده یا import شده کاربر overwrite نکن
     var _existing = null;
-    try{ _existing = localStorage.getItem("att_dash_v4_multi"); }catch(e){}
+    try{ _existing = localStorage.getItem("att_dash_v5_demo"); }catch(e){}
     if(!_existing){
-      localStorage.setItem("att_dash_v4_multi", JSON.stringify(_embedded));
+      localStorage.setItem("att_dash_v5_demo", JSON.stringify(_embedded));
     }
   }catch(e){ console.warn("embed load error:", e); }
 })();
@@ -2420,7 +2420,7 @@ body.theme-light .kpi-emp-row:hover{background:rgba(26,110,196,.03);}
 // ══════════════════════════════════════════════
 //  CONFIG & PER-EMPLOYEE HOURS
 // ══════════════════════════════════════════════
-const STORAGE_KEY = 'att_dash_v4_multi';
+const STORAGE_KEY = 'att_dash_v5_demo';
 // ── universal copy (داشبورد اصلی) ─────────────────────────────
 function _cp(el,val){
   var fn=function(){var c=el.className,h=el.innerHTML;el.className=(c+' cc-done').replace(/cc-blue|cc-green/g,'');el.innerHTML='✓ کپی شد';setTimeout(function(){el.className=c;el.innerHTML=h;},2000);};
@@ -3314,13 +3314,13 @@ function importDataJSON(){
         }
 
         // ── فرمت ۲: خروجی downloadFullSettings — دارای کلیدهای __xxx و localStorage keys ──
-        const mainKey = snap[STORAGE_KEY] || snap['att_dash_v4_multi'];
+        const mainKey = snap[STORAGE_KEY] || snap['att_dash_v5_demo'];
         if(mainKey && mainKey.allMonths){
           // بازیابی کلید اصلی
           localStorage.setItem(STORAGE_KEY, JSON.stringify(mainKey));
           // بازیابی تمام کلیدهای دیگر localStorage
           Object.keys(snap).forEach(k => {
-            if(k === STORAGE_KEY || k === 'att_dash_v4_multi' || k.startsWith('__')) return;
+            if(k === STORAGE_KEY || k === 'att_dash_v5_demo' || k.startsWith('__')) return;
             try{
               const val = typeof snap[k] === 'string' ? snap[k] : JSON.stringify(snap[k]);
               localStorage.setItem(k, val);

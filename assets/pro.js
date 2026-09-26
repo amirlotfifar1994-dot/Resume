@@ -54,3 +54,20 @@
     else if (e.key === "ArrowLeft") show(idx + (rtl ? 1 : -1));
   });
 })();
+
+/* preview language switch: swaps the FA / EN screenshots inside one card */
+(function () {
+  "use strict";
+  [].forEach.call(document.querySelectorAll(".site-preview[data-langs]"), function (box) {
+    [].forEach.call(box.querySelectorAll(".lang-switch button"), function (btn) {
+      btn.addEventListener("click", function (e) {
+        e.preventDefault(); e.stopPropagation();
+        var l = btn.getAttribute("data-set");
+        box.setAttribute("data-show", l);
+        [].forEach.call(box.querySelectorAll(".lang-switch button"), function (b) {
+          b.setAttribute("aria-pressed", b === btn ? "true" : "false");
+        });
+      });
+    });
+  });
+})();

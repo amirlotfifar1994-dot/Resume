@@ -140,3 +140,14 @@ body.lb-open{overflow:hidden}
 .pro .dash-body p{margin:0;font-size:14px}
 .pro .dash-body .pillbox{margin-top:10px}
 @media print{.pro .dash-item .site-preview{display:none!important}}
+
+/* ---------- preview language switch (FA / EN screenshots) ---------- */
+.pro .site-preview .lang-switch{position:absolute;top:8px;inset-inline-end:8px;z-index:3;display:flex;align-items:center;gap:2px;padding:3px 4px 3px 8px;border-radius:999px;background:rgba(13,27,42,.82);border:1px solid rgba(255,255,255,.18);backdrop-filter:blur(6px);direction:ltr}
+.pro .site-preview .lang-switch .globe{font-size:12px;margin-right:2px;filter:grayscale(.2)}
+.pro .site-preview .lang-switch button{border:0;cursor:pointer;font:800 11px/1 Inter,system-ui,sans-serif;letter-spacing:.04em;color:#e8edf5;background:transparent;padding:6px 8px;border-radius:999px}
+.pro .site-preview .lang-switch button[aria-pressed="true"]{background:linear-gradient(135deg,var(--gold),var(--gold2));color:#241905}
+.pro .site-preview .lang-switch button:focus-visible{outline:2px solid var(--gold2);outline-offset:1px}
+.pro .site-preview[data-show="fa"] img[data-lang="en"],.pro .site-preview[data-show="en"] img[data-lang="fa"]{display:none}
+.pro .site-preview[data-langs] .lang-switch{top:3px;inset-inline-end:7px;padding:1px 3px 1px 7px}
+.pro .site-preview[data-langs] .lang-switch .globe{font-size:10px}
+.pro .site-preview[data-langs] .lang-switch button{font-size:10px;padding:4px 7px}
