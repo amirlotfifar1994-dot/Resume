@@ -145,7 +145,7 @@
   var sub = bar.querySelector(".subnav");
   var lastY = window.scrollY || 0, tick = false;
   function measure() {
-    var h = bar.offsetHeight;
+    var h = mq.matches || !sub ? bar.offsetHeight : (row1 ? row1.offsetHeight + 1 : 46);
     bar.style.setProperty("--hide", h + "px");
   }
   function onScroll() {
@@ -175,22 +175,4 @@
   }
   if (strip && window.MutationObserver) new MutationObserver(function () { centerActive(true); }).observe(strip, { attributes: true, subtree: true, attributeFilter: ["class"] });
   setTimeout(function () { measure(); centerActive(false); }, 500);
-})();
-
-/* desktop: the section tabs join the top row; phones keep them as a strip under it */
-(function () {
-  "use strict";
-  var bar = document.querySelector(".topbar"), sub = bar && bar.querySelector(".subnav");
-  var row = bar && bar.querySelector(":scope > .wrap");
-  if (!sub || !row) return;
-  var mq = window.matchMedia ? matchMedia("(max-width: 720px)") : { matches: false };
-  function place() {
-    if (mq.matches) { if (sub.parentNode !== bar) bar.appendChild(sub); }
-    else { var nav = row.querySelector(".nav"); if (sub.parentNode !== row) row.insertBefore(sub, nav || null); }
-    bar.dispatchEvent(new Event("cv:relayout"));
-    var strip = sub.querySelector(".wrap"), a = strip && strip.querySelector("a.on");
-    if (a) { var t = a.offsetLeft - (strip.clientWidth - a.offsetWidth) / 2; strip.scrollLeft = t; }
-  }
-  place();
-  try { mq.addEventListener("change", place); } catch (e) { try { mq.addListener(place); } catch (e2) {} }
 })();
