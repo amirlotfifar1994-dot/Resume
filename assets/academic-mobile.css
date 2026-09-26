@@ -53,13 +53,3 @@
     color:#0d1b2a;background:rgba(255,255,255,.75);border:1px solid rgba(13,27,42,.12);font-family:inherit}
   .am-lang.current{background:#0d1b2a;color:#fff;border-color:transparent}
 }
-
-@media (prefers-color-scheme:dark){
-  @media (max-width:768px){
-    html:not(.light) .am-drawer{background:linear-gradient(180deg,#101b2f,#0b1424);color:#e8edf5}
-    html:not(.light) .am-close,html:not(.light) .am-link,html:not(.light) .am-lang{background:rgba(255,255,255,.07);color:#e8edf5;border-color:rgba(255,255,255,.16)}
-    html:not(.light) .am-link.current,html:not(.light) .am-lang.current{background:linear-gradient(135deg,#223d63,#2f4f80);color:#fff}
-    html:not(.light) .am-link.gold{background:linear-gradient(135deg,#b8892a,#d8b765);color:#241905}
-    html:not(.light) .am-title{color:#e2c078}
-  }
-}

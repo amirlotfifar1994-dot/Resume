@@ -1,0 +1,134 @@
+/* Dark theme for the academic CV (light stays the default). Uses the same cv_theme key as the other pages. */
+
+/* ---------- toggle button ---------- */
+.ac-theme{width:38px;height:38px;border-radius:999px;border:1px solid rgba(13,27,42,.16);background:rgba(255,255,255,.85);color:#0d1b2a;cursor:pointer;display:inline-grid;place-items:center;font-size:16px;line-height:1;padding:0;flex:0 0 auto;transition:transform .18s ease,background .18s}
+.ac-theme:hover{transform:rotate(18deg) scale(1.06)}
+.ac-theme:focus-visible{outline:3px solid rgba(184,137,42,.6);outline-offset:2px}
+.lang-switch .ac-theme{width:32px;height:32px;margin-inline-start:4px;font-size:14px}
+.ac-theme.in-header{display:none}
+@media (max-width:768px){
+  .lang-switch .ac-theme{display:none}
+  .ac-theme.in-header{display:inline-grid;width:44px;height:44px;border-radius:14px;font-size:18px}
+}
+
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --primary-dark:#e2c078;
+  --primary-light:rgba(184,137,42,.18);
+  --primary-xlight:rgba(184,137,42,.10);
+  --navy:#f4ead2;
+  --navy-mid:#223d63;
+  --navy-light:#2f4f80;
+  --bg-light:#0b1320;
+  --bg-white:#141f33;
+  --bg-header:#0f1a2c;
+  --text-dark:#e8edf5;
+  --text-gray:#a9b6c9;
+  --text-light:#7f8da3;
+  --border:rgba(232,237,245,.13);
+  --border-gold:rgba(216,183,101,.35);
+  --success:#7fd9a4;
+  --success-light:rgba(63,185,120,.16);
+}
+:root[data-theme="dark"] body{
+  background:
+    radial-gradient(1100px 800px at 18% -10%,rgba(184,137,42,.16) 0%,transparent 60%),
+    radial-gradient(900px 700px at 95% 10%,rgba(47,79,128,.22) 0%,transparent 58%),
+    var(--bg-light);
+  color:var(--text-dark);
+}
+:root[data-theme="dark"] ::-webkit-scrollbar-track{background:#0b1320}
+:root[data-theme="dark"] ::selection{background:rgba(216,183,101,.3);color:#fff}
+
+/* surfaces that are hard-coded white or navy in the base CSS */
+:root[data-theme="dark"] header,
+:root[data-theme="dark"] header[role="banner"]{background:rgba(15,26,44,.92)!important;border-bottom-color:var(--border)!important}
+:root[data-theme="dark"] .card,
+:root[data-theme="dark"] .detail-content,
+:root[data-theme="dark"] .dash-card,
+:root[data-theme="dark"] .project-card,
+:root[data-theme="dark"] .interest-box,
+:root[data-theme="dark"] .highlight-box,
+:root[data-theme="dark"] .dashboard-hub,
+:root[data-theme="dark"] .language-card,
+:root[data-theme="dark"] .toolbox-details,
+:root[data-theme="dark"] details{background:var(--bg-white)!important;color:var(--text-dark);border-color:var(--border)}
+:root[data-theme="dark"] .hero-card{background-color:#0a1526}
+:root[data-theme="dark"] .card:not(.hero-card):hover{border-top-color:var(--primary)}
+:root[data-theme="dark"] .card:not(.hero-card),
+:root[data-theme="dark"] .project-card{box-shadow:0 6px 22px rgba(0,0,0,.35)}
+:root[data-theme="dark"] .tag,
+:root[data-theme="dark"] .tool-pill,
+:root[data-theme="dark"] .inline-chip,
+:root[data-theme="dark"] .pill-link,
+:root[data-theme="dark"] .skill-chip{background:rgba(255,255,255,.07)!important;color:var(--text-dark)!important;border-color:var(--border)!important}
+:root[data-theme="dark"] .nav-btn{color:var(--text-gray)!important}
+:root[data-theme="dark"] .nav-btn:hover{background:rgba(216,183,101,.14)!important;color:#f4ead2!important}
+:root[data-theme="dark"] .nav-btn.active,
+:root[data-theme="dark"] .nav-btn--active{background:linear-gradient(135deg,#223d63,#2f4f80)!important;color:#fff!important}
+:root[data-theme="dark"] header .header-content nav{background:rgba(255,255,255,.05)!important;border-color:var(--border)!important}
+:root[data-theme="dark"] .header-info h1{color:#f4ead2!important}
+:root[data-theme="dark"] .header-info p{color:var(--text-gray)!important}
+:root[data-theme="dark"] .lang-switch{background:rgba(20,31,51,.92)!important;border-color:var(--border)!important}
+:root[data-theme="dark"] .lang-btn{color:var(--text-gray)!important}
+:root[data-theme="dark"] .lang-btn[aria-pressed="true"]{background:linear-gradient(135deg,#b8892a,#d8b765)!important;color:#241905!important}
+:root[data-theme="dark"] .landing-home-link{background:rgba(255,255,255,.08);color:#e8edf5;border-color:var(--border)}
+:root[data-theme="dark"] .landing-home-link.pro{background:linear-gradient(135deg,#b8892a,#d8b765);color:#241905}
+:root[data-theme="dark"] .btn-secondary{background:rgba(255,255,255,.07);color:var(--text-dark);border-color:var(--border)}
+:root[data-theme="dark"] .btn-dark{background:#223d63;color:#fff;border-color:#2f4f80}
+:root[data-theme="dark"] .btn-back,
+:root[data-theme="dark"] .floating-back-button{background:rgba(255,255,255,.08);color:var(--text-dark);border-color:var(--border)}
+:root[data-theme="dark"] .status-badge{color:var(--text-dark)}
+:root[data-theme="dark"] .status-published{background:rgba(63,185,120,.16);color:#7fd9a4}
+:root[data-theme="dark"] .status-registered,
+:root[data-theme="dark"] .status-open{background:rgba(216,183,101,.16);color:#e2c078}
+:root[data-theme="dark"] input,
+:root[data-theme="dark"] select,
+:root[data-theme="dark"] textarea{background:#0f1a2c;color:var(--text-dark);border-color:var(--border)}
+:root[data-theme="dark"] table{color:var(--text-dark)}
+:root[data-theme="dark"] th{background:rgba(255,255,255,.06)!important;color:var(--text-dark)!important}
+:root[data-theme="dark"] td{border-color:var(--border)!important}
+:root[data-theme="dark"] hr{border-color:var(--border)}
+:root[data-theme="dark"] img.book-cover,
+:root[data-theme="dark"] .pub-cover-thumb{box-shadow:0 10px 26px rgba(0,0,0,.5)}
+:root[data-theme="dark"] .ac-theme{background:rgba(255,255,255,.08);border-color:var(--border);color:#f4ead2}
+
+/* phone drawer already has its own dark styling; keep the header bar consistent */
+:root[data-theme="dark"] .am-btn{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.18)}
+:root[data-theme="dark"] .am-btn span{background:#f4ead2}
+:root[data-theme="dark"] .am-drawer{background:linear-gradient(180deg,#101b2f,#0b1424);color:#e8edf5}
+:root[data-theme="dark"] .am-close,
+:root[data-theme="dark"] .am-link,
+:root[data-theme="dark"] .am-lang{background:rgba(255,255,255,.07);color:#e8edf5;border-color:rgba(255,255,255,.16)}
+:root[data-theme="dark"] .am-link.current,
+:root[data-theme="dark"] .am-lang.current{background:linear-gradient(135deg,#223d63,#2f4f80);color:#fff}
+:root[data-theme="dark"] .am-link.gold{background:linear-gradient(135deg,#b8892a,#d8b765);color:#241905}
+:root[data-theme="dark"] .am-title{color:#e2c078}
+
+/* the system-dark blocks in academic-mobile.css are for the old light header; theme now decides */
+
+/* remaining light surfaces */
+:root[data-theme="dark"] .skill-row,
+:root[data-theme="dark"] .accordion-item,
+:root[data-theme="dark"] .mini-attachment,
+:root[data-theme="dark"] .mini-attachment--detail,
+:root[data-theme="dark"] .mini-attachment--detail .mini-acc summary,
+:root[data-theme="dark"] .mini-attachment--detail .mini-course-list li,
+:root[data-theme="dark"] .mini-badge,
+:root[data-theme="dark"] .level-secondary,
+:root[data-theme="dark"] .status-preparation{background:rgba(255,255,255,.06)!important;color:var(--text-dark)!important;border-color:var(--border)!important}
+:root[data-theme="dark"] .skill-row-title,
+:root[data-theme="dark"] .toolbox-title,
+:root[data-theme="dark"] .accordion-header{color:#f4ead2!important}
+:root[data-theme="dark"] .skill-row-desc{color:var(--text-gray)!important}
+:root[data-theme="dark"] .hero-card .btn-secondary{background:rgba(255,255,255,.08)!important;color:#e8edf5!important;border-color:rgba(255,255,255,.2)!important}
+:root[data-theme="dark"]{--surface-strong:#182540;--shadow-soft:0 8px 26px rgba(0,0,0,.4)}
+:root[data-theme="dark"] .dashboard-hub,
+:root[data-theme="dark"] .detail-header,
+:root[data-theme="dark"] .book-hero{background:linear-gradient(180deg,#182540,#141f33)!important;border-color:var(--border)!important}
+:root[data-theme="dark"] .toolbox-item,
+:root[data-theme="dark"] .detail-view{background-color:transparent;color:var(--text-dark)}
+:root[data-theme="dark"] .detail-header h2{color:#f4ead2!important}
+:root[data-theme="dark"] .meta-row,
+:root[data-theme="dark"] .book-hero-meta .meta-row{background:rgba(255,255,255,.06)!important;color:var(--text-dark)!important;border-color:var(--border)!important}
+:root[data-theme="dark"] .meta-row a,:root[data-theme="dark"] .meta-row strong{color:#f4ead2}
