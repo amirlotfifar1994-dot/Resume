@@ -5,7 +5,7 @@
 
   // Per-page in HTML so relative paths work from subdirectories.
   const I18N_DIR = (window.__I18N_DIR__ || "i18n/");
-  const CACHE_BUSTER = "20260927-v28-hero";
+  const CACHE_BUSTER = "20260927-v29-digits";
 
   function ensureFaTypography() {
     // Fonts are self-hosted (assets/fonts/fonts.css); load them only if the page did not already.
@@ -285,7 +285,17 @@
       return null;
     }
 
+    // Persian output uses Persian digits and the Persian decimal separator.
+    function faDigits(t) {
+      return t == null ? t : t.replace(/(\d)\.(?=\d)/g, "$1٫").replace(/[0-9]/g, (d) => "۰۱۲۳۴۵۶۷۸۹"[d]);
+    }
     function autoFa(s) {
+      const r = autoFa0(s);
+      if (r) return faDigits(r);
+      const g = s.match(/^\(≈\s*([\d.\/]+)\)$/);
+      return g ? faDigits("(≈ " + g[1] + ")") : null;
+    }
+    function autoFa0(s) {
       let m;
       if ((m = s.match(/^(\d+)\s+Courses$/))) return `${m[1]} دوره`;
       if ((m = s.match(/^(\d+)\s+Credits$/))) return `${m[1]} واحد`;
