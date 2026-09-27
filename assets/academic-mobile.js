@@ -115,7 +115,9 @@
     window.addEventListener("resize", function () { pad(); if (!mq.matches && dr.classList.contains("open")) close(false); });
     doc.addEventListener("cv:langchange", function () { setTimeout(pad, 60); });
     if (window.ResizeObserver) { try { new ResizeObserver(pad).observe(header); } catch (e) {} }
-    /* scroll: hide on the way down, show on the way up (phones only) */
+    /* scroll: hide once you scroll past it, only come back once you're back near the top (phones only).
+       (Showing it again mid-scroll would float it, semi-opaque, straight over whatever card/photo is
+       currently under it -- most jarring right under the hero card -- so it only reappears near the top.) */
     var lastY = window.scrollY || 0, tick = false;
     function onScroll() {
       if (tick) return; tick = true;
@@ -125,12 +127,23 @@
         var y = window.scrollY || 0, dy = y - lastY;
         if (y <= 10) header.classList.remove("am-hide");
         else if (dy > 8 && y > header.offsetHeight) header.classList.add("am-hide");
-        else if (dy < -6) header.classList.remove("am-hide");
         lastY = y;
       });
     }
     window.addEventListener("scroll", onScroll, { passive: true });
     header.addEventListener("focusin", function () { header.classList.remove("am-hide"); });
+
+    /* small floating back-to-top button: the header/menu only reappears near the top now,
+       so this gives phones a quick way back up (and to the menu) from deep in the page */
+    var top = doc.createElement("button");
+    top.type = "button"; top.className = "am-to-top"; top.setAttribute("aria-label", lang() === "fa" ? "بازگشت به بالا" : lang() === "it" ? "Torna in alto" : "Back to top");
+    top.innerHTML = '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>';
+    doc.body.appendChild(top);
+    top.addEventListener("click", function () { window.scrollTo({ top: 0, behavior: "smooth" }); });
+    function toggleTop() { top.classList.toggle("show", mq.matches && (window.scrollY || 0) > header.offsetHeight * 2); }
+    window.addEventListener("scroll", toggleTop, { passive: true });
+    window.addEventListener("resize", toggleTop);
+    toggleTop();
 
     /* keep the active tab in view inside the strip */
     var strip = header.querySelector('nav [role="tablist"]');

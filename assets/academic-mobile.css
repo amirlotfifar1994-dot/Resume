@@ -1,5 +1,5 @@
 /* Academic CV: compact header + slide-in menu on phones. */
-.am-btn,.am-drawer,.am-overlay{display:none}
+.am-btn,.am-drawer,.am-overlay,.am-to-top{display:none}
 
 @media (max-width:768px){
   /* header no longer covers the content: compact bar, body padded to its real height by academic-mobile.js */
@@ -20,6 +20,14 @@
   .lang-switch{display:none!important}
   .landing-links{display:none!important}
   .section,.detail-view{scroll-margin-top:calc(var(--header-offset,104px) + 8px)}
+
+  /* small floating back-to-top button (only mobile; menu lives in the header, which now only reappears near the top) */
+  .am-to-top{position:fixed;inset-inline-end:16px;bottom:calc(16px + env(safe-area-inset-bottom));z-index:900;
+    width:42px;height:42px;border-radius:999px;border:1px solid var(--border);
+    background:linear-gradient(135deg,var(--primary-dark,#8b6518),var(--primary,#b8892a));color:#fff;
+    display:grid;place-items:center;box-shadow:0 10px 24px rgba(15,23,42,.28);
+    opacity:0;transform:translateY(10px);pointer-events:none;transition:opacity .22s ease,transform .22s ease;padding:0;cursor:pointer}
+  .am-to-top.show{opacity:1;transform:none;pointer-events:auto}
 
   .am-btn{display:inline-grid;align-content:center;justify-items:center;gap:5px;width:44px;height:44px;border-radius:14px;border:1px solid rgba(13,27,42,.14);
     background:rgba(255,255,255,.7);cursor:pointer;padding:0;flex:0 0 auto}
