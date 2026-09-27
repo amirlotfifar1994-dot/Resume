@@ -5,7 +5,7 @@
 
   // Per-page in HTML so relative paths work from subdirectories.
   const I18N_DIR = (window.__I18N_DIR__ || "i18n/");
-  const CACHE_BUSTER = "20260927-v29-digits";
+  const CACHE_BUSTER = "20260927-v35-digits7";
 
   function ensureFaTypography() {
     // Fonts are self-hosted (assets/fonts/fonts.css); load them only if the page did not already.
@@ -13,7 +13,7 @@
       const link = document.createElement("link");
       link.id = "cv-fa-font";
       link.rel = "stylesheet";
-      link.href = I18N_DIR.replace(/i18n\/$/, "") + "assets/fonts/fonts.css?v=1";
+      link.href = I18N_DIR.replace(/i18n\/$/, "") + "assets/fonts/fonts.css?v=2";
       document.head.appendChild(link);
     }
     if (!document.getElementById("cv-fa-typography")) {
@@ -261,6 +261,8 @@
     });
   }
 
+  const WRITTEN = new WeakMap(); // last value this script wrote into each text node
+
   function translateTextNodes(dict, root, opts) {
     if (!dict) return;
     const walker = makeWalker(root, opts);
@@ -285,6 +287,13 @@
       return null;
     }
 
+    // Persian text: Latin digits become Persian digits, except inside technical tokens (R 4.3.1, H3a, A4, THINK-360+, p99.5).
+    function faNumerals(str) {
+      return str.replace(/[A-Za-z0-9_]+(?:(?:[.\-\u2011_]|,(?=\d{3}(?!\d)))[A-Za-z0-9_]+)*/g, (tok) => {
+        if (/[A-Za-z_]/.test(tok) || (tok.match(/\./g) || []).length > 1) return tok;
+        return tok.replace(/(\d)\.(?=\d)/g, "$1٫").replace(/(\d),(?=\d{3})/g, "$1٬").replace(/[0-9]/g, (d) => "۰۱۲۳۴۵۶۷۸۹"[d]);
+      });
+    }
     // Persian output uses Persian digits and the Persian decimal separator.
     function faDigits(t) {
       return t == null ? t : t.replace(/(\d)\.(?=\d)/g, "$1٫").replace(/[0-9]/g, (d) => "۰۱۲۳۴۵۶۷۸۹"[d]);
@@ -292,6 +301,7 @@
     function autoFa(s) {
       const r = autoFa0(s);
       if (r) return faDigits(r);
+      if (/^\d{1,3}$/.test(s)) return faDigits(s);
       const g = s.match(/^\(≈\s*([\d.\/]+)\)$/);
       return g ? faDigits("(≈ " + g[1] + ")") : null;
     }
@@ -304,13 +314,20 @@
       if ((m = s.match(/^~\s*([\d,]+)\s+hours$/))) return `حدود ${m[1]} ساعت`;
       if ((m = s.match(/^(-\s*)Grade:\s*(.+)$/))) return `${m[1]}نمره: ${m[2]}`;
       if ((m = s.match(/^GPA:\s*(.+)$/))) return `معدل: ${m[1]}`;
+      // N cr -> N واحد
+      if ((m = s.match(/^(\d+)\s*cr$/i))) return `${m[1]} واحد`;
+      // A standalone number/fraction/range/percent with no words (e.g. grade "14.00/20", year range "2019-2024", "92%") — just carry it through so the digit pass below converts it.
+      if (/^\d+(?:[.,]\d+)?(?:\s*[-‑–—/]\s*\d+(?:[.,]\d+)?)?%?:?$/.test(s)) return s;
+      // Same, allowing a leading/trailing bullet (e.g. "32 •")
+      if (/^[•·\s]*\d+(?:[.,]\d+)?[•·\s]*$/.test(s) && /\d/.test(s)) return s;
       return null;
     }
 
 
     nodes.forEach((node) => {
       if (!ORIGINAL.text.has(node)) ORIGINAL.text.set(node, node.nodeValue);
-      const raw = norm(node.nodeValue);
+      else if (WRITTEN.has(node) && WRITTEN.get(node) !== node.nodeValue) ORIGINAL.text.set(node, node.nodeValue); // changed by the page itself
+      const raw = norm(ORIGINAL.text.get(node));
       if (!raw) return;
       const t = dict[raw];
       const auto = (CURRENT_LANG === "it") ? autoIt(raw) : autoFa(raw);
@@ -319,7 +336,12 @@
         const orig = ORIGINAL.text.get(node);
         const lead = (orig.match(/^\s+/) || [""])[0];
         const trail = (orig.match(/\s+$/) || [""])[0];
-        node.nodeValue = lead + out + trail;
+        node.nodeValue = lead + (CURRENT_LANG === "fa" ? faNumerals(out) : out) + trail;
+        WRITTEN.set(node, node.nodeValue);
+      } else if (CURRENT_LANG === "fa" && /[0-9]/.test(raw) && /[؀-ۿ]/.test(raw) && !(node.parentElement.closest && node.parentElement.closest("code, pre, kbd, samp"))) {
+        // untranslated text (dates, grades, statistics): still show Persian digits
+        const conv = faNumerals(ORIGINAL.text.get(node));
+        if (conv !== node.nodeValue) { node.nodeValue = conv; WRITTEN.set(node, conv); }
       }
     });
   }

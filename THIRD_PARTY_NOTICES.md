@@ -3,7 +3,7 @@
 ## Fonts (`assets/fonts/`)
 
 All fonts are licensed under the **SIL Open Font License 1.1** (https://openfontlicense.org) and were obtained through Google Fonts.
-Subsets shipped: latin, latin-ext and (Vazirmatn) arabic.
+Subsets shipped: latin, latin-ext and (Vazirmatn, Noto Naskh Arabic) arabic.
 
 | Font | Copyright / source |
 |---|---|
@@ -12,6 +12,7 @@ Subsets shipped: latin, latin-ext and (Vazirmatn) arabic.
 | Lora | © The Lora Project Authors — https://github.com/cyrealtype/Lora-Cyrillic |
 | JetBrains Mono | © The JetBrains Mono Project Authors — https://github.com/JetBrains/JetBrainsMono |
 | Vazirmatn | © The Vazirmatn Project Authors — https://github.com/rastikerdar/vazirmatn |
+| Noto Naskh Arabic | Copyright 2022 The Noto Project Authors — https://github.com/notofonts/arabic | SIL OFL 1.1 |
 
 ## Libraries
 
