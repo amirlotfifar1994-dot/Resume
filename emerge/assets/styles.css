@@ -183,3 +183,12 @@ ul.list li b{color:var(--text)}
 
 .muted{opacity:.78;font-size:.95rem}
 .link{color:inherit;text-decoration:underline;text-underline-offset:3px}
+
+/* phones: keep cards inside the viewport, clear the fixed language switch and back button */
+.grid > *, .card{min-width:0}
+@media (max-width: 980px){.grid.cols-3{grid-template-columns:minmax(0,1fr)}}
+@media (max-width: 760px){.grid.cols-2{grid-template-columns:minmax(0,1fr)}.card{overflow-x:auto}}
+@media (max-width: 520px){
+  .container{padding:14px 12px 72px}
+  .topbar{margin-top:52px;flex-wrap:wrap}
+}

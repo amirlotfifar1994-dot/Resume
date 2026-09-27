@@ -5,7 +5,7 @@
 
   // Per-page in HTML so relative paths work from subdirectories.
   const I18N_DIR = (window.__I18N_DIR__ || "i18n/");
-  const CACHE_BUSTER = "20260926-v26-book";
+  const CACHE_BUSTER = "20260927-v27-footer";
 
   function ensureFaTypography() {
     // Fonts are self-hosted (assets/fonts/fonts.css); load them only if the page did not already.
@@ -493,6 +493,13 @@
       if (banner && !root.contains(banner)) {
         translateTextNodes(BASE_MAP.text, banner);
         translateAttributes(BASE_MAP.text, banner);
+      }
+
+      // The footer (Get in Touch / last updated) is also outside #main-content.
+      const foot = document.querySelector('footer[role="contentinfo"]');
+      if (foot && !root.contains(foot)) {
+        translateTextNodes(BASE_MAP.text, foot);
+        translateAttributes(BASE_MAP.text, foot);
       }
 
       // Apply the active section chunk too (fixes late-loaded DOM staying EN until you switch tabs)
