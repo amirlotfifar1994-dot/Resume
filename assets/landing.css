@@ -41,18 +41,28 @@ body.land{line-height:1.6}
   .land .intro .actions .btn{min-height:62px}
 }
 
-/* ---------- phone: full-bleed photo hero instead of the stacked photo+panel cards (desktop is untouched) ---------- */
+/* ---------- phone: true full-bleed photo hero, edge-to-edge and running behind the header (desktop is untouched) ---------- */
 .hero-mobile-fb{display:none}
 @media(max-width:860px){
   .land .hero{display:none}
-  .land main{min-height:0;display:block}
-  .land .hero-mobile-fb{display:block;position:relative;overflow:hidden;min-height:calc(100vh - 50px);min-height:calc(100svh - 50px)}
+  .land main{min-height:0;display:block;padding:0}
+
+  /* header floats transparently over the photo instead of sitting in a white bar above it */
+  .land .topbar{position:fixed;inset-inline:0;top:0;z-index:60;background:transparent;backdrop-filter:none;-webkit-backdrop-filter:none;border-bottom:none;box-shadow:none}
+  .land .topbar .wrap{padding-top:calc(6px + env(safe-area-inset-top))}
+  .land .brand{color:#fff;text-shadow:0 2px 14px rgba(0,0,0,.55)}
+  .land .menu-btn{background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.4);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+  .land .menu-btn span{background:#fff}
+
+  /* break out of .wrap's max-width so the photo runs full viewport width */
+  .land .hero-mobile-fb{display:block;position:relative;overflow:hidden;width:100vw;margin-inline:calc(50% - 50vw);
+    min-height:100vh;min-height:100svh}
   .land .hero-mobile-fb .fb-photo{position:absolute;inset:0}
   .land .hero-mobile-fb .fb-photo img{width:100%;height:100%;object-fit:cover;object-position:center 14%}
   .land .hero-mobile-fb .fb-scrim{position:absolute;inset:0;
-    background:linear-gradient(180deg,rgba(13,27,42,.32) 0%,rgba(13,27,42,.55) 38%,rgba(13,27,42,.92) 78%,rgba(13,27,42,.98) 100%)}
-  .land .hero-mobile-fb .fb-content{position:relative;z-index:2;min-height:calc(100vh - 50px);min-height:calc(100svh - 50px);
-    display:flex;flex-direction:column;justify-content:flex-end;gap:10px;padding:24px 22px 28px}
+    background:linear-gradient(180deg,rgba(13,27,42,.5) 0%,rgba(13,27,42,.18) 16%,rgba(13,27,42,.15) 32%,rgba(13,27,42,.55) 46%,rgba(13,27,42,.92) 78%,rgba(13,27,42,.98) 100%)}
+  .land .hero-mobile-fb .fb-content{position:relative;z-index:2;min-height:100vh;min-height:100svh;
+    display:flex;flex-direction:column;justify-content:flex-end;gap:10px;padding:24px 22px calc(28px + env(safe-area-inset-bottom))}
   .land .hero-mobile-fb .eyebrow{align-self:flex-start;background:rgba(255,255,255,.16);color:#f3e4bd;border-color:rgba(255,255,255,.3);backdrop-filter:blur(6px)}
   .land .hero-mobile-fb h1{color:#fff;font-size:34px;margin:0 0 6px;text-shadow:0 2px 18px rgba(0,0,0,.35)}
   .land .hero-mobile-fb .role{color:#e9c46a;font-size:14.5px;line-height:1.65;margin:0 0 4px}
@@ -62,7 +72,6 @@ body.land{line-height:1.6}
     border:1px solid rgba(255,255,255,.32);box-shadow:0 10px 26px rgba(0,0,0,.28)}
   .land .hero-mobile-fb .btn.secondary{box-shadow:0 14px 30px rgba(0,0,0,.38)}
 }
-@media(max-width:720px){.land .hero-mobile-fb,.land .hero-mobile-fb .fb-content{min-height:calc(100vh - 50px);min-height:calc(100svh - 50px)}}
 
 /* header: same compact scale as the résumé pages */
 .land .topbar .wrap{min-height:48px;gap:12px}
