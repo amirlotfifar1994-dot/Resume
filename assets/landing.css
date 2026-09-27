@@ -13,14 +13,9 @@ body.land{line-height:1.6}
 .land .intro .role{font-size:clamp(15px,1.5vw,18px);line-height:1.75;font-weight:700;margin:0 0 30px}
 
 .land .intro.landing .actions{margin:0;grid-template-columns:1fr 1fr;gap:14px}
-.land .intro .actions .path{display:flex;flex-direction:column;gap:10px}
 .land .intro .actions .btn{min-height:78px;padding:14px 20px;font-size:17px;border-radius:18px;box-shadow:none;justify-content:space-between}
 .land .intro .actions .btn small{font-size:12.5px;line-height:1.45;margin-top:2px}
 .land .intro .actions .btn:hover{box-shadow:0 14px 28px rgba(13,27,42,.18)}
-.land .path-shots{display:flex;gap:7px}
-.land .path-shots img{flex:1;width:0;min-width:0;aspect-ratio:8/5;object-fit:cover;border-radius:10px;border:1px solid var(--line);
-  box-shadow:0 6px 16px rgba(13,27,42,.14);transition:transform .2s var(--ease),box-shadow .2s var(--ease)}
-.land .path:hover .path-shots img{transform:translateY(-2px);box-shadow:0 10px 22px rgba(13,27,42,.2)}
 
 .land .hero-side{padding:10px;border-radius:26px;min-height:0;box-shadow:0 10px 36px rgba(13,27,42,.14)}
 .land .photo{flex:1;min-height:420px;border-radius:18px}
