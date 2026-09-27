@@ -3,7 +3,8 @@
   header .header-content { padding: 6px 0; padding-inline-end: 178px; gap: 14px; flex-wrap: nowrap; align-items: center; }
   header .header-info { flex: 0 0 auto; }
   header .header-info h1 { font-size: 1.18rem; margin-bottom: 0; line-height: 1.2; white-space: nowrap; }
-  header .header-info p { font-size: .66rem; line-height: 1.4; margin: 0; letter-spacing: .04em; white-space: nowrap; }
+  /* the subtitle line only crowds the nav here; it's still on the hero card just below */
+  header .header-info p { display: none; }
   header nav { flex: 0 1 auto; min-width: 0; flex-wrap: nowrap; }
   header .nav-btn { min-height: 34px; padding-inline: 11px; font-size: .8rem; white-space: nowrap; display: inline-flex; align-items: center; gap: 5px; }
   header .header-content nav > [role="tablist"] { flex-wrap: nowrap; gap: 2px; }
@@ -22,7 +23,6 @@
   header .header-content nav > [role="tablist"]::-webkit-scrollbar { display: none; }
 }
 @media (min-width: 769px) and (max-width: 1440px) {
-  header .header-info p { display: none; }
   header .nav-btn { padding-inline: 9px; font-size: .78rem; }
 }
 /* below ~1320px the two quick links become icons (tooltips carry the names) */
