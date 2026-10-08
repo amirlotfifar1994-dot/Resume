@@ -5,17 +5,12 @@
     "🔬 Research Projects": "🔬 پروژه‌های پژوهشی",
     "Affective Neuroscience": "علوم اعصاب عاطفی",
     "Timeline:": "زمان‌بندی:",
-    "Pre-Registered": "پیش‌ثبت‌شده",
     "Pre-registered protocol (November 2025) •": "پیش‌ثبت‌شده پروتکل (نوامبر ۲۰۲۵) •",
     "THINK-360+ Interactive Platform": "THINK-۳۶۰+ تعاملی پلتفرم",
     "View protocol and modeling details.": "مشاهده‌ی جزئیات پروتکل و مدل‌سازی.",
     "JavaScript": "جاوااسکریپت",
-    "Data collection planned 2026-2027": "گردآوری داده برای ۲۰۲۶–۲۰۲۷ برنامه‌ریزی شده است",
     "Service Workers": "Service Workerها",
-    "DEAP EEG Analysis Project": "DEAP EEG تحلیل پروژه",
     "MNE-Python": "MNE-پایتون",
-    "HRV Biofeedback RCT Protocol": "پروتکل کارآزمایی تصادفی‌سازی‌شده‌ی بیوفیدبک HRV",
-    "View methodology and findings.": "مشاهده روش‌شناسی و یافته‌ها.",
     "RCT Design": "RCT طراحی",
     "View DEAP EEG Analysis project details": "مشاهده‌ی جزئیات پروژه‌ی تحلیل EEG در DEAP",
     "View THINK-360+ platform details": "مشاهده جزئیات پلتفرم THINK-360+",
@@ -37,6 +32,13 @@
     "Combined Models": "مدل‌های ترکیبی",
     "Offline-first PWA (THINK-360 variant) built from the Mind Islands (جزیره‌های ذهن) book dataset, featuring bite-sized psychoeducation for cognitive traps: definitions, real-life examples, guided practice, and counter-strategy drills, plus combined-model workflows.": "PWA آفلاین‌محور (نسخه‌ی THINK-360) که از مجموعه‌داده‌ی کتاب جزیره‌های ذهن ساخته شده و روان‌آموزشی کوتاه درباره‌ی تله‌های شناختی ارائه می‌دهد: تعریف‌ها، مثال‌های واقعی، تمرین هدایت‌شده و تمرین راهبردهای مقابله، به‌علاوه‌ی گردش‌کارهای مدل ترکیبی.",
     "Psychoeducation": "روان‌آموزشی",
-    "Practice Exercises": "تمرین‌های عملی"
+    "Practice Exercises": "تمرین‌های عملی",
+    "Research & Practice Projects": "پروژه‌های پژوهشی و تمرینی",
+    "DEAP EEG Practice Project": "پروژهٔ تمرینی تحلیل EEG با داده‌های DEAP",
+    "View practice methods and project notes.": "روش‌های تمرین و یادداشت‌های پروژه",
+    "HRV Biofeedback — Draft Study Protocol": "بیوفیدبک HRV — پیش‌نویس پروتکل مطالعه",
+    "Draft protocol (November 2025)": "پیش‌نویس پروتکل (نوامبر ۲۰۲۵)",
+    "Future study proposed; data collection has not started": "پیشنهاد برای مطالعهٔ آینده؛ گردآوری داده آغاز نشده است",
+    "Protocol draft": "پیش‌نویس پروتکل"
   }
 }

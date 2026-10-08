@@ -31,7 +31,6 @@
     "KIA Coating": "KIA Coating",
     "Platform": "Piattaforma",
     "A compact portfolio view of how I package methods into clear, shareable dashboards.": "Una vista compatta del portfolio che mostra come trasformo metodi in dashboard chiari e condivisibili.",
-    "Interactive, project-specific dashboards that showcase analysis pipelines, visualization, and reproducible reporting. Demo views use synthetic data for illustration; the same structure is designed to plug into real EEG/HRV/behavioral datasets.": "Dashboard interattivi e specifici per progetto che mostrano pipeline di analisi, visualizzazione e reporting riproducibile. Le demo usano dati sintetici a scopo illustrativo; la stessa struttura è pensata per integrarsi con dataset reali EEG/HRV/comportamentali.",
     "Paper": "Articolo",
     "TOEFL Academic": "TOEFL Academic",
     "Lessons + dictionary + offline-ready": "Lezioni + dizionario + pronto per l’offline",
@@ -58,12 +57,10 @@
     "PFC–Limbic Flexibility": "Flessibilità PFC‑limbica",
     "Open TOEFL Academic live demo": "Apri la demo live di TOEFL Academic",
     "Open KIA Coating live demo": "Apri la demo live di KIA Coating",
-    "Biofeedback RCT dashboard: protocol + outcomes": "Dashboard RCT di biofeedback: protocollo + esiti",
     "Open THINK-360+ live demo": "Apri la demo live di THINK‑360+",
     "Dashboards": "Dashboard",
     "Outcomes": "Esiti",
     "Framework + measurement roadmap": "Framework + roadmap di misurazione",
-    "Designed to swap synthetic demo data for real study datasets without changing the UI.": "Progettato per sostituire dati demo sintetici con dataset reali senza cambiare l’interfaccia.",
     "Offline": "Offline",
     "Services": "Servizi",
     "Open Theori dashboard page": "Apri la pagina del dashboard Theori",
@@ -89,6 +86,10 @@
     "Sales, purchases, inventory, daily gold pricing, wage profiles, approval flows and A4/RTL print output (v5.86.0).": "Vendite, acquisti, magazzino, prezzi giornalieri dell'oro, profili di manodopera, flussi di approvazione e stampa A4/RTL (v5.86.0).",
     "Local backend with audit trail, permission controls, payslips, and a report-delivery engine with a safe email dry-run (v1.0.0-rc.1).": "Backend locale con audit trail, controllo dei permessi, cedolini e motore di consegna dei report con dry-run sicuro delle email (v1.0.0-rc.1).",
     "Job–skill matrix, assessment builder, question bank, candidate runner, practical review and scoring reports (v0.37.0).": "Matrice ruolo–competenze, assessment builder, banca domande, runner per i candidati, revisione pratica e report di punteggio (v0.37.0).",
-    "Offline, self-contained application with finance reports, saved views, deep links, backup/restore and audit trail (v5.11.0).": "Applicazione offline e autonoma con report finanziari, viste salvate, deep link, backup/ripristino e audit trail (v5.11.0)."
+    "Offline, self-contained application with finance reports, saved views, deep links, backup/restore and audit trail (v5.11.0).": "Applicazione offline e autonoma con report finanziari, viste salvate, deep link, backup/ripristino e audit trail (v5.11.0).",
+    "OSF project pages": "Pagine di progetto OSF",
+    "Draft protocol + illustrative demo data": "Bozza di protocollo e dati dimostrativi",
+    "Demo data are for interface exploration; future study analyses would require separate validation.": "I dati dimostrativi servono a esplorare l’interfaccia; le analisi di studi futuri richiederebbero una validazione separata.",
+    "OSF project page": "Pagina del progetto OSF"
   }
 }

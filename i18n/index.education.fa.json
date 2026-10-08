@@ -1,8 +1,6 @@
 {
   "text": {
     "View professional development details": "مشاهده‌ی جزئیات توسعه‌ی حرفه‌ای",
-    "Comprehensive Neuroscience Diploma (Duke Curriculum), Data Analysis with Python (A+/92%), NBML Summer School": "دیپلم جامع علوم اعصاب (برنامه‌ی درسی دانشگاه دوک)، تحلیل داده با پایتون (A+/۹۲٪)، مدرسه‌ی تابستانی NBML",
-    "Laboratory Training & Research Experience": "آموزش آزمایشگاهی و تجربه‌ی پژوهشی",
     "M.A. in Educational Psychology (in progress)": "کارشناسی ارشد روان‌شناسی تربیتی (در حال تحصیل)",
     "Islamic Azad University, Science and Research Branch • Tehran, Iran • In progress (3rd semester)": "دانشگاه آزاد اسلامی، واحد علوم و تحقیقات • تهران، ایران • در حال تحصیل (ترم سوم)",
     "Continuing graduate studies at the same institution, extending the B.Sc. background in psychology and statistics into educational psychology.": "ادامه‌ی تحصیلات تکمیلی در همان دانشگاه؛ گسترش پیشینه‌ی کارشناسی در روان‌شناسی و آمار به حوزه‌ی روان‌شناسی تربیتی.",
@@ -10,17 +8,13 @@
     "Islamic Azad University, Science and Research Branch • Tehran, Iran • Sep 2020 - Jun 2024": "دانشگاه آزاد اسلامی، واحد علوم و تحقیقات • تهران، ایران • سپتامبر ۲۰۲۰ تا ژوئن ۲۰۲۴",
     "🏆 GPA: 18.23/20 (≈ 3.65/4.0)": "🏆 معدل: ۱۸.۲۳ از ۲۰ (≈ ۳.۶۵ از ۴)",
     "B.Sc. in Psychology": "کارشناسی روان‌شناسی",
-    "2023 - 2024 • Neuroscience & Data Science Programs": "۲۰۲۳ - ۲۰۲۴ • برنامه‌های علوم اعصاب و علم داده",
     "View laboratory training details": "مشاهده‌ی جزئیات آموزش آزمایشگاهی",
-    "Strong mathematical foundation: Calculus, probability theory, statistical inference, and programming (C++, R)": "پایه‌ی ریاضی قوی: حساب دیفرانسیل و انتگرال، نظریه‌ی احتمال، استنباط آماری و برنامه‌نویسی (C++ و R)",
-    "Molecular techniques (DNA extraction, RT-PCR, qPCR), Psychometric assessment (WAIS-IV, WISC-IV, NEO-PI-R)": "تکنیک‌های مولکولی (استخراج DNA، RT-PCR، qPCR)، سنجش روان‌سنجی (WAIS-IV، WISC-IV، NEO-PI-R)",
     "View full details.": "مشاهده جزئیات کامل.",
     "View Bachelor's degree details": "مشاهده‌ی جزئیات مدرک کارشناسی",
     "Professional Development & Certifications": "توسعه‌ی حرفه‌ای و گواهی‌نامه‌ها",
     "Quantitative Foundations": "مبانی کمّی",
     "View coursework details.": "مشاهده درس‌ها جزئیات.",
     "🎓 Education": "🎓 تحصیلات",
-    "2023 - 2024 • Hands-on Technical Training": "۲۰۲۳ - ۲۰۲۴ • آموزش فنی عملی",
     "University of Tehran • B.Sc. coursework in Statistics • 2016 - 2019": "دانشگاه تهران • B.Sc. درس‌ها در آمار • ۲۰۱۶ - ۲۰۱۹",
     "📎 Transcript attachment: course categories & grades": "📎 پیوست کارنامه: دسته‌بندی درس‌ها و نمره‌ها",
     "Compact list (course title, credits, grade). Full descriptions remain in the detail view.": "فهرست فشرده شامل عنوان درس، واحد و نمره؛ توضیحات کامل در نمای جزئیات قرار دارد.",
@@ -29,6 +23,13 @@
     "👨‍⚕️ Clinical & Applied Psychology": "👨‍⚕️ روان‌شناسی بالینی و کاربردی",
     "👶 Developmental, Social & Personality": "👶 رشد، اجتماعی و شخصیت",
     "🎯 Specialized & Professional Skills": "🎯 مهارت‌های تخصصی و حرفه‌ای",
-    "📚 General Education & Electives": "📚 دروس عمومی و اختیاری"
+    "📚 General Education & Electives": "📚 دروس عمومی و اختیاری",
+    "In progress": "در حال تحصیل",
+    "Coursework in calculus, probability, statistics and introductory programming (C++, R)": "دروس حسابان، احتمال، آمار و برنامه‌نویسی مقدماتی با C++ و R",
+    "Laboratory Coursework & Training": "دروس و آموزش‌های آزمایشگاهی",
+    "Neuroscience training (NeuroTRACT), Data Analysis with Python (A+/92%), NBML Summer School": "آموزش علوم اعصاب در NeuroTRACT، تحلیل داده با پایتون (A+ / ۹۲٪) و مدرسهٔ تابستانی NBML",
+    "2023 - 2025 • Neuroscience & Data Analysis Courses": "۲۰۲۳ تا ۲۰۲۵ • دوره‌های علوم اعصاب و تحلیل داده",
+    "University coursework, short training programs and laboratory visits": "دروس دانشگاهی، دوره‌های کوتاه آموزشی و بازدیدهای آزمایشگاهی",
+    "Training topics: molecular techniques and introductory psychometric assessment": "موضوعات آموزشی: روش‌های مولکولی و آشنایی مقدماتی با سنجش روان‌شناختی"
   }
 }

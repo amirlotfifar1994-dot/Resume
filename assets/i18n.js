@@ -5,7 +5,7 @@
 
   // Per-page in HTML so relative paths work from subdirectories.
   const I18N_DIR = (window.__I18N_DIR__ || "i18n/");
-  const CACHE_BUSTER = "20260927-v36-fatr";
+  const CACHE_BUSTER = "20261008-academic-copy-1";
 
   function ensureFaTypography() {
     // Fonts are self-hosted (assets/fonts/fonts.css); load them only if the page did not already.
@@ -516,6 +516,11 @@
 
     IS_APPLYING = true;
     try {
+      const activeDetail = getActiveDetailRoot();
+      if (activeDetail && CURRENT_LANG === "it") {
+        try { await applyDetailHtmlLocalized(activeDetail); } catch (_) {}
+      }
+
       // Base pass (skip inactive details to keep base map light)
       translateTextNodes(BASE_MAP.text, root, { skipInactiveDetails: true });
       translateAttributes(BASE_MAP.text, root, { skipInactiveDetails: true });
@@ -541,7 +546,6 @@
 
 
       // Active detail pass: Italian can use full translated HTML; Persian translates the original DOM via details map.
-      const activeDetail = getActiveDetailRoot();
       if (activeDetail) {
         try {
           if (CURRENT_LANG === "it") {

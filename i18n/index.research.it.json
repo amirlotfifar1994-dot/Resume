@@ -5,17 +5,12 @@
     "🔬 Research Projects": "🔬 Progetti di ricerca",
     "Affective Neuroscience": "Neuroscienze affettive",
     "Timeline:": "Cronologia:",
-    "Pre-Registered": "Pre‑registrato",
     "Pre-registered protocol (November 2025) •": "Protocollo preregistrato (novembre 2025) •",
     "THINK-360+ Interactive Platform": "Piattaforma interattiva THINK‑360+",
     "View protocol and modeling details.": "Visualizza protocollo e dettagli di modellazione.",
     "JavaScript": "JavaScript",
-    "Data collection planned 2026-2027": "Raccolta dati prevista 2026–2027",
     "Service Workers": "Service Worker",
-    "DEAP EEG Analysis Project": "Progetto: Analisi EEG (DEAP)",
     "MNE-Python": "MNE-Python",
-    "HRV Biofeedback RCT Protocol": "Protocollo RCT di biofeedback HRV",
-    "View methodology and findings.": "Visualizza metodologia e risultati.",
     "RCT Design": "Disegno RCT",
     "View DEAP EEG Analysis project details": "Visualizza i dettagli del progetto Analisi EEG (DEAP)",
     "View THINK-360+ platform details": "Visualizza i dettagli della piattaforma THINK‑360+",
@@ -37,6 +32,13 @@
     "Combined Models": "Modelli combinati",
     "Offline-first PWA (THINK-360 variant) built from the Mind Islands (جزیره‌های ذهن) book dataset, featuring bite-sized psychoeducation for cognitive traps: definitions, real-life examples, guided practice, and counter-strategy drills, plus combined-model workflows.": "PWA offline-first (variante THINK‑360) costruita sui dati del libro Mind Islands (جزیره‌های ذهن), con psicoeducazione in pillole sulle trappole cognitive: definizioni, esempi reali, pratica guidata ed esercizi di contro‑strategia, oltre a workflow di modelli combinati.",
     "Psychoeducation": "Psicoeducazione",
-    "Practice Exercises": "Esercizi pratici"
+    "Practice Exercises": "Esercizi pratici",
+    "Research & Practice Projects": "Progetti di ricerca ed esercitazione",
+    "DEAP EEG Practice Project": "Progetto di esercitazione EEG su DEAP",
+    "View practice methods and project notes.": "Metodi di esercitazione e appunti del progetto",
+    "HRV Biofeedback — Draft Study Protocol": "Biofeedback HRV — Bozza di protocollo di studio",
+    "Draft protocol (November 2025)": "Bozza di protocollo (novembre 2025)",
+    "Future study proposed; data collection has not started": "Studio futuro proposto; raccolta dati non iniziata",
+    "Protocol draft": "Bozza di protocollo"
   }
 }

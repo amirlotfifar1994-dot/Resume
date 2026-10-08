@@ -31,7 +31,6 @@
     "KIA Coating": "KIA Coating",
     "Platform": "پلتفرم",
     "A compact portfolio view of how I package methods into clear, shareable dashboards.": "نمایی فشرده از اینکه چگونه روش‌ها را به داشبوردهای روشن و قابل اشتراک تبدیل می‌کنم.",
-    "Interactive, project-specific dashboards that showcase analysis pipelines, visualization, and reproducible reporting. Demo views use synthetic data for illustration; the same structure is designed to plug into real EEG/HRV/behavioral datasets.": "داشبوردهای تعاملی و اختصاصی هر پروژه که خط لوله‌های تحلیل، مصورسازی و گزارش‌دهی تکرارپذیر را نشان می‌دهند. نماهای نمایشی برای توضیح از داده‌های مصنوعی استفاده می‌کنند؛ همین ساختار برای اتصال به داده‌های واقعی EEG/HRV/رفتاری طراحی شده است.",
     "Paper": "مقاله",
     "TOEFL Academic": "TOEFL Academic",
     "Lessons + dictionary + offline-ready": "درس‌ها، واژه‌نامه و آمادگی برای استفاده آفلاین",
@@ -58,12 +57,10 @@
     "PFC–Limbic Flexibility": "انعطاف‌پذیری PFC–لیمبیک",
     "Open TOEFL Academic live demo": "باز کردن نسخه نمایشی آنلاین TOEFL آکادمیک",
     "Open KIA Coating live demo": "باز کردن نسخه نمایشی آنلاین KIA Coating",
-    "Biofeedback RCT dashboard: protocol + outcomes": "داشبورد RCT بیوفیدبک: پروتکل + پیامدها",
     "Open THINK-360+ live demo": "باز کردن نسخه نمایشی THINK-360+",
     "Dashboards": "داشبوردها",
     "Outcomes": "پیامدها",
     "Framework + measurement roadmap": "چارچوب + نقشه راه سنجش",
-    "Designed to swap synthetic demo data for real study datasets without changing the UI.": "طراحی شده تا داده نمایشی مصنوعی بدون تغییر رابط کاربری با داده واقعی پژوهش جایگزین شود.",
     "Offline": "آفلاین",
     "Services": "خدمات",
     "Open Theori dashboard page": "باز کردن صفحه داشبورد Theori",
@@ -97,6 +94,10 @@
     "Sales, purchases, inventory, daily gold pricing, wage profiles, approval flows and A4/RTL print output (v5.86.0).": "فروش، خرید، انبار، قیمت‌گذاری روزانه‌ی طلا، پروفایل‌های اجرت، گردش‌کارهای تأیید و خروجی چاپ A4/راست‌به‌چپ (نسخه‌ی 5.86.0).",
     "Local backend with audit trail, permission controls, payslips, and a report-delivery engine with a safe email dry-run (v1.0.0-rc.1).": "بک‌اند محلی با ردپای ممیزی، کنترل مجوز، فیش حقوقی و موتور تحویل گزارش همراه با اجرای آزمایشی امن ایمیل (نسخه‌ی 1.0.0-rc.1).",
     "Job–skill matrix, assessment builder, question bank, candidate runner, practical review and scoring reports (v0.37.0).": "ماتریس شغل–مهارت، سازنده‌ی ارزیابی، بانک پرسش، اجراکننده‌ی آزمون برای داوطلب، بازبینی عملی و گزارش‌های نمره‌دهی (نسخه‌ی 0.37.0).",
-    "Offline, self-contained application with finance reports, saved views, deep links, backup/restore and audit trail (v5.11.0).": "برنامه‌ی آفلاین و خودبسنده با گزارش‌های مالی، نماهای ذخیره‌شده، پیوندهای عمیق، پشتیبان‌گیری/بازیابی و ردپای ممیزی (نسخه‌ی 5.11.0)."
+    "Offline, self-contained application with finance reports, saved views, deep links, backup/restore and audit trail (v5.11.0).": "برنامه‌ی آفلاین و خودبسنده با گزارش‌های مالی، نماهای ذخیره‌شده، پیوندهای عمیق، پشتیبان‌گیری/بازیابی و ردپای ممیزی (نسخه‌ی 5.11.0).",
+    "OSF project pages": "صفحه‌های پروژه در OSF",
+    "Draft protocol + illustrative demo data": "پیش‌نویس پروتکل و داده‌های نمایشی",
+    "Demo data are for interface exploration; future study analyses would require separate validation.": "داده‌های نمایشی برای بررسی رابط‌اند؛ تحلیل مطالعات آینده به اعتبارسنجی جداگانه نیاز دارد.",
+    "OSF project page": "صفحهٔ پروژه در OSF"
   }
 }
