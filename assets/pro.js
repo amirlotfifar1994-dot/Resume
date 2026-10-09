@@ -176,3 +176,26 @@
   if (strip && window.MutationObserver) new MutationObserver(function () { centerActive(true); }).observe(strip, { attributes: true, subtree: true, attributeFilter: ["class"] });
   setTimeout(function () { measure(); centerActive(false); }, 500);
 })();
+
+/* collapsible cards: open a card's details -> its lead text expands too; open everything when printing */
+(function () {
+  "use strict";
+  var all = [].slice.call(document.querySelectorAll("details.more"));
+  if (!all.length) return;
+  all.forEach(function (d) {
+    d.addEventListener("toggle", function () {
+      var card = d.closest(".card");
+      if (card) card.classList.toggle("expanded", !!card.querySelector("details.more[open]"));
+      if (d.open) { try { window.dispatchEvent(new Event("resize")); } catch (e) {} }
+    });
+  });
+  var was = [];
+  window.addEventListener("beforeprint", function () { was = all.filter(function (d) { return d.open; }); all.forEach(function (d) { d.open = true; }); });
+  window.addEventListener("afterprint", function () { all.forEach(function (d) { d.open = was.indexOf(d) > -1; }); });
+  function openFromHash() {
+    var id = decodeURIComponent((location.hash || "").slice(1)); if (!id) return;
+    var t = document.getElementById(id), d = t && t.closest && t.closest("details.more");
+    if (d) d.open = true;
+  }
+  window.addEventListener("hashchange", openFromHash); openFromHash();
+})();

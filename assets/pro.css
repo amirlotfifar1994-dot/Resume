@@ -380,3 +380,39 @@ html{scroll-padding-top:74px}
 .pro #kavian-accounting{scroll-margin-top:90px}
 @media(max-width:820px){.pro .kavian-showcase{grid-template-columns:1fr;gap:16px}}
 @media print{.pro .kavian-media video{display:none}.pro .kavian-showcase{display:block}}
+
+/* poll-system card: each screenshot figure is only as wide as its image, so four fit in a row */
+#poll-system .shots{align-items:flex-start}
+#poll-system .shot{width:min-content;flex:0 0 auto}
+#poll-system .shot figcaption{max-width:none}
+
+/* ---------- minimal cards: bullets, tech tags and galleries live behind a quiet toggle ---------- */
+.pro details.more{margin-top:12px;border-top:1px solid var(--line)}
+.pro details.more > summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:8px;padding:10px 2px 4px;
+  font-size:13px;font-weight:800;color:var(--muted);user-select:none;-webkit-tap-highlight-color:transparent}
+.pro details.more > summary::-webkit-details-marker{display:none}
+.pro details.more > summary::after{content:"";width:7px;height:7px;flex:0 0 auto;margin-inline-start:1px;margin-top:-3px;
+  border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg);transition:transform .2s var(--ease,ease),margin .2s}
+.pro details.more[open] > summary::after{transform:rotate(-135deg);margin-top:3px}
+.pro details.more > summary:hover,.pro details.more[open] > summary{color:var(--navy)}
+.pro details.more > summary:focus-visible{outline:none;box-shadow:var(--ring);border-radius:8px}
+.pro details.more > .list{margin-top:4px}
+.pro details.more .pillbox{margin-top:10px}
+.pro details.more > .shots-wrap{margin-top:4px;padding-top:6px;border-top:0}
+.pro details.more > .nv-strip-wrap{margin-top:4px}
+.pro details.more .nv-strip-head h3{display:none}
+.pro details.more .nv-strip-head{justify-content:flex-end}
+.pro .card.item details.more{margin-top:10px}
+:root[data-theme="dark"] .pro details.more > summary:hover,:root[data-theme="dark"] .pro details.more[open] > summary{color:#f4ead2}
+
+/* long lead text stays calm until the card is opened */
+.pro .card:not(.expanded) p.lead{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+@media(max-width:720px){.pro .card:not(.expanded) p.lead{-webkit-line-clamp:4}}
+@media print{.pro .card p.lead{display:block;-webkit-line-clamp:unset}}
+
+/* product cards: one per row so a lone card never leaves a hole beside it */
+.pro #product-projects .project-card{grid-column:1/-1}
+.pro .nv-hero details.more{border-top-color:rgba(255,255,255,.16)}
+.pro .nv-hero details.more > summary{color:#a9c6e4}
+.pro .nv-hero details.more > summary:hover,.pro .nv-hero details.more[open] > summary{color:#fff}
+.pro .nv-hero details.more .pill{background:rgba(168,214,245,.10);border-color:rgba(168,214,245,.25);color:#d5eaf7}
