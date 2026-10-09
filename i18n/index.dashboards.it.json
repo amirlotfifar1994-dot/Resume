@@ -83,7 +83,7 @@
     "Orders, inventory, finance and reporting": "Ordini, magazzino, finanza e reportistica",
     "Local-first": "Local-first",
     "Audit": "Audit",
-    "Sales, purchases, inventory, daily gold pricing, wage profiles, approval flows and A4/RTL print output (v5.86.0).": "Vendite, acquisti, magazzino, prezzi giornalieri dell'oro, profili di manodopera, flussi di approvazione e stampa A4/RTL (v5.86.0).",
+    "Sales, purchases, inventory, daily gold pricing, wage profiles, approval flows and A4/RTL print output (v1.0.0).": "Vendite, acquisti, magazzino, prezzi giornalieri dell'oro, profili di manodopera, flussi di approvazione e stampa A4/RTL (v1.0.0).",
     "Local backend with audit trail, permission controls, payslips, and a report-delivery engine with a safe email dry-run (v1.0.0-rc.1).": "Backend locale con audit trail, controllo dei permessi, cedolini e motore di consegna dei report con dry-run sicuro delle email (v1.0.0-rc.1).",
     "Job–skill matrix, assessment builder, question bank, candidate runner, practical review and scoring reports (v0.37.0).": "Matrice ruolo–competenze, assessment builder, banca domande, runner per i candidati, revisione pratica e report di punteggio (v0.37.0).",
     "Offline, self-contained application with finance reports, saved views, deep links, backup/restore and audit trail (v5.11.0).": "Applicazione offline e autonoma con report finanziari, viste salvate, deep link, backup/ripristino e audit trail (v5.11.0).",

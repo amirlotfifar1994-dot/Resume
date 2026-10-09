@@ -91,7 +91,7 @@
     "Orders, inventory, finance and reporting": "سفارش‌ها، انبار، امور مالی و گزارش‌دهی",
     "Local-first": "محلی‌محور",
     "Audit": "ممیزی",
-    "Sales, purchases, inventory, daily gold pricing, wage profiles, approval flows and A4/RTL print output (v5.86.0).": "فروش، خرید، انبار، قیمت‌گذاری روزانه‌ی طلا، پروفایل‌های اجرت، گردش‌کارهای تأیید و خروجی چاپ A4/راست‌به‌چپ (نسخه‌ی 5.86.0).",
+    "Sales, purchases, inventory, daily gold pricing, wage profiles, approval flows and A4/RTL print output (v1.0.0).": "فروش، خرید، انبار، قیمت‌گذاری روزانه‌ی طلا، پروفایل‌های اجرت، گردش‌کارهای تأیید و خروجی چاپ A4/راست‌به‌چپ (نسخه‌ی 1.0.0).",
     "Local backend with audit trail, permission controls, payslips, and a report-delivery engine with a safe email dry-run (v1.0.0-rc.1).": "بک‌اند محلی با ردپای ممیزی، کنترل مجوز، فیش حقوقی و موتور تحویل گزارش همراه با اجرای آزمایشی امن ایمیل (نسخه‌ی 1.0.0-rc.1).",
     "Job–skill matrix, assessment builder, question bank, candidate runner, practical review and scoring reports (v0.37.0).": "ماتریس شغل–مهارت، سازنده‌ی ارزیابی، بانک پرسش، اجراکننده‌ی آزمون برای داوطلب، بازبینی عملی و گزارش‌های نمره‌دهی (نسخه‌ی 0.37.0).",
     "Offline, self-contained application with finance reports, saved views, deep links, backup/restore and audit trail (v5.11.0).": "برنامه‌ی آفلاین و خودبسنده با گزارش‌های مالی، نماهای ذخیره‌شده، پیوندهای عمیق، پشتیبان‌گیری/بازیابی و ردپای ممیزی (نسخه‌ی 5.11.0).",
