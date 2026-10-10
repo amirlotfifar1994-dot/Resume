@@ -215,3 +215,15 @@
   sync();
   if (mq.addEventListener) mq.addEventListener("change", sync);
 })();
+
+/* stats strip: always count what is really on the page */
+(function () {
+  "use strict";
+  var lang = (document.documentElement.getAttribute("lang") || "en").slice(0, 2);
+  var FA = "۰۱۲۳۴۵۶۷۸۹";
+  [].forEach.call(document.querySelectorAll(".stats-strip [data-count]"), function (b) {
+    var n = document.querySelectorAll(b.getAttribute("data-count")).length;
+    if (!n) return;
+    b.textContent = lang === "fa" ? String(n).replace(/\d/g, function (d) { return FA[d]; }) : String(n);
+  });
+})();
