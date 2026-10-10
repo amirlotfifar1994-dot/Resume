@@ -515,3 +515,28 @@ html{scroll-padding-top:74px}
 .pro .timeline .date{display:block}
 .pro .timeline .date::before{display:inline-block;margin-inline-end:8px;vertical-align:middle;top:0}
 .pro .timeline .date small{display:block;padding-inline-start:16px}
+
+/* experience v3: roomy cards, date as a chip, the main role wide and the rest in two columns */
+.pro .timeline{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;align-items:start}
+.pro .timeline > .item{display:flex;flex-direction:column;gap:10px;padding:22px 26px 14px;border:1px solid var(--card-bd);border-radius:18px;
+  box-shadow:0 1px 2px rgba(13,27,42,.04),0 16px 34px -18px rgba(13,27,42,.18);grid-template-columns:none}
+:root:not([data-theme="dark"]) .pro .timeline > .item{background:rgba(255,255,255,.92)}
+:root:not([data-theme="dark"]) .pro .timeline > .item.highlight{background:linear-gradient(135deg,rgba(255,255,255,.96),rgba(255,247,232,.92))}
+:root[data-theme="dark"] .pro .timeline > .item{background:rgba(20,31,51,.78)}
+:root[data-theme="dark"] .pro .timeline > .item.highlight{background:linear-gradient(135deg,rgba(28,42,68,.9),rgba(44,36,20,.6))}
+.pro .timeline > .item.highlight{grid-column:1/-1;border-color:var(--gold-line);border-inline-start:4px solid var(--gold)}
+.pro .timeline > .item:hover{transform:translateY(-2px);border-color:var(--gold-line)}
+.pro .timeline .date{display:inline-flex;align-items:center;flex-wrap:wrap;gap:0 8px;align-self:flex-start;padding:5px 13px;border-radius:999px;
+  background:rgba(184,137,42,.12);border:1px solid rgba(184,137,42,.22);font-size:12.5px;font-weight:800;line-height:1.5;color:#8b6518}
+:root[data-theme="dark"] .pro .timeline .date{background:rgba(226,192,120,.10);border-color:rgba(226,192,120,.25);color:#e2c078}
+.pro .timeline .date::before{margin:0;width:7px;height:7px}
+.pro .timeline .date small{display:inline;flex:0 0 auto;padding:0;font-size:12px;font-weight:700;color:var(--muted)}
+.pro .timeline .date small::before{content:"·";margin-inline-end:8px}
+.pro .timeline > .item h3{margin:2px 0 0;font-size:18px}
+@media(max-width:900px){.pro .timeline{grid-template-columns:1fr}.pro .timeline > .item.highlight{grid-column:auto}}
+@media(max-width:720px){.pro .timeline > .item{padding:18px 18px 10px}}
+.pro .timeline{align-items:stretch}
+.pro .timeline > .item > div:not(.date){display:flex;flex-direction:column;flex:1}
+.pro .timeline > .item details.more{margin-top:auto}
+.pro .timeline > .item p.lead{margin-bottom:12px}
+.pro .timeline .card:not(.expanded) p.lead{-webkit-line-clamp:4}
