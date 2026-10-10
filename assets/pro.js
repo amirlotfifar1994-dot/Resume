@@ -199,3 +199,19 @@
   }
   window.addEventListener("hashchange", openFromHash); openFromHash();
 })();
+
+/* showcase cards (video beside the text): on wide screens the details start open so the text column isn't left empty beside the video */
+(function () {
+  "use strict";
+  if (!window.matchMedia) return;
+  var mq = matchMedia("(min-width: 821px)");
+  var ds = [].slice.call(document.querySelectorAll(".kavian-summary details.more"));
+  if (!ds.length) return;
+  ds.forEach(function (d) {
+    var s = d.querySelector("summary");
+    if (s) s.addEventListener("click", function () { d.setAttribute("data-touched", "1"); });
+  });
+  function sync() { if (mq.matches) ds.forEach(function (d) { if (!d.hasAttribute("data-touched")) d.open = true; }); }
+  sync();
+  if (mq.addEventListener) mq.addEventListener("change", sync);
+})();
