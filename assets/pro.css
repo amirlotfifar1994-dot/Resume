@@ -416,3 +416,22 @@ html{scroll-padding-top:74px}
 .pro .nv-hero details.more > summary{color:#a9c6e4}
 .pro .nv-hero details.more > summary:hover,.pro .nv-hero details.more[open] > summary{color:#fff}
 .pro .nv-hero details.more .pill{background:rgba(168,214,245,.10);border-color:rgba(168,214,245,.25);color:#d5eaf7}
+
+/* ---------- services and skills: compact tiles ---------- */
+.pro .grid.cols-3:has(.service-card),.pro .grid.cols-2:has(.skill-card){align-items:start}
+.pro .service-card{padding:13px 15px}
+.pro .service-card details.svc{margin:0}
+.pro .service-card details.svc > summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:10px;-webkit-tap-highlight-color:transparent}
+.pro .service-card details.svc > summary::-webkit-details-marker{display:none}
+.pro .service-card details.svc > summary h3{margin:0;font-size:15.5px;line-height:1.5}
+.pro .service-card details.svc > summary::after{content:"";width:7px;height:7px;flex:0 0 auto;margin-top:-3px;border-right:2px solid var(--muted);border-bottom:2px solid var(--muted);
+  transform:rotate(45deg);transition:transform .2s var(--ease,ease),margin .2s}
+.pro .service-card details.svc[open] > summary::after{transform:rotate(-135deg);margin-top:3px}
+.pro .service-card details.svc > summary:focus-visible{outline:none;box-shadow:var(--ring);border-radius:8px}
+.pro .service-card details.svc > p{margin:8px 0 0;font-size:13.5px;line-height:1.65}
+.pro .service-card .pillbox{margin-top:9px;gap:5px}
+.pro .service-card .pill,.pro .skill-card .pill{font-size:11px;padding:3px 8px}
+.pro .skill-card{padding:13px 15px}
+.pro .skill-card h3{font-size:15.5px;margin:0}
+.pro .skill-card > .pillbox{margin-top:9px;gap:5px}
+.pro .skill-card details.more{margin-top:9px}
