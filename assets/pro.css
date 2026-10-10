@@ -500,3 +500,18 @@ html{scroll-padding-top:74px}
   .pro .stats-strip a:nth-child(3){border-inline-start:0}
 }
 @media print{.pro .stats-strip{break-inside:avoid}}
+
+/* timeline v2: no rail line; a small gold dot leads each date and rows are separated by hairlines */
+.pro .timeline::before,.pro .timeline > .item::before{display:none}
+.pro .timeline > .item{grid-template-columns:150px 1fr;gap:30px;padding:20px 0}
+.pro .timeline > .item.highlight{background:none}
+.pro .timeline .date{display:flex;flex-wrap:wrap;align-items:baseline;column-gap:8px;padding-top:2px}
+.pro .timeline .date::before{content:"";flex:0 0 auto;width:8px;height:8px;border-radius:50%;background:var(--gold-line);position:relative;top:-1px}
+.pro .timeline > .item.highlight .date::before{background:var(--gold);box-shadow:0 0 0 4px rgba(184,137,42,.16)}
+.pro .timeline .date small{flex:0 0 100%;padding-inline-start:16px}
+@media(max-width:720px){
+  .pro .timeline > .item{grid-template-columns:1fr;gap:6px;padding:16px 0}
+}
+.pro .timeline .date{display:block}
+.pro .timeline .date::before{display:inline-block;margin-inline-end:8px;vertical-align:middle;top:0}
+.pro .timeline .date small{display:block;padding-inline-start:16px}
