@@ -1,0 +1,41 @@
+.pro .work-carousel{--carousel-cards:3;--carousel-gap:18px;margin:38px 0 44px;padding:26px;background:var(--card);border:1px solid var(--line);border-radius:22px;box-shadow:0 8px 28px rgba(13,27,42,.04)}
+.pro .showcase-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:22px}
+.pro .showcase-head .eyebrow{margin:0 0 10px;font-size:10px;padding:4px 10px}
+.pro .showcase-head h2{font-size:25px;margin:0 0 7px;color:var(--navy);line-height:1.5}
+.pro .showcase-head p:not(.eyebrow){margin:0;color:var(--muted);font-size:12.5px;line-height:1.9;max-width:65ch}
+.carousel-controls{display:flex;align-items:center;gap:7px;flex:0 0 auto}
+.carousel-controls button,.carousel-dots button{font-family:inherit;cursor:pointer;border:1px solid var(--line);color:var(--text);background:var(--paper)}
+.carousel-controls button{height:40px;min-width:40px;border-radius:12px;padding:8px;font-size:21px;line-height:1}
+.carousel-controls [data-carousel-toggle]{font-size:11px;font-weight:700;padding:8px 13px;white-space:nowrap}
+.carousel-controls button:hover{border-color:var(--gold);background:var(--soft)}
+.carousel-controls button:focus-visible,.carousel-dots button:focus-visible,.carousel-card:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.carousel-window{padding:5px;margin:-5px}
+.carousel-track{position:relative;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--carousel-gap)}
+.work-carousel[data-ready] .carousel-window{overflow:hidden}
+.work-carousel[data-ready] .carousel-track{display:flex;transform:translate3d(var(--carousel-shift,0px),0,0);transition:transform .6s cubic-bezier(.22,.61,.36,1)}
+.carousel-card{display:block;flex:0 0 calc((100% - (var(--carousel-cards) - 1)*var(--carousel-gap))/var(--carousel-cards));min-width:0;border:1px solid var(--line);border-radius:15px;text-decoration:none;color:var(--text);background:var(--paper);overflow:hidden}
+.carousel-picture{position:relative;aspect-ratio:16/10;overflow:hidden;background:var(--card);border-bottom:1px solid var(--line)}
+.carousel-picture img{width:100%;height:100%;display:block;object-fit:cover;object-position:center top;transition:transform .35s}
+.carousel-card:hover .carousel-picture img{transform:scale(1.025)}
+.carousel-type{position:absolute;inset-inline-start:10px;bottom:10px;max-width:calc(100% - 20px);background:rgba(13,27,42,.94);border:1px solid rgba(255,255,255,.18);border-radius:8px;color:#fff;padding:4px 9px;font-size:10px;line-height:1.8;backdrop-filter:blur(6px)}
+.carousel-caption{padding:15px 17px 17px}
+.carousel-caption h3{font-size:15px;margin:0 0 8px;line-height:1.7;color:var(--navy)}
+.carousel-caption>span{font-size:11px;color:var(--muted)}
+.carousel-footer{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:17px}
+.carousel-footer[hidden],.carousel-controls button[hidden]{display:none}
+.carousel-dots{display:flex;align-items:center;gap:4px}
+.carousel-dots button{width:24px;height:28px;padding:0;border:0;background:transparent;display:grid;place-items:center}
+.carousel-dots button:after{content:'';display:block;width:7px;height:7px;border-radius:99px;background:var(--muted);opacity:.38;transition:width .2s,opacity .2s}
+.carousel-dots button[aria-pressed=true]:after{width:20px;background:var(--gold);opacity:1}
+.carousel-counter{margin:0;color:var(--muted);font-size:11px;white-space:nowrap;font-variant-numeric:tabular-nums}
+.carousel-announcement{position:absolute!important;width:1px;height:1px;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+:root[data-theme=dark] .pro .work-carousel{box-shadow:none;border-color:#304258}
+:root[data-theme=dark] .carousel-card{background:#142135;border-color:#304258}
+:root[data-theme=dark] .pro .showcase-head h2,:root[data-theme=dark] .carousel-caption h3{color:#f4ead2}
+:root[data-theme=dark] .pro .showcase-head p:not(.eyebrow),:root[data-theme=dark] .carousel-caption>span,:root[data-theme=dark] .carousel-counter{color:#c0ccda}
+:root[data-theme=dark] .carousel-controls button{background:#1c2c41;color:#f0e8d6;border-color:#3d4f65}
+:root[data-theme=dark] .carousel-controls button:hover{background:#263c56}
+@media(max-width:1050px){.pro .work-carousel{--carousel-cards:2}.carousel-track{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:640px){.pro .work-carousel{--carousel-cards:1;padding:18px;margin:26px 0 32px}.pro .showcase-head{display:block;margin-bottom:16px}.pro .showcase-head h2{font-size:22px}.carousel-controls{margin-top:16px;justify-content:flex-end}.carousel-track{grid-template-columns:1fr}.carousel-caption{padding:13px 15px}.carousel-footer{gap:8px}.carousel-dots{gap:0}.carousel-dots button{width:23px}}
+@media(prefers-reduced-motion:reduce){.work-carousel[data-ready] .carousel-track,.carousel-picture img,.carousel-dots button:after{transition:none!important}.carousel-card:hover .carousel-picture img{transform:none}}
+@media print{.pro .work-carousel{display:none!important}}

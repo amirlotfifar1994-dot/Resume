@@ -49,3 +49,24 @@ html[data-theme=dark] .resume-paged .card{box-shadow:none}
 }
 @media(prefers-reduced-motion:reduce){.resume-pages a{transition:none}}
 @media print{.resume-pages,.resume-pagination,.resume-launch,.resume-skip{display:none!important}.resume-page-heading{padding-top:0}.resume-paged .card{box-shadow:none}.resume-paged{background:#fff}}
+
+/* NeuroVerse uses theme tokens rather than fixed pale text on white. */
+.pro.resume-paged .nv-hero{background:var(--card);color:var(--text);border:1px solid var(--line);box-shadow:0 8px 30px rgba(13,27,42,.06);padding:24px;gap:28px;border-radius:22px}
+.pro.resume-paged .nv-hero .nv-info h3{color:var(--navy);line-height:1.6;font-size:24px;margin-bottom:14px}
+.pro.resume-paged .nv-hero .nv-info p,.pro.resume-paged .nv-hero .list{color:var(--text);line-height:2}
+.pro.resume-paged .nv-hero .nv-cap{color:var(--muted);line-height:1.8;margin-top:12px}
+.pro.resume-paged .nv-hero .nv-bases>div{background:var(--paper);border:1px solid var(--line);padding:14px;border-radius:14px}
+.pro.resume-paged .nv-hero .nv-bases b{color:var(--navy);font-size:13px}
+.pro.resume-paged .nv-hero .nv-bases span{color:var(--muted);line-height:1.8}
+.pro.resume-paged .nv-hero details.more{border-top-color:var(--line)}
+.pro.resume-paged .nv-hero details.more>summary,.pro.resume-paged .nv-hero details.more[open]>summary,.pro.resume-paged .nv-hero details.more>summary:hover{color:var(--navy)}
+.pro.resume-paged .nv-hero .pill,.pro.resume-paged .nv-hero details.more .pill{color:var(--text);background:var(--paper);border-color:var(--line)}
+.pro.resume-paged .nv-hero .list li::marker{color:var(--gold)}
+:root[data-theme=dark] .pro.resume-paged .nv-hero{background:linear-gradient(145deg,#111e2e,#172a3d);border-color:#30465b;box-shadow:none}
+:root[data-theme=dark] .pro.resume-paged .nv-hero .nv-info h3,:root[data-theme=dark] .pro.resume-paged .nv-hero .nv-bases b,:root[data-theme=dark] .pro.resume-paged .nv-hero details.more>summary{color:#f2e4c3}
+:root[data-theme=dark] .pro.resume-paged .nv-hero .nv-info p,:root[data-theme=dark] .pro.resume-paged .nv-hero .list{color:#d9e4ee}
+:root[data-theme=dark] .pro.resume-paged .nv-hero .nv-cap,:root[data-theme=dark] .pro.resume-paged .nv-hero .nv-bases span{color:#bacbd9}
+:root[data-theme=dark] .pro.resume-paged .nv-hero .nv-bases>div{background:#132438;border-color:#31475e}
+:root[data-theme=dark] .pro.resume-paged .nv-hero .pill,:root[data-theme=dark] .pro.resume-paged .nv-hero details.more .pill{background:#1a3046;border-color:#40556a;color:#deebf5}
+@media(max-width:720px){.pro.resume-paged .nv-hero{padding:18px;gap:20px}.pro.resume-paged .nv-hero .nv-info h3{font-size:21px}}
+@media print{.pro.resume-paged .nv-hero{background:#fff!important;color:#111!important}.pro.resume-paged .nv-hero .nv-info h3,.pro.resume-paged .nv-hero .nv-info p,.pro.resume-paged .nv-hero .list{color:#111!important}}
