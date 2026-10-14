@@ -1,0 +1,51 @@
+/* Separate pages, shared identity. */
+.resume-skip{position:fixed;inset-block-start:8px;inset-inline-start:16px;z-index:200;transform:translateY(-160%);background:var(--card);color:var(--text);border:2px solid var(--gold);border-radius:8px;padding:10px 16px}
+.resume-skip:focus{transform:none}
+.pro.resume-paged{background:var(--paper);line-height:1.95}
+.resume-pages{display:flex;gap:6px;flex-wrap:wrap;width:min(1120px,calc(100% - 32px));margin:24px auto 0;padding:7px;background:var(--card);border:1px solid var(--line);border-radius:16px}
+.resume-pages a{flex:1 1 160px;display:flex;align-items:center;justify-content:center;gap:10px;text-decoration:none;padding:12px 14px;color:var(--text);font-size:13px;font-weight:700;border-radius:10px;min-height:48px;transition:background .15s}
+.resume-pages a:hover{background:var(--soft)}
+.resume-pages a[aria-current=page]{background:var(--navy);color:#fff}
+.resume-pages .page-number{font-size:10px;opacity:.65;font-variant-numeric:tabular-nums}
+.resume-pages a:focus-visible,.resume-entry:focus-visible,.resume-pagination a:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.resume-paged .hero{padding-top:28px;padding-bottom:18px;gap:24px}
+.resume-paged .intro{box-shadow:none;border-radius:20px}
+.resume-paged .hero-side{border-radius:20px}
+.resume-paged .summary{font-size:15px;line-height:2.05}
+.resume-paged .card{border-radius:18px;box-shadow:0 5px 18px rgba(13,27,42,.035)}
+.resume-paged .project-card{padding:28px 30px}
+.resume-paged .project-card .lead{max-width:90ch;line-height:2}
+.resume-paged .meta{line-height:1.9}
+.resume-paged .list{line-height:2}
+.resume-paged .list li+li{margin-top:8px}
+.resume-paged .section-head{margin-bottom:20px}
+.resume-paged section{margin-top:36px}
+.resume-paged .hero{margin-top:0}
+.resume-page-heading{padding:48px 0 16px;max-width:900px}
+.resume-page-heading h1{font-family:inherit;font-size:clamp(28px,4vw,43px);line-height:1.45;letter-spacing:-.025em;margin-bottom:12px}
+.resume-page-heading p:not(.eyebrow){font-size:15px;color:var(--muted);max-width:70ch;margin:0;line-height:2}
+.resume-launch-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.resume-entry{display:flex;flex-direction:column;text-decoration:none;padding:26px;min-width:0}
+.resume-entry .eyebrow{align-self:flex-start;margin:0 0 14px;padding:4px 10px}
+.resume-entry h3{font-size:18px;line-height:1.6;margin:0 0 10px}
+.resume-entry p{font-size:13px;color:var(--muted);line-height:1.9;margin:0 0 18px}
+.entry-link{font-size:12px;font-weight:800;margin-top:auto;color:var(--blue)}
+.resume-pagination{display:flex;align-items:center;justify-content:space-between;gap:20px;border-top:1px solid var(--line);padding:28px 0 40px;margin-top:36px}
+.resume-pagination a{max-width:48%;color:var(--text);text-decoration:none;font-size:12px;line-height:1.9;font-weight:700;padding:8px 0}
+.resume-pagination a:hover{text-decoration:underline;text-underline-offset:4px}
+.resume-paged .meaning-book-card{border-inline-start:3px solid var(--gold)}
+html[data-theme=dark] .resume-pages a[aria-current=page]{background:var(--gold);color:#171b23}
+html[data-theme=dark] .resume-paged .card{box-shadow:none}
+@media(max-width:720px){
+ .resume-pages{gap:4px;margin-top:16px;padding:5px;border-radius:14px}
+ .resume-pages a{flex:1 1 calc(50% - 4px);padding:10px 7px;font-size:11px;gap:5px;min-height:46px}
+ .resume-page-heading{padding-top:28px}
+ .resume-paged .project-card{padding:22px 18px}
+ .resume-launch-grid{grid-template-columns:1fr}
+ .resume-entry{padding:22px;min-height:0}
+ .resume-paged .hero{gap:16px}
+ .resume-paged .intro{padding:25px 22px}
+ .resume-pagination{gap:12px}
+}
+@media(prefers-reduced-motion:reduce){.resume-pages a{transition:none}}
+@media print{.resume-pages,.resume-pagination,.resume-launch,.resume-skip{display:none!important}.resume-page-heading{padding-top:0}.resume-paged .card{box-shadow:none}.resume-paged{background:#fff}}
